@@ -5,8 +5,10 @@ $main-orange-light: lighten($main-orange-dark, 7.5%);
 
 $main-background-dark: #171820;
 $main-background-light: #dfdfdf;
+$main-background-light-secondary: darken($main-background-light, 25%);
 $accent-blue: #397ef5;
 $main-background-dark-inverted: #4c4f65;
+$main-background-dark-inverted-secondary: lighten($main-background-dark-inverted, 15%);
 
 
 .ui.blue.button {

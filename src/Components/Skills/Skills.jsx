@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Grid, Header, Label } from 'semantic-ui-react';
-import { Flip } from 'react-reveal';
+import { Flip, Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3Alt, faJs, faReact, faPython, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
@@ -10,141 +10,50 @@ import './Skills.scss';
 const Skills = (props) => {
 	const {isInverted, isMobile} = props;
 
-    const createSkillsIconList = () => {		
-		let cols = [
-			{icon: 'html5-plain', text: 'HTML5'},
-			{icon: 'css3-plain', text: 'CSS3'},
-			{icon: 'javascript-plain', text: 'JavaScript'},
-			{icon: 'react-original', text: 'React'},		
-			{icon: 'python-plain', text: 'Python'},
-			{icon: 'microsoftsqlserver-plain', text: 'MS SQL Server'}
-		];
-
-		let group = 0;
-		for (let i = 0; i < cols.length; i++) {
-			cols[i]['group'] = group;
-			group++;
-			group = group === 3 ? 0 : group;
-		}
-		return cols;
-	}
-
-	const skillsSubHeader = (
-		<Header as='h2' className='technical-skills-subheader' content='Languages, Frameworks & Libraries, Other Software Proficiencies' />
-	);
-
-	let skillsColumns = createSkillsIconList();
-
-	// const skillsIconsSegmentContent = (
-	// 	<Segment className={isMobile ? 'skills-segment-mobile' : `skills-segment${isInverted ? '-inverted' : ''}`} padded='very'>
-	// 		<Grid className='skills-icons-grid'>
-	// 			{skillsColumns.map((col, i) => {
-	// 				const {group, icon, text} = col;
-	// 				return (
-	// 					<Grid.Column key={i} className={`skills-icon-${group}`} >
-	// 						<Flip top duration={!isMobile ? 1750 : 500} spy={isInverted} appear>
-	// 							<Grid.Row>
-	// 								<i className={`devicon-${icon} skills-icon`}></i>
-	// 							</Grid.Row>
-	// 							<Grid.Row className='icon-label-row'>
-	// 								<span>{text}</span>
-	// 							</Grid.Row>
-	// 						</Flip>
-	// 					</Grid.Column>
-	// 				)
-	// 			})}
-	// 		</Grid>
-	// 	</Segment>
-	// );
-
-	// let skillsGridColumns = [
-	// 	// {colClass: null, content: skillsSubHeader},
-	// 	{colClass: 'skills-icons-container', content: skillsIconsSegmentContent}
-	// ];
+	const skillsIconsInfo = [
+		{iconClass: 'html5-plain', text: 'HTML5'},
+		{iconClass: 'css3-plain', text: 'CSS3'},
+		{iconClass: 'javascript-plain', text: 'JavaScript'},
+		{iconClass: 'react-original', text: 'React'},		
+		{iconClass: 'python-plain', text: 'Python'},
+		{iconClass: 'microsoftsqlserver-plain', text: 'SQL Server'}
+	];
 
 	return (
 		<Container textAlign='center'>
-			<Header as='h1' className={`section-header${isInverted ? '-inverted' : ''}`}>About</Header>
-			<Grid className='skills-container' verticalAlign='middle' textAlign='center'>
+			<Fade bottom duration={750} distance='50px'>
+				<Header as='h1' className={`section-header${isInverted ? '-inverted' : ''}`} content='About' />
+			</Fade>
+			<Grid className={`skills-container${isInverted ? '-inverted' : ''}`} verticalAlign='middle' textAlign='center'>
 				<Grid.Row>
-					<Grid.Column computer={10} tablet={12} mobile={14} className={`bio-text ${isInverted ? 'bio-text-inverted' : ''}`}>
-						<p>Hi, I'm <span className='bio-text-highlight'>Michael</span>. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<Grid.Column computer={10} tablet={12} mobile={14}>
+						<Fade bottom duration={1000} distance='50px'>
+							<p className={`bio-text ${isInverted ? 'bio-text-inverted' : ''}`}>Hi, I'm <span className='bio-text-highlight'>Michael</span>. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</Fade>
 					</Grid.Column>
 				</Grid.Row>
+				<Fade bottom duration={1250} distance='50px'>
 				<Grid.Row>
-					{/* <Label size='big'>
-						<FontAwesomeIcon icon={faHtml5} />
-						HTML5
-					</Label> */}
 					<div className='about-section-icons-container'>
-						<div style={{ margin: '15px' }}>
-							<div className='icon-label-row'>
-								<i className='devicon-html5-plain skills-icon'></i>
-							</div>
-							<div className='icon-label-row'>
-								HTML
-							</div>
-						</div>
-
-						
-						<div style={{ margin: '15px' }}>
-							<div className='icon-label-row'>
-								<i className='devicon-html5-plain skills-icon'></i>
-							</div>
-							<div className='icon-label-row'>
-								HTML
-							</div>
-						</div>
-						<div style={{ margin: '15px' }}>
-							<div className='icon-label-row'>
-								<i className='devicon-html5-plain skills-icon'></i>
-							</div>
-							<div className='icon-label-row'>
-								HTML
-							</div>
-						</div>
-						<div style={{ margin: '15px' }}>
-							<div className='icon-label-row'>
-								<i className='devicon-html5-plain skills-icon'></i>
-							</div>
-							<div className='icon-label-row'>
-								HTML
-							</div>
-						</div>
-						<div style={{ margin: '15px' }}>
-							<div className='icon-label-row'>
-								<i className='devicon-html5-plain skills-icon'></i>
-							</div>
-							<div className='icon-label-row'>
-								HTML
-							</div>
-						</div>
-						<div style={{ margin: '15px' }}>
-							<div className='icon-label-row'>
-								<i className='devicon-html5-plain skills-icon'></i>
-							</div>
-							<div className='icon-label-row'>
-								HTML
-							</div>
-						</div>
-						
-
-						
-
-					
-
+						{skillsIconsInfo.map((info, i) => {
+							const {iconClass, text} = info;
+							let duration = 1000 + i * 100;
+							return (
+								<Fade key={i} bottom duration={duration} distance='100px'>
+								<div className='skills-icon-container'>
+									<div className='icon-label-row-top'>
+										<i className={`devicon-${iconClass} skills-icon`}></i>
+									</div>
+									<div className='icon-label-row icon-label-text'>
+										{text}
+									</div>
+								</div>
+							</Fade>
+							)
+						})}	
 					</div>
-					
 				</Grid.Row>
-
-				{/* {skillsGridColumns.map((col, i) => {
-					const {colClass, content} = col;
-					return (
-						<Grid.Column key={i} className={colClass} width={16}>
-							{content}
-						</Grid.Column>
-					)
-				})} */}
+				</Fade>
 			</Grid>
 		</Container>
 	);

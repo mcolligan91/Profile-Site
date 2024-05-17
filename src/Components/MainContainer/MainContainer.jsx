@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Responsive } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Flip } from 'react-reveal';
@@ -14,8 +14,13 @@ import TopNav from '../TopNav/TopNav';
 import './MainContainer.scss';
 
 const MainContainer = (props) => {
+
+	const [allowTopNavFade, setAllowTopNavFade] = useState(true);
   
 	useEffect(() => {
+		setTimeout(() => {
+			setAllowTopNavFade(false);
+		}, 2000)
 	  	const {resize} = props;
 	  	window.addEventListener('resize', resize);
 	  	resize();
@@ -37,7 +42,7 @@ const MainContainer = (props) => {
 	  	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	};
   
-	const {isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
+	const {isInverted, isMobile, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
   
 	const contentContainers = [
 		{
@@ -70,7 +75,7 @@ const MainContainer = (props) => {
 				{logoContent}
 			</Grid.Column>
 			<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
-				<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted}/>
+				<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted} allowTopNavFade={allowTopNavFade} />
 			</Grid.Column>
 		</Responsive>
 	);
@@ -94,18 +99,8 @@ const MainContainer = (props) => {
 		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['button', '.top-nav-link-text', '.logo-text']} />
 		<div className='landing-container'>
 			{!isInverted ? particlesLanding : particlesLandingInverted}
-			{/* <Grid className='header-row' columns={2}>
-				<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
-					{logoContent}
-				</Grid.Column>
-				<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
-					<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted}/>
-				</Grid.Column>
-			</Grid> */}
-
 			{topNavBar}
 			{topNavBarMobile}
-
 			<Grid>
 				<Grid.Row className='intro-main-container' centered>
 					<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
@@ -143,10 +138,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		resize: () => {
 			dispatch({ type: 'UPDATE_ISMOBILE' });
-		},
-		handleUpdateVisibleContent: (content) => {
-			dispatch({ type: 'UPDATE_VISIBLECONTENT', content: content });
-		},
+		}
 	};
 };
   

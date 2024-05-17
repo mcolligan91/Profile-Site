@@ -45,7 +45,7 @@ class TopNav extends Component {
 
     render() {
         const {showFixedNav} = this.state,
-            {isInverted, scrollToContent, handleUpdateIsInverted} = this.props;
+            {isInverted, scrollToContent, handleUpdateIsInverted, allowTopNavFade} = this.props;
 
         const menuItems = [
             {name: 'Home', id: 'intro-content'},
@@ -87,7 +87,7 @@ class TopNav extends Component {
                 menuItemClass: 'top-nav-link top-nav-link-static',
                 menuItemTextProps: menuItemTextProps,
                 iconContent: lightModeIconStatic,
-                fadeIn: true
+                fadeIn: allowTopNavFade
             },
             {
                 menuItems: menuItems,

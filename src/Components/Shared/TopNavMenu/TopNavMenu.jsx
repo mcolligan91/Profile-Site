@@ -19,7 +19,7 @@ const TopNavMenu = (props) => {
             <Menu.Menu {...subMenuProps}>
                 {menuItems.map((item, i) => {
                     const {name, id} = item;
-                    let dur = 1000 + i * 100;
+                    let duration = 1000 + i * 100;
 
                     const menuItemContent = (
                         <Menu.Item key={i} className={menuItemClass}>
@@ -34,7 +34,7 @@ const TopNavMenu = (props) => {
                         </Menu.Item>
                     );
                     return fadeIn ? (
-                        <Fade key={i} top duration={dur} appear onComplete={() => console.log('test')}>
+                        <Fade key={i} top duration={duration} appear onComplete={() => console.log('test')}>
                             {menuItemContent}
                         </Fade>
                     ) : (

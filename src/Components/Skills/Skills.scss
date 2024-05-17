@@ -1,9 +1,5 @@
 @import '../index.scss';
 
-i.skills-icon {
-    font-size: 4em;
-}
-
 .ui.grid>.row .icon-label-row {
     padding-top: .5rem;
 }
@@ -107,16 +103,13 @@ $skills-icon-color-2: darken($skills-icon-color-1, 75);
 }
 
 .bio-text {
-    font-size: calc(20px + 0.2vw);
-    color: $main-background-light;
-}
-
-.bio-text p {
     text-align: left;
+    font-size: calc(20px + 0.2vw);
+    color: $main-background-light-secondary;
 }
 
 .bio-text-inverted {
-    color: $main-background-dark-inverted;
+    color: $main-background-dark-inverted-secondary;
 }
 
 .bio-text-highlight {
@@ -127,4 +120,21 @@ $skills-icon-color-2: darken($skills-icon-color-1, 75);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.icon-label-text {
+    color: $accent-blue;
+    font-size: 12px;
+}
+
+.skills-icon-container {
+    margin: 15px;
+    padding: .5em;
+    width: 8em;
+    border: 2px solid $main-background-light;
+    border-radius: 12px;
+}
+
+.skills-icon {
+    font-size: 3em;
 }
