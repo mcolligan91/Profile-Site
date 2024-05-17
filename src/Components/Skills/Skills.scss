@@ -1,0 +1,130 @@
+@import '../index.scss';
+
+i.skills-icon {
+    font-size: 4em;
+}
+
+.ui.grid>.row .icon-label-row {
+    padding-top: .5rem;
+}
+
+.ui.header.section-header {
+    color: $main-background-light;
+    position: relative;
+    display: inline-block;
+}
+
+.ui.header.section-header-inverted {
+    color: $main-background-dark-inverted;
+}
+
+// .section-header::after {
+//     content: "";
+//     position: absolute;
+//     left: 7%;
+//     bottom: 16px;
+//     width: 150px;
+//     height: 14px;
+//     transform: skew(-12deg) translateX(-50%);
+//     background: $accent-blue;
+//     z-index: -1;
+//   }
+
+.skills-row-inverted .ui.header.section-header {
+    color: $main-blue-dark;
+}
+
+.ui.segment.skills-segment-inverted {
+    background: #f7f7f7;
+}
+
+.ui.segment.skills-segment-mobile,
+.ui.segment.skills-segment {
+    @extend %invisible-segment;
+}
+
+.ui[class*="very padded"].segment.skills-segment-mobile {
+    padding: 1em 0 0 0;
+}
+
+.ui.header.technical-skills-subheader {
+    color: #e6e6e6;
+}
+
+.skills-row-inverted .ui.header.technical-skills-subheader {
+    color: $main-orange-dark;
+}
+
+.ui.grid.skills-container {
+    padding-top: 15px;
+}
+
+$skills-icon-color-0: #f5f5f5;
+$skills-icon-color-1: darken($skills-icon-color-0, 80%);
+$skills-icon-color-2: darken($skills-icon-color-1, 75);
+
+    .skills-icon-0 {
+        color: $skills-icon-color-0;
+        
+    }
+
+    .skills-icon-1 {
+        color: $skills-icon-color-1;
+    }
+
+    .skills-icon-2 {
+        color: $skills-icon-color-2;
+    }
+
+    .skills-row-inverted .skills-icon-0 {
+        color: $main-blue-dark;
+        
+    }
+
+    .skills-row-inverted .skills-icon-1 {
+        color: $main-blue-light;
+    }
+
+    .skills-row-inverted .skills-icon-2 {
+        color: $main-orange-light;
+    }
+
+    div[class*=' skills-icon-'] {
+        transition: transform .2s;
+    }
+
+    div[class*=' skills-icon-']:hover {
+        transform: scale(1.45);
+    }
+
+.ui.segment.skills-segment {
+    background: transparent;
+    border: 2px solid #fff;
+}
+
+.skills-icon {
+    color: $accent-blue;
+}
+
+.bio-text {
+    font-size: calc(20px + 0.2vw);
+    color: $main-background-light;
+}
+
+.bio-text p {
+    text-align: left;
+}
+
+.bio-text-inverted {
+    color: $main-background-dark-inverted;
+}
+
+.bio-text-highlight {
+    color: $accent-blue;
+}
+
+.about-section-icons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

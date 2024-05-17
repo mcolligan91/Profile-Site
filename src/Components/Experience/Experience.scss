@@ -1,0 +1,95 @@
+@import '../index.scss';
+
+.ui.header.experience-header {
+    color: #757680;
+}
+
+.experience-row-inverted .ui.header.experience-header {
+    color: $main-orange-dark;
+}
+
+.timeline-container,
+.timeline-container-mobile {
+    padding-top: 3em;
+}
+
+.timeline-container-mobile .ui.grey.card {
+    margin: -5px 0 15px 0;
+}
+
+.timeline-container .ui.grey.card {
+    margin-top: 10px;
+    scale: 1.1;
+}
+
+.Timeline-line {
+    z-index: auto;
+    top: auto;
+}
+
+.timeline-container .ui.grey.card .ui.label {
+    font-size: 1em;
+}
+
+$timelineCurrentColor: #252525;
+$timelineMiddleColor: #757575;
+$timelineStartColor: #cccccc;
+
+@mixin timelineShadow($color) {
+    box-shadow: 0 0 0 .5px #d4d4d5, 0 2px 0 0 $color, 0 3px 3px 0 #d4d4d5;
+}
+
+    .timeline-present i.inverted.circular.icon {
+        background-color: $timelineCurrentColor !important;
+    }
+
+    .timeline-present .ui.grey.card {
+        @include timelineShadow($color: $timelineCurrentColor);
+    }
+
+    .timeline-middle i.inverted.circular.icon {
+        background-color: $timelineMiddleColor !important;
+    }
+
+    .timeline-middle .ui.grey.card {
+        @include timelineShadow($color: $timelineMiddleColor);
+    }
+
+    .timeline-start i.inverted.circular.icon {
+        background-color: $timelineStartColor !important;
+    }
+
+    .timeline-start .ui.grey.card {
+        @include timelineShadow($color: $timelineStartColor);
+    }
+
+    .experience-row-inverted .timeline-present i.inverted.circular.icon,
+    .experience-row-inverted .timeline-present .ui.grey.card .ui.label {
+        background-color: $main-blue-dark !important;
+    }
+
+    .experience-row-inverted .timeline-present .ui.grey.card {
+        @include timelineShadow($color: $main-blue-dark)
+    }
+
+    .experience-row-inverted .timeline-middle i.inverted.circular.icon,
+    .experience-row-inverted .timeline-middle .ui.grey.card .ui.label {
+        background-color: $main-orange-light !important;
+    }
+
+    .experience-row-inverted .timeline-middle .ui.grey.card {
+        @include timelineShadow($color: $main-orange-light);
+    }
+
+    .experience-row-inverted .timeline-start i.inverted.circular.icon,
+    .experience-row-inverted .timeline-start .ui.grey.card .ui.label {
+        background-color: $main-blue-light !important;
+    }
+
+    .experience-row-inverted .timeline-start .ui.grey.card {
+        @include timelineShadow($color: $main-blue-light);
+    }
+    
+    .experience-row-inverted .ui.grey.card .ui.label {
+        color: #fff;
+    }

@@ -1,0 +1,152 @@
+@import '../index.scss';
+
+html {
+    --cursor-color: #e0930d;
+}
+  
+html.dark-mode {
+    --cursor-color: #e0930d;
+}
+
+.ui.grid.content-rows-container {
+    margin: 0;
+    position: relative;
+}
+
+.intro-main-container {
+    background: transparent;
+}
+
+.ui.grid>.row .intro-main-container {
+    padding-top: 0;
+}
+
+.intro-main-container-inverted {
+    background: $main-blue-dark;
+}
+
+.experience-row {
+    background: transparent;
+    border-top: 1px solid transparent;
+}
+
+.experience-row-inverted {
+    background: #f7f7f7;
+    border-top: 1px solid rgba(34, 36, 38, .15);
+}
+
+.ui.header .sub.header>.sub-text-container {
+    padding-top: 15px;
+}
+
+.ui.grid > .row.sub-row {
+    padding: 8rem 0 10rem 0;
+    min-height: 500px;
+}
+
+.ui.grid > .row.sub-row h1 {
+    font-size: 3.5em;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.education-row {
+    background: rgb(99,99,99);
+    background: linear-gradient(60deg, rgb(85, 85, 85) 20%, rgba(0, 0, 0, 1) 80%);    
+}
+
+.education-row-inverted {
+    background: $main-blue-dark;
+}
+
+.education-container {
+    padding-top: 5em;
+}
+
+.skills-row {
+    background: transparent;
+    position: relative;
+}
+
+.skills-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, $main-background-light, transparent);
+}
+
+.skills-row-inverted::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, $main-background-dark, transparent);
+}
+
+@media screen and (max-width: 795px) {
+    .skills-row,
+    .skills-row-inverted {
+        padding: 8rem 2rem 10rem 2rem !important;
+    }
+}
+
+.skills-row-inverted {
+    background: transparent;
+}
+
+.ui.fitted.toggle.checkbox.color-slider {   
+    position: fixed;
+    margin: 30px;
+    bottom: 0;
+    right: 0;
+}
+
+.logo-text {
+    margin-left: 30px;
+    font-weight: 600;
+}
+
+.logo-text:hover {
+    color: darken($accent-blue, 10%);
+}
+
+.landing-container {
+    position: relative;
+}
+
+.landing-content {
+    position: absolute;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.header-row {
+    background: transparent;
+}
+
+.ui.grid>.column:not(.row).logo-container {
+    color: $accent-blue;
+    font-size: 5em;
+    // display: flex;
+    // align-items: center;
+}
+
+.nav-container {
+    padding-bottom: 0;
+    padding-right: 2rem;
+}

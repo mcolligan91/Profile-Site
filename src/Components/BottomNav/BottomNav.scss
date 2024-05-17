@@ -1,0 +1,47 @@
+@import '../index.scss';
+
+.email-link,
+.email-link:hover,
+.contact-link {
+    color: #000;
+}
+
+.email-link:hover {
+    font-weight: bold;
+}
+
+.contact-link-content:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.ui.grid>.row.contact-icons-row {
+    padding-top: 0;
+}
+
+.ui.list.contact-icons-list-container {
+    margin-top: .25em;
+}
+
+.contact-link {
+    font-size: 2.25em;
+}
+
+.bottom-nav-container-inverted .ui.header.footer-header {
+    color: $main-blue-dark;
+}
+
+.bottom-nav-container-inverted .contact-link {
+    color: $main-orange-dark;
+}
+
+.bottom-nav-container-inverted .email-link,
+.bottom-nav-container-inverted .copyright-text {
+    color: $main-blue-light;
+}
+
+@media screen and (min-width: 795px) {
+    .ui.grid>.column:not(.row).scroll-up-botton-container {
+        padding-bottom: 4em;
+    }
+}

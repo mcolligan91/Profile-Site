@@ -1,0 +1,89 @@
+@import '../index.scss';
+
+.intro-container {
+    height: calc(100vh - 103px);
+    min-height: 700;
+    padding: 15vh 0;
+    margin-top: 30px;
+}
+ 
+.intro-main-text {
+    font-size: 2.75em;
+    color: $main-background-light;
+}
+
+.intro-sub-text {
+    font-size: 1.5em;
+}
+
+.intro-sub-text-mobile {
+    font-size: 1.25em;
+}
+
+.intro-sub-text,
+.intro-sub-text-mobile {
+    color: $main-background-light;
+}
+
+.ui.inverted.button.explore-button {
+    margin-top: 30px;
+    color: $accent-blue !important;
+    box-shadow: 0 0 0 2px $main-background-light inset !important;
+}
+
+.ui.inverted.button.explore-button:hover,
+.ui.inverted.button.explore-button:focus,
+.ui.inverted.button.explore-button:visited {
+    background: $main-background-light;
+    box-shadow: 0 0 0 2px $main-background-light inset !important;
+}
+
+.ui.inverted.button.explore-button-inverted {
+    margin-top: 30px;
+    color: $accent-blue !important;
+    box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
+}
+
+.ui.inverted.button.explore-button-inverted:hover,
+.ui.inverted.button.explore-button-inverted:focus,
+.ui.inverted.button.explore-button-inverted:visited {
+    box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
+    background: $main-background-dark-inverted;
+}
+
+.ui.inverted.button.explore-button-inverted:focus,
+.ui.inverted.button.explore-button-inverted:visited {
+    box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
+    background: $main-background-dark-inverted;
+}
+
+.intro-main-container-inverted .intro-sub-text,
+.intro-main-container-inverted .intro-sub-text-mobile {
+    color: $main-orange-dark;
+}
+
+.intro-main-container-inverted .ui.inverted.button:hover,
+.intro-main-container-inverted .ui.inverted.button:focus {
+    color: $main-blue-dark;
+}
+
+  .background-container{
+      position: fixed;
+      top: 0;
+      left:0;
+      bottom: 0;
+      right: 0;
+  }
+  
+  .star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    pointer-events: none; 
+  }
+
+  .inverted-dark-text {
+    color: $main-background-dark-inverted;
+  }

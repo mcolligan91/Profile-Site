@@ -1,0 +1,29 @@
+$main-blue-dark: #01296f;
+$main-blue-light: lighten($main-blue-dark, 15%);
+$main-orange-dark: #f48600;
+$main-orange-light: lighten($main-orange-dark, 7.5%);
+
+$main-background-dark: #171820;
+$main-background-light: #dfdfdf;
+$accent-blue: #397ef5;
+$main-background-dark-inverted: #4c4f65;
+
+
+.ui.blue.button {
+    background-color: $main-blue-dark;
+}
+
+.ui.blue.button:hover,
+.ui.blue.button:focus {
+  	background-color: darken($main-blue-dark, 5%);
+}
+
+.ui.blue.button:active {
+  background-color: darken($main-blue-dark, 10%);
+}
+
+%invisible-segment {
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+}

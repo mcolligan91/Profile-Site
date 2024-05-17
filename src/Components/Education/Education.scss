@@ -1,0 +1,47 @@
+@import '../index.scss';
+
+.ui.header.education-header {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.college-info-container {
+    padding-top: 3em;
+}
+
+.ui.segment.invisible-segment {
+    @extend %invisible-segment;
+}
+
+.education-subheader.ui.header,
+.ui.header.header-label {
+    color: #929292;
+}
+
+.ui.header.education-subheader {
+    font-size: 2em;
+}
+
+.ui.header.header-label {
+    margin-top: 0.25em;
+}
+
+.sub-header-highlighted {
+    color: #c7c7c7;
+}
+
+.college-text {
+    font-size: 2.25rem;
+}
+
+.honors-text {
+    font-size: 1.5rem;
+}
+
+.education-row-inverted .sub-header-highlighted {
+    color: $main-orange-dark;
+}
+
+.education-row-inverted .education-subheader.ui.header,
+.education-row-inverted .ui.header.header-label {
+    color: #f7f7f7;
+}
