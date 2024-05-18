@@ -1,31 +1,5 @@
 @import '../index.scss';
 
-.ui.grid>.row .icon-label-row {
-    padding-top: .5rem;
-}
-
-.ui.header.section-header {
-    color: $main-background-light;
-    position: relative;
-    display: inline-block;
-}
-
-.ui.header.section-header-inverted {
-    color: $main-background-dark-inverted;
-}
-
-// .section-header::after {
-//     content: "";
-//     position: absolute;
-//     left: 7%;
-//     bottom: 16px;
-//     width: 150px;
-//     height: 14px;
-//     transform: skew(-12deg) translateX(-50%);
-//     background: $accent-blue;
-//     z-index: -1;
-//   }
-
 .skills-row-inverted .ui.header.section-header {
     color: $main-blue-dark;
 }

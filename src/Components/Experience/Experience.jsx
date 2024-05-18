@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 
 import './Experience.scss';
 
+import JobAccordion from '../Shared/JobAccordion/JobAccordion';
+import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+
 const Experience = (props) => {
 	const {isMobile, isInverted} = props;
 
@@ -27,28 +30,11 @@ const Experience = (props) => {
 		}
 	];
 
-	const timelineDescription = (
-		<>
-			<span className='bold-text'>D+R International</span>
-			<br></br>
-			<span>Silver Spring, MD</span>
-		</>
-	);
-
-	return (
+	return (		
 		<Container textAlign='center'>
-			<Header as='h1' className='experience-header'>Experience</Header>
-			<Container className={`timeline-container${isMobile ? '-mobile' : ''}`}>
-				{timelineCards.map((card, i) => {
-					const {containerClass, title, time} = card;
-					return (
-						<div key={i} className={containerClass}>
-							<Fade bottom duration={1250} spy={isInverted} appear>
-								<Timeline direction={isMobile ? 'right' : i % 2 === 0 ? 'left' : 'right'} title={title} time={time} description={timelineDescription} tags={[]} lineHeight={1} />
-							</Fade>
-						</div>
-					)
-				})}
+			<SectionHeader content='Experience' />
+			<Container className='experience-container'>
+				<JobAccordion />
 			</Container>
 		</Container>
 	);

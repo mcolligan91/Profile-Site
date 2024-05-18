@@ -2,8 +2,8 @@ import React from 'react';
 import { Container, Grid, Header, Label } from 'semantic-ui-react';
 import { Flip, Fade } from 'react-reveal';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHtml5, faCss3Alt, faJs, faReact, faPython, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
+
+import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
 import './Skills.scss';
 
@@ -21,10 +21,8 @@ const Skills = (props) => {
 
 	return (
 		<Container textAlign='center'>
-			<Fade bottom duration={750} distance='50px'>
-				<Header as='h1' className={`section-header${isInverted ? '-inverted' : ''}`} content='About' />
-			</Fade>
-			<Grid className={`skills-container${isInverted ? '-inverted' : ''}`} verticalAlign='middle' textAlign='center'>
+			<SectionHeader content='About' />
+			<Grid className={`skills-container ${isInverted ? 'skills-container-inverted' : ''}`} verticalAlign='middle' textAlign='center'>
 				<Grid.Row>
 					<Grid.Column computer={10} tablet={12} mobile={14}>
 						<Fade bottom duration={1000} distance='50px'>

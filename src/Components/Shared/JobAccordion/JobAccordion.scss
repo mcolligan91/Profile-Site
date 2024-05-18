@@ -1,0 +1,13 @@
+@import '../../index.scss';
+
+.ui.grid>.row .job-accordion-row {
+    padding-top: 0;
+}
+
+.ui.header.job-accordion-header {
+    color: $main-background-light;
+}
+
+.ui.styled.accordion.job-accordion {
+    background: $main-background-light;
+}

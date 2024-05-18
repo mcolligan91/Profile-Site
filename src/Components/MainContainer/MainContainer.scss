@@ -25,16 +25,10 @@ html.dark-mode {
     background: $main-blue-dark;
 }
 
-.experience-row {
-    background: transparent;
-    border-top: 1px solid transparent;
-}
-
+.experience-row,
 .experience-row-inverted {
-    background: #f7f7f7;
-    border-top: 1px solid rgba(34, 36, 38, .15);
+    background: transparent;
 }
-
 .ui.header .sub.header>.sub-text-container {
     padding-top: 15px;
 }
