@@ -30,14 +30,16 @@ class JobAccordion extends Component {
                     <Header as='h2' className='job-accordion-header' content={jobHeader} />
                 </Grid.Row>
                 <Grid.Row className='job-accordion-row'>
-                    <Accordion styled className={`job-accordion${isInverted ? '-inverted' : ''}`}>
+                    <Accordion styled className={`job-accordion ${isInverted ? 'job-accordion-inverted' : ''}`}>
                         {positions.map((position, i) => {
                             const { positionTitle, positionDates, positionBullets } = position;
                             return (
                                 <React.Fragment key={i}>
-                                    <Accordion.Title active={activeIndex === i} index={i} onClick={this.handleClick}>
+                                    <Accordion.Title active={activeIndex === i} index={i} className={activeIndex === i ? 'open-accordion-title' : 'closed-accordion-title'} onClick={this.handleClick}>
                                         <Icon name={activeIndex === i ? 'chevron down' : 'chevron right'} />
                                         <span className='job-title-text'>{positionTitle}</span>
+                                        &nbsp;
+                                        <span className='job-title-text-divider'>//</span>
                                         &nbsp;
                                         <i className='job-dates-text'>{positionDates}</i>
                                     </Accordion.Title>

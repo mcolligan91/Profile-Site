@@ -19,3 +19,111 @@
 .ui.grid.trailing-job-accordion {
     margin-top: 3em;
 }
+
+.job-accordion-list {
+    color: $main-background-dark-inverted;
+}
+
+.job-title-text-divider {
+    color: lighten($main-background-dark-inverted-secondary, 10%);
+}
+
+.job-dates-text {
+    font-size: 0.9em;
+}
+
+.job-accordion .chevron {
+    color: $accent-blue;
+}
+
+.open-accordion-title .job-title-text,
+.open-accordion-title .job-dates-text {
+    color: $accent-blue;
+}
+
+.closed-accordion-title .job-title-text,
+.closed-accordion-title .job-dates-text {
+    color: $main-background-dark-inverted;
+}
+
+.closed-accordion-title:hover,
+.experience-row-inverted .closed-accordion-title:hover {
+    .job-title-text,
+    .job-dates-text {
+        color: $accent-blue;
+    }
+}
+
+.ui.styled.accordion.job-accordion {
+    width: 50%;
+    margin: 0 auto; 
+}
+
+.ui.styled.accordion .title {
+    border-top: 1px solid $main-background-dark-inverted-secondary;
+}
+
+.experience-row-inverted .ui.header.job-accordion-header {
+    color: $main-background-dark-inverted;
+}
+
+.experience-row-inverted .ui.styled.accordion.job-accordion  {
+    background: $main-background-dark;
+}
+
+.experience-row-inverted .job-accordion-list {
+    color: $main-background-light;
+}
+
+.experience-row-inverted .closed-accordion-title .job-title-text,
+.experience-row-inverted .closed-accordion-title .job-dates-text {
+    color: $main-background-light;
+}
+
+.experience-row-inverted .job-title-text-divider {
+    color: $main-background-light;
+}
+
+
+.ui.styled.accordion.job-accordion {
+    font-size: 1.1em; 
+}
+
+@media (max-width: 1024px) {
+    .ui.styled.accordion.job-accordion {
+        width: 80%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .ui.styled.accordion.job-accordion {
+        width: 90%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .ui.styled.accordion.job-accordion {
+        width: 95%; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .ui.styled.accordion.job-accordion .title, 
+    .ui.styled.accordion.job-accordion .content {
+        font-size: .9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .ui.styled.accordion.job-accordion .title,
+    .ui.styled.accordion.job-accordion .content {
+        font-size: .8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .ui.styled.accordion.job-accordion .title, 
+    .ui.styled.accordion.job-accordion .content {
+        font-size: .75em;
+    }
+}

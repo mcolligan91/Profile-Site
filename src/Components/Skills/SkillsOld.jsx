@@ -10,22 +10,27 @@ const Skills = (props) => {
 
     const createSkillsIconList = () => {		
 		let cols = [
-			{icon: 'javascript-plain', text: 'JavaScript'},
-			{icon: 'html5-plain', text: 'HTML5'},
-			{icon: 'css3-plain', text: 'CSS3'},
+			// {icon: 'javascript-plain', text: 'JavaScript'},
+			// {icon: 'html5-plain', text: 'HTML5'},
+			// {icon: 'css3-plain', text: 'CSS3'},
 			{icon: 'sass-original', text: 'Sass'},	
-			{icon: 'react-original', text: 'React'},		
+			// {icon: 'react-original', text: 'React'},		
 			{icon: 'jquery-plain', text: 'jQuery'},
 		
-			{icon: 'python-plain', text: 'Python'},
+			// {icon: 'python-plain', text: 'Python'},
 			{icon: 'flask-original', text: 'Flask'},
 			{icon: 'csharp-plain', text: 'C#'},
 			{icon: 'dot-net-plain', text: '.NET'},
-			{icon: 'microsoftsqlserver-plain', text: 'MS SQL Server'},
+			// {icon: 'microsoftsqlserver-plain', text: 'MS SQL Server'},
 
-		
-		
-		
+			//maybe:
+			{icon: 'sass-original', text: 'Sass'},	
+			{icon: 'jquery-plain', text: 'jQuery'},
+			{icon: 'flask-original', text: 'Flask'},
+			{icon: 'csharp-plain', text: 'C#'},
+			{icon: 'dot-net-plain', text: '.NET'},
+			{icon: 'git-plain', text: 'Git'},
+
 		
 			{icon: 'nodejs-plain', text: 'Node.js'},
 			{icon: 'selenium-original', text: 'Selenium'},
