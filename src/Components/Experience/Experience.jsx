@@ -12,21 +12,39 @@ import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 const Experience = (props) => {
 	const {isMobile, isInverted} = props;
 
-	let timelineCards = [
+	const jobInfo = [
 		{
-			containerClass: 'timeline-present', 
-			title: 'Software Engineer', 
-			time: 'March 2018 - February 2024'
-		},
-		{
-			containerClass: 'timeline-middle', 
-			title: 'Senior Technical Analyst', 
-			time: 'January 2017 - March 2018'
-		},
-		{
-			containerClass: 'timeline-start', 
-			title: 'Technical Analyst', 
-			time: 'August 2015 - January 2017'
+			jobHeader: 'D+R International',
+			positions: [
+				{
+					positionTitle: 'Software Engineer',
+					positionDates: 'March 2018 - February 2024',
+					positionBullets: [
+						'Developed Python scripts for automating internal data analysis processes and report generation, resulting in a 95% improvement in efficiency for analysts and project managers and heightened data quality and reliability.',
+						'Achieved a 97% efficiency improvement as the lead developer on a Python data pipeline project. Implemented comprehensive SQL queries to conduct data validation checks at different pipeline stages, enhancing QA/QC for the processing of over 1 million new records.',
+						'Contributed to the end-to-end development of two websites as a front- end developer using React, Semantic-UI-React, jQuery, and Bootstrap to ensure the implementation of dynamic and user-friendly interfaces for users from 150+ organizations.',
+						'Built a comprehensive test suite for a C# .NET application using NUnit and Moq with over 200 robust unit tests aimed at detecting regressions post- deployment.'
+					]
+				},
+				{
+					positionTitle: 'Senior Technical Analyst',
+					positionDates: 'January 2017 - March 2018',
+					positionBullets: [
+						'Led weekly discussions with a group of 12 analysts as a review team leader, offering guidance and making decisions on nuanced situations encountered during the analysis process.',
+						'Developed and implemented VBA scripts to streamline various data collection processes, contributing to the content of monthly reports for the client.',
+						'Supervised two direct reports, conducted weekly meetings to offer guidance and optimize workload balance, and provided performance review information to HR.'
+					]
+				},
+				{
+					positionTitle: 'Technical Analyst',
+					positionDates: 'August 2015 - January 2017',
+					positionBullets: [
+						'Reviewed and validated LED lighting performance test data to ensure accuracy and compliance with client qualification standards, contributing to the successful qualification of 17,500 products.',
+						'Collaborated with cross-functional team members to enhance internal Excel data analysis tools, leveraging advanced formula writing techniques to improve accuracy and efficiency for a team of 35 analysts.',
+						'Acted as team lead for logo compliance and brand integrity, collaborating with the client and their law firm to establish and enforce usage guidelines, and communicated reporting decisions to the analyst team.'
+					]
+				}
+			]
 		}
 	];
 
@@ -34,7 +52,13 @@ const Experience = (props) => {
 		<Container textAlign='center'>
 			<SectionHeader content='Experience' />
 			<Container className='experience-container'>
-				<JobAccordion />
+				{jobInfo.map((job, i) => {
+					return (
+						<Fade key={i} bottom duration={1250} distance='50px'>
+							<JobAccordion job={job} accordionIdx={i} />
+						</Fade>
+					)
+				})}
 			</Container>
 		</Container>
 	);

@@ -19,7 +19,7 @@ const Intro = (props) => {
 		{ 
 			divType: 'h3', 
 			headerClass: 'sub-header-container',
-			spanClass: `intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'inverted-dark-text' : ''}`, 
+			spanClass: `intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'intro-sub-text-inverted' : ''}`, 
 			text: 'Full-Stack Software Engineer' 
 		}
 	];

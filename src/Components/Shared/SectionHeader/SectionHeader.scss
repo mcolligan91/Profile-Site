@@ -12,13 +12,12 @@
     color: $main-background-dark-inverted;
 }
 
-
 .ui.header.section-header::before,
 .ui.header.section-header::after {
     display: inline-block;
     content: "";
     border-top: 1px solid $accent-blue;
-    width: 8rem;
+    width: 4rem;
     margin: 0 1rem;
     transform: translateY(-1rem);
 }

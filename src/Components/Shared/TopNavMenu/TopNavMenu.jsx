@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
@@ -25,7 +25,7 @@ const TopNavMenu = (props) => {
                         <Menu.Item key={i} className={menuItemClass}>
                             <div className='item-text-container'>
                                 <span className='item-number'>
-                                    {`${i + 1}.`}
+                                    <Icon name='chevron right' />
                                 </span>
                                 <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''}`} {...menuItemTextProps(i, id)}>
                                     {name}

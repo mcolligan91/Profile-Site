@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AccordionTitle, AccordionContent, Accordion, Icon, Header, Grid } from 'semantic-ui-react';
+import { AccordionTitle, AccordionContent, Accordion, Icon, Header, Grid, List, ListItem } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
@@ -14,38 +14,46 @@ class JobAccordion extends Component {
     }
 
     handleClick = (e, titleProps) => {
-        const {index} = titleProps;
-        const {activeIndex} = this.state;
+        const {index} = titleProps,
+            {activeIndex} = this.state;
         this.setState({ activeIndex: activeIndex === index ? -1 : index });
     }
 
     render() {
-        const {activeIndex} = this.state;
-        const {isInverted} = this.props;
+        const {activeIndex} = this.state,
+            {isInverted, accordionIdx, job} = this.props,
+            {jobHeader, positions} = job;
 
         return (
-            <Grid textAlign='center'>
+            <Grid textAlign='center' className={accordionIdx != 0 ? 'trailing-job-accordion' : ''}>
                 <Grid.Row>
-                    <Header as='h2' className='job-accordion-header' content='D+R International' />
+                    <Header as='h2' className='job-accordion-header' content={jobHeader} />
                 </Grid.Row>
                 <Grid.Row className='job-accordion-row'>
                     <Accordion styled className={`job-accordion${isInverted ? '-inverted' : ''}`}>
-                        <AccordionTitle active={activeIndex === 0} index={0} onClick={this.handleClick}>
-                            <Icon name='dropdown' />
-                            <span className='job-title-text'>Software Engineer</span>
-                            &nbsp;
-                            <i className='job-dates-text'>March 2018 - February 2024</i>
-                        </AccordionTitle>
-                        <AccordionContent active={activeIndex === 0}>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </AccordionContent>
+                        {positions.map((position, i) => {
+                            const { positionTitle, positionDates, positionBullets } = position;
+                            return (
+                                <React.Fragment key={i}>
+                                    <Accordion.Title active={activeIndex === i} index={i} onClick={this.handleClick}>
+                                        <Icon name={activeIndex === i ? 'chevron down' : 'chevron right'} />
+                                        <span className='job-title-text'>{positionTitle}</span>
+                                        &nbsp;
+                                        <i className='job-dates-text'>{positionDates}</i>
+                                    </Accordion.Title>
+                                    <Accordion.Content active={activeIndex === i}>
+                                        <List bulleted relaxed className='job-accordion-list'>
+                                            {positionBullets.map((bullet, j) => (
+                                                <List.Item key={j}>{bullet}</List.Item>
+                                            ))}
+                                        </List>
+                                    </Accordion.Content>
+                                </React.Fragment>
+                            )
+                        })}
                     </Accordion>
                 </Grid.Row>
             </Grid>
-         
-            
-            
-            
         )
     }
 }
