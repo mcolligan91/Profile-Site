@@ -9,7 +9,7 @@
 }
 
 .ui.styled.accordion.job-accordion {
-    background: $main-background-light;
+    background: #f5f5f5;
 }
 
 .job-accordion-list {
@@ -56,31 +56,9 @@
     margin: 0 auto; 
 }
 
-.ui.styled.accordion .title {
-    border-top: 1px solid $main-background-dark-inverted-secondary;
-}
-
 .experience-row-inverted .ui.header.job-accordion-header {
     color: $main-background-dark-inverted;
 }
-
-.experience-row-inverted .ui.styled.accordion.job-accordion  {
-    background: lighten($main-background-dark, 2%);
-}
-
-.experience-row-inverted .job-accordion-list {
-    color: darken($main-background-light, 5%);
-}
-
-.experience-row-inverted .closed-accordion-title .job-title-text,
-.experience-row-inverted .closed-accordion-title .job-dates-text {
-    color: $main-background-light;
-}
-
-.experience-row-inverted .job-title-text-divider {
-    color: $main-background-light;
-}
-
 
 .ui.styled.accordion.job-accordion {
     font-size: 1.2em; 
