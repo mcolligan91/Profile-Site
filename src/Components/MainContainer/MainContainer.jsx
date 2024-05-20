@@ -48,19 +48,19 @@ const MainContainer = (props) => {
 		{
 			content: <Skills />,
 			contentId: 'skills-content',
-			contentClass: 'skills-row',
+			contentClass: 'skills-row content-row',
 			contentName: 'About'
 		},
 		{
 			content: <Experience />,
 			contentId: 'experience-content',
-			contentClass: 'experience-row',
+			contentClass: 'experience-row content-row',
 			contentName: 'Experience'
 		},
 		{
 			content: <Education />,
 			contentId: 'education-content',
-			contentClass: 'education-row',
+			contentClass: 'education-row content-row',
 			contentName: 'Education'
 		}
 	];

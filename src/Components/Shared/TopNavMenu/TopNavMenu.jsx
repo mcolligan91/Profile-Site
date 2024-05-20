@@ -13,11 +13,11 @@ const TopNavMenu = (props) => {
     ) : (
         iconContent
     );
-
+    
     return (
         <Menu {...menuProps}> 
             <Menu.Menu {...subMenuProps}>
-                {menuItems.map((item, i) => {
+                {menuItems.slice(menuItemClass.includes('static') ? 1 : 0, menuItems.length).map((item, i) => {
                     const {name, id} = item;
                     let duration = 1000 + i * 100;
 

@@ -67,27 +67,26 @@
     color: $main-blue-dark;
 }
 
-  .background-container{
-      position: fixed;
-      top: 0;
-      left:0;
-      bottom: 0;
-      right: 0;
-  }
-  
-  .star {
+.background-container{
     position: fixed;
-    width: 2px;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 50%;
-    pointer-events: none; 
-  }
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+}
 
-  .inverted-dark-text {
+.inverted-dark-text {
     color: $main-background-dark-inverted;
-  }
+}
 
-  .intro-sub-text-inverted {
+.intro-sub-text-inverted {
     color: $main-background-dark-inverted-secondary;
-  }
+}
+
+.intro-main-header-container {
+    margin-bottom: 30px;
+}
+  
+.ui.header:last-child.intro-main-header {
+    margin: calc(2rem - .14285714em) 0 1rem;
+}

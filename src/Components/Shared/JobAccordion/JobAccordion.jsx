@@ -18,7 +18,7 @@ const JobAccordion = (props) => {
 
     return (
         <Grid textAlign='center' className={accordionIdx != 0 ? 'trailing-job-accordion' : ''}>
-            <Grid.Row>
+            <Grid.Row className='job-header-row'>
                 <Header as='h2' className='job-accordion-header' content={jobHeader} />
             </Grid.Row>
             <Grid.Row className='job-accordion-row'>

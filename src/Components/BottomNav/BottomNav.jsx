@@ -3,6 +3,8 @@ import { Grid, Icon, List, Header, Container, Button } from 'semantic-ui-react';
 import Fade from 'react-reveal/Fade';
 import { connect } from 'react-redux';
 
+// import TeslaLogo from './tesla-logo.svg';
+
 import './BottomNav.scss';
 
 const BottomNav = (props) => {
@@ -84,7 +86,9 @@ const BottomNav = (props) => {
 
 	return (
 		<>
-			<Grid id='contact-content' className={`bottom-nav-container${isInverted ? '-inverted' : ''} ${isSnapSet ? 'content-container' : ''}`} textAlign='center' stackable>
+			<Grid id='contact-content' className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''} ${isSnapSet ? 'content-container' : ''}`} textAlign='center' stackable>
+			<Grid.Row>
+				</Grid.Row>
 				{footerGridColumns.map((col, i) => {
 					const {content, columnClass} = col;
 					return (
@@ -93,6 +97,7 @@ const BottomNav = (props) => {
 						</Grid.Column>
 					)
 				})}
+
 			</Grid>
 		</>
 	);

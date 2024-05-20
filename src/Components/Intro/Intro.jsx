@@ -9,18 +9,20 @@ import './Intro.scss';
 const Intro = (props) => {
 	const {isInverted, isMobile, scrollToContent, scrollToTop, handleUpdateIsInverted} = props;
 
-	let introHeaders = [
+	const introHeaders = [
 		{ 
 			divType: !isMobile ? 'h1' : 'h3', 
-			headerClass: null,
+			headerClass: 'intro-main-header',
 			spanClass: `intro-main-text ${isInverted ? 'inverted-dark-text' : ''}`, 
-			text: 'Michael Colligan' 
+			text: 'Michael Colligan',
+			fadeProps: {left: true, distance: '100px'}
 		},
 		{ 
 			divType: 'h3', 
-			headerClass: 'sub-header-container',
+			headerClass: 'intro-main-header',
 			spanClass: `intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'intro-sub-text-inverted' : ''}`, 
-			text: 'Full-Stack Software Engineer' 
+			text: 'Full-Stack Software Engineer',
+			fadeProps: {right: true, distance: '100px'}
 		}
 	];
 
@@ -28,11 +30,13 @@ const Intro = (props) => {
 		<>
 			<Container id='intro-content' className='intro-container' text textAlign='center'>
 				{introHeaders.map((header, i) => {
-					const {divType, headerClass, spanClass, text} = header;
+					const {divType, headerClass, spanClass, text, fadeProps} = header;
 					return (
-						<Header key={i} as={divType} className={headerClass}>
-							<span className={spanClass}>{text}</span>
-						</Header>
+						<Fade key={i} {...fadeProps} duration={500}>
+							<Header as={divType} className={headerClass}>
+								<span className={spanClass}>{text}</span>
+							</Header>
+						</Fade>
 					);
 				})}
 				<Bounce bottom duration={1400} delay={500}>

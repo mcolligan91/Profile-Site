@@ -27,6 +27,16 @@
     font-size: 2.25em;
 }
 
+.bottom-nav-container {
+    margin-top: 0 !important;
+    background: $main-background-light;
+}
+
+.bottom-nav-container-inverted {
+    background: $main-background-dark;
+}
+
+
 .bottom-nav-container-inverted .ui.header.footer-header {
     color: $main-blue-dark;
 }

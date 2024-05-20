@@ -58,29 +58,28 @@ html.dark-mode {
     padding-top: 5em;
 }
 
-.skills-row {
+.content-row {
     background: transparent;
     position: relative;
 }
 
-.skills-row::before {
+%content-row-border {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
+}
+
+.content-row::before {
+    @extend %content-row-border;
     background: linear-gradient(to right, transparent, $main-background-light, transparent);
 }
 
-.skills-row-inverted::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(to right, transparent, $main-background-dark, transparent);
+.content-row-inverted::before {
+    @extend %content-row-border;
+    background: linear-gradient(to right, transparent, $main-background-dark-inverted, transparent);
 }
 
 @media screen and (max-width: 795px) {

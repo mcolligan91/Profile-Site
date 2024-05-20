@@ -64,6 +64,10 @@
     font-size: 1.2em; 
 }
 
+.ui.grid>.row .job-header-row {
+    padding-bottom: .5em;
+}
+
 @media (max-width: 1024px) {
     .ui.styled.accordion.job-accordion {
         width: 80%; 

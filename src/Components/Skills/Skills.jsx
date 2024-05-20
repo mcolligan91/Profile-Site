@@ -14,9 +14,15 @@ const Skills = (props) => {
 		{iconClass: 'html5-plain', text: 'HTML5'},
 		{iconClass: 'css3-plain', text: 'CSS3'},
 		{iconClass: 'javascript-plain', text: 'JavaScript'},
-		{iconClass: 'react-original', text: 'React'},		
+		{iconClass: 'react-original', text: 'React'},	
+		{iconClass: 'sass-original', text: 'Sass'},	
+		{iconClass: 'jquery-plain', text: 'jQuery'},	
 		{iconClass: 'python-plain', text: 'Python'},
-		{iconClass: 'microsoftsqlserver-plain', text: 'SQL Server'}
+		{iconClass: 'flask-original', text: 'Flask'},
+		{iconClass: 'microsoftsqlserver-plain', text: 'SQL Server'},
+		{iconClass: 'csharp-plain', text: 'C#'},
+		{iconClass: 'dot-net-plain', text: '.NET'},
+		{iconClass: 'git-plain', text: 'Git'}
 	];
 
 	return (
