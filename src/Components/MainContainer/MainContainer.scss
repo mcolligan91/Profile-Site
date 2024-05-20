@@ -34,7 +34,7 @@ html.dark-mode {
 }
 
 .ui.grid > .row.sub-row {
-    padding: 8rem 0 10rem 0;
+    padding: 6.5rem 0;
     min-height: 500px;
 }
 
@@ -47,8 +47,7 @@ html.dark-mode {
 }
 
 .education-row {
-    background: rgb(99,99,99);
-    background: linear-gradient(60deg, rgb(85, 85, 85) 20%, rgba(0, 0, 0, 1) 80%);    
+    background: transparent;
 }
 
 .education-row-inverted {

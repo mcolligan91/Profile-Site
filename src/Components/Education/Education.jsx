@@ -3,6 +3,8 @@ import { Container, Grid, Header, Divider, Segment } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
+import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+
 import './Education.scss';
 
 const Education = (props) => {
@@ -31,7 +33,7 @@ const Education = (props) => {
 
     return (
         <Container textAlign='center'>
-            <Header as='h1' className='education-header'>Education</Header>
+            <SectionHeader content='Education' />
             <Container className={!isMobile ? 'college-info-container' : null}>
                 <Segment className='invisible-segment'>
                     <Grid textAlign='center' relaxed='very' verticalAlign='middle'>

@@ -30,6 +30,7 @@
     justify-content: center;
     background: $main-background-light;
     transition: transform 0.2s ease;
+    border-bottom: 1px solid $main-background-dark;
 }
 
 .ui.inverted.menu.top-nav-fixed.visible {
@@ -50,6 +51,7 @@
 
 .ui.inverted.menu.top-nav-fixed-inverted {
     background: $main-background-dark;
+    border-bottom: 1px solid $main-background-light;
 }
 
 .ui.menu.floating-nav {
