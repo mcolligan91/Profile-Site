@@ -26,7 +26,6 @@
 }
 
 .ui.inverted.button.explore-button {
-    margin-top: 30px;
     color: $accent-blue !important;
     box-shadow: 0 0 0 2px $main-background-light inset !important;
 }
@@ -39,7 +38,6 @@
 }
 
 .ui.inverted.button.explore-button-inverted {
-    margin-top: 30px;
     color: $accent-blue !important;
     box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
 }
@@ -57,14 +55,8 @@
     background: $main-background-dark-inverted;
 }
 
-.intro-main-container-inverted .intro-sub-text,
-.intro-main-container-inverted .intro-sub-text-mobile {
-    color: $main-orange-dark;
-}
-
-.intro-main-container-inverted .ui.inverted.button:hover,
-.intro-main-container-inverted .ui.inverted.button:focus {
-    color: $main-blue-dark;
+.ui.inverted.button.explore-button-intro {
+    margin-top: 2em;
 }
 
 .background-container{

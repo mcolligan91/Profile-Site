@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Header, Button, Icon } from 'semantic-ui-react';
 import { Bounce } from 'react-reveal';
 import { connect } from 'react-redux';
@@ -40,7 +40,7 @@ const Intro = (props) => {
 					);
 				})}
 				<Bounce bottom duration={1400} delay={500}>
-					<Button className={!isInverted ? 'explore-button' : 'explore-button-inverted'} circular icon size='huge' inverted type='submit' onClick={() => scrollToContent('skills-content')}>
+					<Button className={`${!isInverted ? 'explore-button' : 'explore-button-inverted'} explore-button-intro`} circular icon size='huge' inverted type='submit' onClick={() => scrollToContent('skills-content')}>
 						<Icon name='arrow down' />
 					</Button>
 				</Bounce>

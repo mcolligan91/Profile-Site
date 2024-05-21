@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Responsive } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { Flip } from 'react-reveal';
+import { Fade } from 'react-reveal';
 import AnimatedCursor from 'react-animated-cursor';
 
 import Intro from '../Intro/Intro';
@@ -10,6 +10,7 @@ import Experience from '../Experience/Experience';
 import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
 import TopNav from '../TopNav/TopNav';
+import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 
 import './MainContainer.scss';
 
@@ -65,14 +66,13 @@ const MainContainer = (props) => {
 		}
 	];
 
-	const logoContent = (
-		<span className='logo-text' onClick={() => window.location.reload()}>MC</span>
-	);
-
 	const topNavBar = (
 		<Responsive as={Grid} minWidth={865} className='header-row' columns={2}>
 			<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
-				{logoContent}
+				<Fade>
+				<SiteLogo classes={'logo-text-animated logo-text-clickable'} />
+				</Fade>
+				
 			</Grid.Column>
 			<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
 				<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted} allowTopNavFade={allowTopNavFade} />
@@ -83,7 +83,7 @@ const MainContainer = (props) => {
 	const topNavBarMobile = (
 		<Responsive as={Grid} maxWidth={864} className='header-row' columns={2}>
 			<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle'>
-				{logoContent}
+			<SiteLogo classes={'logo-text-animated'} />
 			</Grid.Column>
 			<Grid.Column className='nav-container' textAlign='right'>
 				<div style={{ height: '75px' }}>
@@ -96,7 +96,7 @@ const MainContainer = (props) => {
   
 	return (
 	  <div id='app'>
-		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['button', '.top-nav-link-text', '.logo-text', '.accordion .title']} />
+		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']} />
 		<div className='landing-container'>
 			{!isInverted ? particlesLanding : particlesLandingInverted}
 			{topNavBar}
@@ -119,7 +119,7 @@ const MainContainer = (props) => {
 				);
 			})}
 		</Grid>
-		<BottomNav scrollToTop={scrollToTop} />
+		<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
 	  </div>
 	);
   }

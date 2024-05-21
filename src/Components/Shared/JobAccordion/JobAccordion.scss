@@ -5,7 +5,7 @@
 }
 
 .ui.header.job-accordion-header {
-    color: $main-background-light;
+    color: $main-background-light-secondary;
 }
 
 .ui.styled.accordion.job-accordion {
@@ -56,7 +56,7 @@
     margin: 0 auto; 
 }
 
-.experience-row-inverted .ui.header.job-accordion-header {
+.content-row-inverted .ui.header.job-accordion-header {
     color: $main-background-dark-inverted;
 }
 

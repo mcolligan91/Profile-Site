@@ -22,7 +22,7 @@ const Experience = (props) => {
 					positionBullets: [
 						'Developed Python scripts for automating internal data analysis processes and report generation, resulting in a 95% improvement in efficiency for analysts and project managers and heightened data quality and reliability.',
 						'Achieved a 97% efficiency improvement as the lead developer on a Python data pipeline project. Implemented comprehensive SQL queries to conduct data validation checks at different pipeline stages, enhancing QA/QC for the processing of over 1 million new records.',
-						'Contributed to the end-to-end development of two websites as a front- end developer using React, Semantic-UI-React, jQuery, and Bootstrap to ensure the implementation of dynamic and user-friendly interfaces for users from 150+ organizations.'
+						'Contributed to the end-to-end development of two websites as a front-end developer using React, Semantic-UI-React, jQuery, and Bootstrap to ensure the implementation of dynamic and user-friendly interfaces for users from 150+ organizations.'
 					]
 				},
 				{
