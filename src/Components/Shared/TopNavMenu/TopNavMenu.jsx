@@ -4,7 +4,7 @@ import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
 const TopNavMenu = (props) => {
-    const {isInverted, menuItems, menuProps, subMenuProps, menuItemClass, menuItemTextProps, iconContent, fadeIn} = props;
+    const {visibleContent, isInverted, menuItems, menuProps, subMenuProps, menuItemClass, menuItemTextProps, iconContent, fadeIn} = props;
 
     const iconElement = fadeIn ? (
         <Fade top duration={1000 + menuItems.length * 100} appear>
@@ -23,12 +23,12 @@ const TopNavMenu = (props) => {
                         let duration = 1000 + i * 100;
 
                         const menuItemContent = (
-                            <Menu.Item key={i} className={menuItemClass}>
+                            <Menu.Item key={i} className={menuItemClass} active={visibleContent === name}>
                                 <div className='item-text-container'>
                                     <span className='item-number'>
                                         <Icon name='chevron right' />
                                     </span>
-                                    <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''}`} {...menuItemTextProps(i, id)}>
+                                    <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`} {...menuItemTextProps(i, id)}>
                                         {name}
                                     </span>
                                 </div>

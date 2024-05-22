@@ -45,7 +45,7 @@ class TopNav extends Component {
 
     render() {
         const {showFixedNav} = this.state,
-            {isInverted, scrollToContent, handleUpdateIsInverted, allowTopNavFade} = this.props;
+            {isInverted, visibleContent, scrollToContent, handleUpdateIsInverted, allowTopNavFade} = this.props;
 
         const menuItems = [
             {name: 'Home', id: 'intro-content'},
@@ -103,7 +103,7 @@ class TopNav extends Component {
         return (
             <>
                 {topNavPropsArray.map((props, i) => (
-                    <TopNavMenu key={i} {...props} />
+                    <TopNavMenu key={i} {...props} visibleContent={visibleContent} />
                 ))}
             </>
         );

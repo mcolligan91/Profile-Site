@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Responsive } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Fade } from 'react-reveal';
+import { InView } from 'react-intersection-observer';
 import AnimatedCursor from 'react-animated-cursor';
 
 import Intro from '../Intro/Intro';
@@ -43,26 +44,29 @@ const MainContainer = (props) => {
 	  	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	};
   
-	const {isInverted, isMobile, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
+	const {isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
   
 	const contentContainers = [
 		{
 			content: <Skills />,
 			contentId: 'skills-content',
 			contentClass: 'skills-row content-row',
-			contentName: 'About'
+			contentName: 'About',
+			visibilityThreshold: .25
 		},
 		{
 			content: <Experience />,
 			contentId: 'experience-content',
 			contentClass: 'experience-row content-row',
-			contentName: 'Experience'
+			contentName: 'Experience',
+			visibilityThreshold: .25
 		},
 		{
 			content: <Education />,
 			contentId: 'education-content',
 			contentClass: 'education-row content-row',
-			contentName: 'Education'
+			contentName: 'Education',
+			visibilityThreshold: .25
 		}
 	];
 
@@ -87,7 +91,10 @@ const MainContainer = (props) => {
 			{topNavBar}
 			<Grid>
 				<Grid.Row className='intro-main-container' centered>
-					<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
+					<InView threshold={.75} onChange={(inView) => inView && handleUpdateVisibleContent('Home')}>
+						<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
+					</InView>
+				
 				</Grid.Row>
 			</Grid>
 		</div>
@@ -98,12 +105,16 @@ const MainContainer = (props) => {
 				let c = contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`;
 				return (
 				<Grid.Row key={i} id={contentId} className={`${c}${isInverted ? '-inverted' : ''}`} centered>
-					{content}
+					<InView threshold={visibilityThreshold} onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
+						{content}
+					</InView>
 				</Grid.Row>
 				);
 			})}
 		</Grid>
-		<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
+		<InView threshold={.25} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
+			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted}  />
+		</InView>
 	  </div>
 	);
   }
@@ -118,12 +129,16 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		handleUpdateIsInverted: () => {
-			dispatch({ type: 'UPDATE_ISINVERTED' });
+			dispatch({ type: 'UPDATE_ISINVERTED' })
 		},
 		resize: () => {
-			dispatch({ type: 'UPDATE_ISMOBILE' });
+			dispatch({ type: 'UPDATE_ISMOBILE' })
+		},
+		handleUpdateVisibleContent: (content) => {
+			dispatch({ type: 'UPDATE_VISIBLECONTENT', content: content })
 		}
-	};
-};
+	}
+}
+
   
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
