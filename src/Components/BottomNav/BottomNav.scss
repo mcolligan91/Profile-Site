@@ -40,9 +40,9 @@ i.icon.contact-link {
     color: $main-blue-light;
 }
 
-.scroll-up-botton-container {
+.ui.grid>.row.scroll-up-botton-container {
     margin-top: 2em;
-    margin-bottom: 1em;
+    padding-bottom: 2em !important;
 }
 
 .contact-links-container {

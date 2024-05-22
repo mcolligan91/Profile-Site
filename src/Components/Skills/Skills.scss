@@ -1,9 +1,5 @@
 @import '../index.scss';
 
-.ui.segment.skills-segment-inverted {
-    background: #f7f7f7;
-}
-
 .ui.segment.skills-segment-mobile,
 .ui.segment.skills-segment {
     @extend %invisible-segment;
@@ -25,49 +21,9 @@
     padding-top: 15px;
 }
 
-
-
-    // .skills-icon-0 {
-    //     color: $skills-icon-color-0;
-        
-    // }
-
-    // .skills-icon-1 {
-    //     color: $skills-icon-color-1;
-    // }
-
-    // .skills-icon-2 {
-    //     color: $skills-icon-color-2;
-    // }
-
-    // .skills-row-inverted .skills-icon-0 {
-    //     color: $main-blue-dark;
-        
-    // }
-
-    // .skills-row-inverted .skills-icon-1 {
-    //     color: $main-blue-light;
-    // }
-
-    // .skills-row-inverted .skills-icon-2 {
-    //     color: $main-orange-light;
-    // }
-
-    // div[class*=' skills-icon-'] {
-    //     transition: transform .2s;
-    // }
-
-    // div[class*=' skills-icon-']:hover {
-    //     transform: scale(1.45);
-    // }
-
 .ui.segment.skills-segment {
     background: transparent;
     border: 2px solid #fff;
-}
-
-.skills-icon {
-    color: $accent-blue;
 }
 
 .bio-text {
@@ -90,39 +46,41 @@
     flex-wrap: wrap;
 }
 
-.icon-label-text {
-    color: $accent-blue;
-    font-size: 12px;
+.skills-icons-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1rem; 
 }
 
-%skills-icon-container {
+@mixin skills-icon-container {
     background: $neutral-white;
-    margin: 15px;
-    padding: .5em;
-    width: 8em;
-    border-radius: 12px;
-    font-size: 12px;
+    margin: 0 !important;
+    border-radius: 5em;
+    display: flex;
+    vertical-align: middle;
 }
 
-.skills-icon-container {
-    @extend %skills-icon-container;
-    border: 2px solid $main-background-light;
+.ui.label.skills-icon-container {
+    @include skills-icon-container;
+    border: 2px solid $accent-blue;
+    background-color: $accent-blue;
+    color: $neutral-white;
 }
 
-.skills-container-inverted .skills-icon-container {
-    @extend %skills-icon-container;
+.ui.label.skills-icon-container:hover {
+    @include skills-icon-container;
+    border: 2px solid $neutral-white;
+    background-color: $neutral-white;
+    color: $accent-blue;
+}
+
+.ui.label>.icon.skills-icon {
+    margin-right: .25em;
+}
+
+.skills-container-inverted .ui.label.skills-icon-container:hover {
+    @include skills-icon-container;
     border: 2px solid $main-background-dark-inverted;
-}
-
-.skills-icon-container:hover {
-    transform: scale(1.1) !important;
-    background: $main-background-light;
-}
-
-.skills-container-inverted .skills-icon-container:hover {
-    background: $main-background-dark-inverted;
-}
-
-.skills-icon {
-    font-size: 3em;
+    background-color: $neutral-white;
+    color: $accent-blue;
 }
