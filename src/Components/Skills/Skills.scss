@@ -25,43 +25,41 @@
     padding-top: 15px;
 }
 
-$skills-icon-color-0: #f5f5f5;
-$skills-icon-color-1: darken($skills-icon-color-0, 80%);
-$skills-icon-color-2: darken($skills-icon-color-1, 75);
 
-    .skills-icon-0 {
-        color: $skills-icon-color-0;
+
+    // .skills-icon-0 {
+    //     color: $skills-icon-color-0;
         
-    }
+    // }
 
-    .skills-icon-1 {
-        color: $skills-icon-color-1;
-    }
+    // .skills-icon-1 {
+    //     color: $skills-icon-color-1;
+    // }
 
-    .skills-icon-2 {
-        color: $skills-icon-color-2;
-    }
+    // .skills-icon-2 {
+    //     color: $skills-icon-color-2;
+    // }
 
-    .skills-row-inverted .skills-icon-0 {
-        color: $main-blue-dark;
+    // .skills-row-inverted .skills-icon-0 {
+    //     color: $main-blue-dark;
         
-    }
+    // }
 
-    .skills-row-inverted .skills-icon-1 {
-        color: $main-blue-light;
-    }
+    // .skills-row-inverted .skills-icon-1 {
+    //     color: $main-blue-light;
+    // }
 
-    .skills-row-inverted .skills-icon-2 {
-        color: $main-orange-light;
-    }
+    // .skills-row-inverted .skills-icon-2 {
+    //     color: $main-orange-light;
+    // }
 
-    div[class*=' skills-icon-'] {
-        transition: transform .2s;
-    }
+    // div[class*=' skills-icon-'] {
+    //     transition: transform .2s;
+    // }
 
-    div[class*=' skills-icon-']:hover {
-        transform: scale(1.45);
-    }
+    // div[class*=' skills-icon-']:hover {
+    //     transform: scale(1.45);
+    // }
 
 .ui.segment.skills-segment {
     background: transparent;
@@ -97,12 +95,32 @@ $skills-icon-color-2: darken($skills-icon-color-1, 75);
     font-size: 12px;
 }
 
-.skills-icon-container {
+%skills-icon-container {
+    background: $neutral-white;
     margin: 15px;
     padding: .5em;
     width: 8em;
-    border: 2px solid $main-background-light;
     border-radius: 12px;
+    font-size: 12px;
+}
+
+.skills-icon-container {
+    @extend %skills-icon-container;
+    border: 2px solid $main-background-light;
+}
+
+.skills-container-inverted .skills-icon-container {
+    @extend %skills-icon-container;
+    border: 2px solid $main-background-dark-inverted;
+}
+
+.skills-icon-container:hover {
+    transform: scale(1.1) !important;
+    background: $main-background-light;
+}
+
+.skills-container-inverted .skills-icon-container:hover {
+    background: $main-background-dark-inverted;
 }
 
 .skills-icon {

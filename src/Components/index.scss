@@ -7,11 +7,12 @@ $main-background-dark: #171820;
 $main-background-light: #dfdfdf;
 $main-background-light-secondary: darken($main-background-light, 20%);
 // $accent-blue: #397ef5;
-$accent-blue: darken(#397ef5, 2.5%);
-
+$accent-blue: darken(#397ef5, 5%);
 // $main-background-dark-inverted: #4c4f65;
-$main-background-dark-inverted: lighten($main-background-dark, 20%);
+$main-background-dark-inverted: lighten($main-background-dark, 10%);
 $main-background-dark-inverted-secondary: lighten($main-background-dark-inverted, 20%);
+$neutral-white: #f5f5f5;
+
 
 
 .ui.blue.button {
@@ -31,4 +32,14 @@ $main-background-dark-inverted-secondary: lighten($main-background-dark-inverted
     background: transparent;
     border: 1px solid transparent;
     box-shadow: none;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif !important;
+}
+
+body *:not(.icon):not(.fa):not(.fas):not(.far):not(.fab):not([class^="devicon-"]):not(.material-icons) {
+    font-family: 'Roboto', sans-serif !important;
 }

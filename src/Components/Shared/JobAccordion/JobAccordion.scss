@@ -8,8 +8,13 @@
     color: $main-background-light-secondary;
 }
 
+.ui.header.job-accordion-header:hover,
+.content-row-inverted .ui.header.job-accordion-header:hover {
+    color: $accent-blue;
+}
+
 .ui.styled.accordion.job-accordion {
-    background: #f5f5f5;
+    background: $neutral-white;
 }
 
 .job-accordion-list {

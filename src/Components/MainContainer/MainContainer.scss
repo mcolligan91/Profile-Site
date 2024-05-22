@@ -54,9 +54,10 @@ html.dark-mode {
     padding-top: 5em;
 }
 
-.content-row {
+.ui.grid>.centered.row.content-row {
     background: transparent;
     position: relative;
+    min-height: 100vh;
 }
 
 %content-row-border {

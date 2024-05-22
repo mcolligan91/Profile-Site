@@ -32,7 +32,7 @@ const Intro = (props) => {
 				{introHeaders.map((header, i) => {
 					const {divType, headerClass, spanClass, text, fadeProps} = header;
 					return (
-						<Fade key={i} {...fadeProps} duration={500}>
+						<Fade key={i} {...fadeProps} duration={1000}>
 							<Header as={divType} className={headerClass}>
 								<span className={spanClass}>{text}</span>
 							</Header>

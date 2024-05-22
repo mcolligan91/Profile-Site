@@ -67,31 +67,16 @@ const MainContainer = (props) => {
 	];
 
 	const topNavBar = (
-		<Responsive as={Grid} minWidth={865} className='header-row' columns={2}>
+		<Grid as={Grid} className='header-row' columns={2}>
 			<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
 				<Fade>
-				<SiteLogo classes={'logo-text-animated logo-text-clickable'} />
+					<SiteLogo classes={'logo-text-animated logo-text-clickable'} />
 				</Fade>
-				
 			</Grid.Column>
 			<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
 				<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted} allowTopNavFade={allowTopNavFade} />
 			</Grid.Column>
-		</Responsive>
-	);
-
-	const topNavBarMobile = (
-		<Responsive as={Grid} maxWidth={864} className='header-row' columns={2}>
-			<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle'>
-			<SiteLogo classes={'logo-text-animated'} />
-			</Grid.Column>
-			<Grid.Column className='nav-container' textAlign='right'>
-				<div style={{ height: '75px' }}>
-
-				</div>
-				
-			</Grid.Column>
-		</Responsive>
+		</Grid>
 	);
   
 	return (
@@ -100,7 +85,6 @@ const MainContainer = (props) => {
 		<div className='landing-container'>
 			{!isInverted ? particlesLanding : particlesLandingInverted}
 			{topNavBar}
-			{topNavBarMobile}
 			<Grid>
 				<Grid.Row className='intro-main-container' centered>
 					<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />

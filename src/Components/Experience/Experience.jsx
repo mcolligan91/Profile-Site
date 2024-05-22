@@ -15,6 +15,7 @@ const Experience = (props) => {
 	const jobInfo = [
 		{
 			jobHeader: 'D+R International',
+			companyLink: 'https://drintl.com/',
 			positions: [
 				{
 					positionTitle: 'Software Engineer',

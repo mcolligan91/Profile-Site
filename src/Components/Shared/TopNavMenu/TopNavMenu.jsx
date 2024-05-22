@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Icon, Responsive } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
@@ -15,35 +15,37 @@ const TopNavMenu = (props) => {
     );
     
     return (
-        <Menu {...menuProps}> 
-            <Menu.Menu {...subMenuProps}>
-                {menuItems.slice(menuItemClass.includes('static') ? 1 : 0, menuItems.length).map((item, i) => {
-                    const {name, id} = item;
-                    let duration = 1000 + i * 100;
+        <>
+            <Responsive as={Menu} minWidth={768} {...menuProps}> 
+                <Menu.Menu {...subMenuProps}>
+                    {menuItems.slice(menuItemClass.includes('static') ? 1 : 0, menuItems.length).map((item, i) => {
+                        const {name, id} = item;
+                        let duration = 1000 + i * 100;
 
-                    const menuItemContent = (
-                        <Menu.Item key={i} className={menuItemClass}>
-                            <div className='item-text-container'>
-                                <span className='item-number'>
-                                    <Icon name='chevron right' />
-                                </span>
-                                <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''}`} {...menuItemTextProps(i, id)}>
-                                    {name}
-                                </span>
-                            </div>
-                        </Menu.Item>
-                    );
-                    return fadeIn ? (
-                        <Fade key={i} top duration={duration} appear onComplete={() => console.log('test')}>
-                            {menuItemContent}
-                        </Fade>
-                    ) : (
-                        menuItemContent
-                    );
-                })}
-                {iconElement}
-            </Menu.Menu>
-        </Menu>
+                        const menuItemContent = (
+                            <Menu.Item key={i} className={menuItemClass}>
+                                <div className='item-text-container'>
+                                    <span className='item-number'>
+                                        <Icon name='chevron right' />
+                                    </span>
+                                    <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''}`} {...menuItemTextProps(i, id)}>
+                                        {name}
+                                    </span>
+                                </div>
+                            </Menu.Item>
+                        );
+                        return fadeIn ? (
+                            <Fade key={i} top duration={duration} appear onComplete={() => console.log('test')}>
+                                {menuItemContent}
+                            </Fade>
+                        ) : (
+                            menuItemContent
+                        );
+                    })}
+                    {iconElement}
+                </Menu.Menu>
+            </Responsive>
+        </>
     );
 }
 

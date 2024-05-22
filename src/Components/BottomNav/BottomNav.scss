@@ -40,17 +40,19 @@ i.icon.contact-link {
     color: $main-blue-light;
 }
 
-.ui.grid>.column:not(.row).scroll-up-botton-container {
-    padding-bottom: 4em !important;
+.scroll-up-botton-container {
+    margin-top: 2em;
+    margin-bottom: 1em;
 }
 
 .contact-links-container {
     padding: 0 !important;
-    margin-top: 4em;
+    margin-top: 6em;
 }
 
 .copyright-text {
-    padding-bottom: 6em !important;
+    color: $main-background-dark-inverted;
+    padding-bottom: 2em !important;
 }
 
 .ui.list>a.item i.icon.contact-link-icon {
@@ -73,10 +75,19 @@ i.icon.contact-link {
 @media only screen and (max-width: 767px) {
     .contact-links-container {
         padding: 0 !important;
-        margin-top: 3em;
+        margin-top: 4em !important;
     }
 
     .copyright-text {
-        padding-bottom: 4em !important;
+        margin-top: 1em !important;
+        padding-bottom: 2em !important;
+    }
+    
+    .ui.grid>.row.contact-icons-row {
+        margin-top: 2em;
+    }
+
+    .scroll-up-botton-container {
+        margin-bottom: 2em !important;
     }
 }

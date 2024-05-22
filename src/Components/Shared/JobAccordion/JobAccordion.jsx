@@ -14,12 +14,14 @@ const JobAccordion = (props) => {
     }
    
     const {isInverted, accordionIdx, job} = props,
-        {jobHeader, positions} = job;
+        {jobHeader, positions, companyLink} = job;
 
     return (
         <Grid textAlign='center' className={accordionIdx != 0 ? 'trailing-job-accordion' : ''}>
             <Grid.Row className='job-header-row'>
-                <Header as='h2' className='job-accordion-header' content={jobHeader} />
+                <a href={companyLink} target='_blank'>
+                    <Header as='h2' className='job-accordion-header' content={jobHeader} />
+                </a>
             </Grid.Row>
             <Grid.Row className='job-accordion-row'>
                 <Accordion styled className={`job-accordion ${isInverted ? 'job-accordion-inverted' : ''}`}>

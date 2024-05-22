@@ -15,10 +15,10 @@
 .section-header::after {
     content: "";
     position: absolute;
-    bottom: 4.5px; 
+    bottom: 7px; 
     left: -5px; 
     width: calc(100% + 10px);
-    height: 11px; 
+    height: 15px; 
     background-color: $accent-blue;
     z-index: -1;
 }

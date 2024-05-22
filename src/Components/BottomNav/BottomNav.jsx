@@ -49,13 +49,7 @@ const BottomNav = (props) => {
 		</Fade>
 	);
 
-	const currentYear = new Date().getFullYear();
-
 	const footerGridColumns = [
-		{
-			content: scrollToTopButton, 
-			columnClass: 'scroll-up-botton-container'
-		},
 		{
 			content: contactLinksContent, 
 			columnClass: 'contact-links-container'
@@ -63,6 +57,10 @@ const BottomNav = (props) => {
 		{
 			content: <div>© 2024 - Michael Colligan</div>, 
 			columnClass: 'copyright-text'
+		},
+		{
+			content: scrollToTopButton, 
+			columnClass: 'scroll-up-botton-container'
 		}
 	];
 
