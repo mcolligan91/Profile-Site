@@ -1,9 +1,5 @@
 @import '../../index.scss';
 
-.logo-text-clickable:hover {
-    color: darken($accent-blue, 10%);
-}
-
 %logo-styles {
     font-weight: 600;
     position: relative;
@@ -37,8 +33,26 @@
     @extend %logo-border;
 }
 
-.logo-text-animated::before {
+.logo-text-clickable::before {
     @extend %logo-border;
+    border: 3px solid $main-background-light;
+}
+
+
+.logo-text-clickable-inverted::before {
+    @extend %logo-border;
+    border: 3px solid $main-background-dark-inverted;
+}
+
+.logo-text-clickable:hover {
+    background: $main-background-light;
+}
+
+.logo-text-clickable-inverted:hover {
+    background: $main-background-dark-inverted;
+}
+
+.logo-text-clickable:hover::before{
     border: 3px solid $accent-blue;
 }
 

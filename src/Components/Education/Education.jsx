@@ -32,7 +32,7 @@ const Education = (props) => {
     ];
 
     return (
-        <Container textAlign='center'>
+        <Container className='content-row-container' textAlign='center'>
             <SectionHeader content='Education' />
             <Container className={!isMobile ? 'college-info-container' : null}>
                 <Segment className='invisible-segment'>

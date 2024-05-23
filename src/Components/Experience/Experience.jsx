@@ -49,7 +49,7 @@ const Experience = (props) => {
 	];
 
 	return (		
-		<Container textAlign='center'>
+		<Container className='content-row-container' textAlign='center'>
 			<SectionHeader content='Experience' />
 			<Container className='experience-container'>
 				{jobInfo.map((job, i) => {

@@ -74,7 +74,7 @@ const MainContainer = (props) => {
 		<Grid as={Grid} className='header-row' columns={2}>
 			<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
 				<Fade>
-					<SiteLogo classes={'logo-text-animated logo-text-clickable'} />
+					<SiteLogo classes={`logo-text-clickable ${isInverted ? 'logo-text-clickable-inverted' : ''}`} />
 				</Fade>
 			</Grid.Column>
 			<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>

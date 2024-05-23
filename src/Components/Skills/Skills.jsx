@@ -46,7 +46,7 @@ const Skills = (props) => {
 	);
 
 	return (
-		<Container textAlign='center'>
+		<Container className='content-row-container' textAlign='center'>
 			<SectionHeader content='About' />
 			<Grid className={`skills-container ${isInverted ? 'skills-container-inverted' : ''}`} verticalAlign='middle' textAlign='center'>
 				<Grid.Row>
