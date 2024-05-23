@@ -1,0 +1,86 @@
+@import '../index.scss';
+
+.top-nav-link {
+    height: 100%;
+    text-align: center;
+    transition: opacity 0.5s ease !important;
+}
+
+.item-text-container {
+    display: flex;
+    align-items: center;
+}
+
+.item-number {
+    color: $accent-blue;
+}
+
+.ui.inverted.menu a.top-nav-link.item:hover,
+.ui.menu a.top-nav-link.item:hover {
+    background: transparent;
+}
+
+.ui.inverted.menu.top-nav-fixed {
+    justify-content: center;
+    background: $main-background-light;
+    transition: transform 0.2s ease;
+    border-bottom: 1px solid $main-background-dark;
+}
+
+.ui.inverted.menu.top-nav-fixed.visible {
+    transform: translateY(0);
+}
+
+.ui.inverted.menu.top-nav-fixed.hidden {
+    transform: translateY(-100%);
+}
+
+.ui.inverted.menu.top-nav-fixed .top-nav-link {
+    color: $main-background-dark;
+}
+
+.ui.inverted.menu.top-nav-fixed .dimmed {
+    opacity: 50%;
+}
+
+.ui.inverted.menu.top-nav-fixed-inverted {
+    background: $main-background-dark;
+    border-bottom: 1px solid $main-background-light;
+}
+
+.top-nav-link-text {
+    display: block;
+    position: relative;
+    padding: .45em 0;
+    color: $main-background-light;
+}
+
+.top-nav-link-text:hover {
+    cursor: none;
+    color: $accent-blue;
+}
+
+.dimmed {
+    opacity: 0.75; 
+    transition: opacity 0.3s ease;
+}
+
+.ui.inverted.menu.top-nav-fixed .top-nav-link-text {
+    color: $main-background-dark-inverted;
+}
+
+.ui.inverted.menu.top-nav-fixed .top-nav-link-text:hover {
+    color: $accent-blue;
+}
+
+.light-mode-icon {
+    transform: scaleX(-1);
+}
+
+.ui.inverted.menu.top-nav-fixed-inverted .top-nav-link-text {
+    color: $main-background-light;
+}
+
+.top-nav-link-text-inverted:hover {
+    color: $accent-blue;
+}

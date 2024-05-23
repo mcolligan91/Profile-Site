@@ -43,3 +43,7 @@ html, body {
 body *:not(.icon):not(.fa):not(.fas):not(.far):not(.fab):not([class^="devicon-"]):not(.material-icons) {
     font-family: 'Roboto', sans-serif !important;
 }
+
+html {
+    scroll-behavior: smooth;
+}

@@ -10,8 +10,10 @@ import Skills from '../Skills/Skills';
 import Experience from '../Experience/Experience';
 import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
-import TopNav from '../TopNav/TopNav';
+// import TopNav from '../TopNav/TopNav';
 import SiteLogo from '../Shared/SiteLogo/SiteLogo';
+import TopNavLanding from '../TopNavLanding/TopNavLanding';
+import TopNavFixed from '../TopNavFixed/TopNavFixed';
 
 import './MainContainer.scss';
 
@@ -44,7 +46,7 @@ const MainContainer = (props) => {
 	  	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	};
   
-	const {isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
+	const {visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
   
 	const contentContainers = [
 		{
@@ -52,43 +54,44 @@ const MainContainer = (props) => {
 			contentId: 'skills-content',
 			contentClass: 'skills-row content-row',
 			contentName: 'About',
-			visibilityThreshold: .25
+			visibilityThreshold: .5
 		},
 		{
 			content: <Experience />,
 			contentId: 'experience-content',
 			contentClass: 'experience-row content-row',
 			contentName: 'Experience',
-			visibilityThreshold: .25
+			visibilityThreshold: .5
 		},
 		{
 			content: <Education />,
 			contentId: 'education-content',
 			contentClass: 'education-row content-row',
 			contentName: 'Education',
-			visibilityThreshold: .25
+			visibilityThreshold: .5
 		}
 	];
 
-	const topNavBar = (
-		<Grid as={Grid} className='header-row' columns={2}>
-			<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
-				<Fade>
-					<SiteLogo classes={`logo-text-clickable ${isInverted ? 'logo-text-clickable-inverted' : ''}`} />
-				</Fade>
-			</Grid.Column>
-			<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
-				<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted} allowTopNavFade={allowTopNavFade} />
-			</Grid.Column>
-		</Grid>
-	);
+	// const topNavBar = (
+	// 	<Grid className='header-row' columns={2}>
+	// 		<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
+	// 			<Fade>
+	// 				<SiteLogo classes={`logo-text-clickable ${isInverted ? 'logo-text-clickable-inverted' : ''}`} />
+	// 			</Fade>
+	// 		</Grid.Column>
+	// 		<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
+	// 			<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted} allowTopNavFade={allowTopNavFade} />
+	// 		</Grid.Column>
+	// 	</Grid>
+	// );
   
 	return (
 	  <div id='app'>
 		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']} />
 		<div className='landing-container'>
 			{!isInverted ? particlesLanding : particlesLandingInverted}
-			{topNavBar}
+			<TopNavLanding isInverted={isInverted} allowTopNavFade={allowTopNavFade} visibleContent={visibleContent} handleUpdateIsInverted={handleUpdateIsInverted} scrollToContent={scrollToContent} />
+			<TopNavFixed isInverted={isInverted} allowTopNavFade={allowTopNavFade} visibleContent={visibleContent} handleUpdateIsInverted={handleUpdateIsInverted} scrollToContent={scrollToContent} />
 			<Grid>
 				<Grid.Row className='intro-main-container' centered>
 					<InView threshold={.75} onChange={(inView) => inView && handleUpdateVisibleContent('Home')}>
@@ -123,6 +126,7 @@ const mapStateToProps = (state) => {
 	return {
 		isInverted: state.IsInvertedReducer.isInverted,
 		isMobile: state.IsMobileReducer.isMobile,
+		visibleContent: state.VisibleContentReducer.visibleContent
 	};
 };
   
