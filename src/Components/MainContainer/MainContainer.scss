@@ -78,14 +78,6 @@ html.dark-mode {
     @extend %content-row-border;
     background: linear-gradient(to right, transparent, $main-background-dark-inverted, transparent);
 }
-
-@media screen and (max-width: 795px) {
-    .skills-row,
-    .skills-row-inverted {
-        padding: 8rem 2rem 10rem 2rem !important;
-    }
-}
-
 .skills-row-inverted {
     background: transparent;
 }

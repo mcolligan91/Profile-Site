@@ -7,6 +7,7 @@ import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 
 import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 import LightModeIconMenuItem from '../Shared/LightModeIconMenuItem/LightModeIconmenuItem';
+import DropdownMenu from '../Shared/DropdownMenu/DropdownMenu';
 
 import './TopNavLanding.scss';
 
@@ -45,12 +46,12 @@ const TopNavLanding = (props) => {
 
     return (
         <Grid className='header-row' columns={2}>
-            <Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
+            <Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3} mobile={8}>
                 <Fade>
                     <SiteLogo classes={`logo-text-clickable ${isInverted ? 'logo-text-clickable-inverted' : ''}`} />
                 </Fade>
             </Grid.Column>
-            <Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
+            <Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13} mobile={8}>
                 <Responsive as={Menu} minWidth={768} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} size='massive' borderless inverted> 
                     <Menu.Menu className='menu-item-container' position='right'>
                         {menuItems.map((item, i) => {
@@ -75,7 +76,7 @@ const TopNavLanding = (props) => {
                             );
                         })}
                         <Fade top duration={allowTopNavFade ? 1000 + menuItems.length * 100 : 0} appear>
-                            <LightModeIconMenuItem 
+                            <LightModeIconMenuItem  
                                 className='top-nav-link top-nav-link-static' 
                                 clickFunction={() => handleUpdateIsInverted()} 
                                 mouseEnterFunction={() => handleMenuItemHover(menuItems.length)} 
@@ -85,6 +86,14 @@ const TopNavLanding = (props) => {
                         </Fade>
                     </Menu.Menu>
                 </Responsive>
+
+
+                <Responsive as={Menu} floated='right' maxWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} borderless inverted>
+                    <Menu.Item>
+                        <DropdownMenu menuItems={menuItems} scrollToContent={scrollToContent} />
+                    </Menu.Item>
+                </Responsive>
+
             </Grid.Column>
         </Grid>        
     )

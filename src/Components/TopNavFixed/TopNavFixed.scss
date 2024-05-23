@@ -20,6 +20,10 @@
     background: transparent;
 }
 
+.ui.inverted.menu.top-nav-fixed .active-top-nav-link-text {
+    color: $accent-blue !important;
+}
+
 .ui.inverted.menu.top-nav-fixed {
     justify-content: center;
     background: $main-background-light;
@@ -83,4 +87,17 @@
 
 .top-nav-link-text-inverted:hover {
     color: $accent-blue;
+}
+
+.ui.inverted.menu.top-nav-fixed-mobile {
+    height: 4em;
+}
+
+.ui.inverted.menu.top-nav-fixed-mobile .top-nav-link {
+    padding: 0;
+    margin: 0 .25em;
+}
+
+.ui.inverted.menu.top-nav-fixed-mobile .top-nav-link .icon {
+    margin: 0;
 }

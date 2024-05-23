@@ -13,13 +13,13 @@ const Intro = (props) => {
 		{ 
 			divType: !isMobile ? 'h1' : 'h3', 
 			headerClass: 'intro-main-header',
-			spanClass: `intro-main-text ${isInverted ? 'inverted-dark-text' : ''}`, 
+			spanClass: `intro-main-text ${isInverted ? 'inverted-dark-text' : ''} ${'intro-main-text-mobile'}`, 
 			text: 'Michael Colligan',
 			fadeProps: {left: true, distance: '100px'}
 		},
 		{ 
 			divType: 'h3', 
-			headerClass: 'intro-main-header',
+			headerClass: 'intro-main-header intro-main-subheader',
 			spanClass: `intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'intro-sub-text-inverted' : ''}`, 
 			text: 'Full-Stack Software Engineer',
 			fadeProps: {right: true, distance: '100px'}

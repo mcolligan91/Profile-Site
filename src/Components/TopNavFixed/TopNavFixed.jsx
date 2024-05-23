@@ -9,7 +9,7 @@ import LightModeIconMenuItem from '../Shared/LightModeIconMenuItem/LightModeIcon
 import './TopNavFixed.scss';
 
 const TopNavFixed = (props) => {
-    const {isInverted, visibleContent, scrollToContent, handleUpdateIsInverted} = props;
+    const {isInverted, isMobile, visibleContent, scrollToContent, handleUpdateIsInverted} = props;
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -40,6 +40,10 @@ const TopNavFixed = (props) => {
     });
 
     const handleMenuItemHover = (index, removeAll=false) => {
+        if (isMobile) {
+            return;
+        }
+        
         const items = document.querySelectorAll('.top-nav-link-fixed');
         if (removeAll) {
             items.forEach(item => {
@@ -56,15 +60,25 @@ const TopNavFixed = (props) => {
 
     const lightModeIcon = <FontAwesomeIcon className={isInverted ? 'light-mode-icon' : 'dark-mode-icon'} icon={faCircleHalfStroke} />;
 
+    const lightModeMenuItem = (
+        <LightModeIconMenuItem 
+            className='top-nav-link top-nav-link-fixed' 
+            clickFunction={() => handleUpdateIsInverted()} 
+            mouseEnterFunction={() => handleMenuItemHover(menuItems.length)} 
+            mouseLeaveFunction={() => handleMenuItemHover(menuItems.length, true)} 
+            icon={lightModeIcon} 
+        />
+    );
+
     return (
         <Grid className='header-row'>
             <Grid.Column className='nav-container'>
-                <Responsive as={Menu} className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''}`} size='massive' borderless inverted fixed='top'> 
+                <Responsive as={Menu} className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
                     <Menu.Menu className='menu-item-container'>
                         {menuItems.map((item, i) => {
                             const {name, id} = item;
                             return (
-                                <Menu.Item key={i} className='top-nav-link top-nav-link-fixed' active={visibleContent === name}>
+                                <Menu.Item key={i} className='top-nav-link top-nav-link-fixed'>
                                     <div className='item-text-container'>
                                         <span className='item-number'>
                                             <Icon name='chevron right' />
@@ -74,24 +88,13 @@ const TopNavFixed = (props) => {
                                         </span>
                                     </div>
                                 </Menu.Item>
-                            );
+                            )
                         })}
-                        <LightModeIconMenuItem 
-                            className='top-nav-link top-nav-link-fixed' 
-                            clickFunction={() => handleUpdateIsInverted()} 
-                            mouseEnterFunction={() => handleMenuItemHover(menuItems.length)} 
-                            mouseLeaveFunction={() => handleMenuItemHover(menuItems.length, true)} 
-                            icon={lightModeIcon} 
-                        />
+                        {lightModeMenuItem}
                     </Menu.Menu>
                 </Responsive>
             </Grid.Column>
         </Grid>
-
-
-
-
-        
     )
 }
 

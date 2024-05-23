@@ -1,0 +1,66 @@
+@import '../../index.scss';
+
+.hamburger-button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 3em;
+	height: 2em;
+	position: relative;
+	z-index: 10;
+	background-color: transparent;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1h13.5M1 6.5h13.5M1 12h13.5' stroke='%23216ef4' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	-webkit-tap-highlight-color: transparent;
+
+	&.open {
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l11 11m0-11L1 12' stroke='%23216ef4' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	}
+}
+  
+.panel {
+    max-width: 60%;
+    background-color: rgba(175, 175, 175, 0.75);
+    backdrop-filter: blur(10px); 
+    background-size: 117px 188px;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.34, 1.01);
+    position: fixed;
+    z-index: 5;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    padding: 3em;
+    display: flex;
+  
+    &.open {
+		visibility: visible;
+		width: 100%;
+		right: 0;
+		opacity: 1;
+    }
+}
+
+  
+.ui.list.vertical-menu-items-list {
+    margin: 5em auto auto auto;
+  
+    .item {
+		list-style: none;
+		font-size: 1.75em;
+		text-align: left;
+
+		& + .item {
+			margin-top: 1em;
+		}
+
+		.dropdown-menu-item-text {
+			color: lighten($main-background-light, 10%);
+		}
+	}
+}
+  

@@ -10,8 +10,6 @@ import Skills from '../Skills/Skills';
 import Experience from '../Experience/Experience';
 import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
-// import TopNav from '../TopNav/TopNav';
-import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 import TopNavLanding from '../TopNavLanding/TopNavLanding';
 import TopNavFixed from '../TopNavFixed/TopNavFixed';
 
@@ -72,32 +70,22 @@ const MainContainer = (props) => {
 		}
 	];
 
-	// const topNavBar = (
-	// 	<Grid className='header-row' columns={2}>
-	// 		<Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3}>
-	// 			<Fade>
-	// 				<SiteLogo classes={`logo-text-clickable ${isInverted ? 'logo-text-clickable-inverted' : ''}`} />
-	// 			</Fade>
-	// 		</Grid.Column>
-	// 		<Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13}>
-	// 			<TopNav scrollToTop={scrollToTop} scrollToContent={scrollToContent} handleUpdateIsInverted={handleUpdateIsInverted} allowTopNavFade={allowTopNavFade} />
-	// 		</Grid.Column>
-	// 	</Grid>
-	// );
+	const animatedCursor = !isMobile && (
+		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']} />
+	);
   
 	return (
 	  <div id='app'>
-		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']} />
+		{animatedCursor}
 		<div className='landing-container'>
 			{!isInverted ? particlesLanding : particlesLandingInverted}
 			<TopNavLanding isInverted={isInverted} allowTopNavFade={allowTopNavFade} visibleContent={visibleContent} handleUpdateIsInverted={handleUpdateIsInverted} scrollToContent={scrollToContent} />
 			<TopNavFixed isInverted={isInverted} allowTopNavFade={allowTopNavFade} visibleContent={visibleContent} handleUpdateIsInverted={handleUpdateIsInverted} scrollToContent={scrollToContent} />
 			<Grid>
-				<Grid.Row className='intro-main-container' centered>
+				<Grid.Row className={`intro-main-container ${isMobile ? 'intro-main-container-mobile' : ''}`} centered>
 					<InView threshold={.75} onChange={(inView) => inView && handleUpdateVisibleContent('Home')}>
 						<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
 					</InView>
-				
 				</Grid.Row>
 			</Grid>
 		</div>
@@ -115,7 +103,7 @@ const MainContainer = (props) => {
 				);
 			})}
 		</Grid>
-		<InView threshold={.25} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
+		<InView threshold={.5} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
 			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted}  />
 		</InView>
 	  </div>
