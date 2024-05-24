@@ -21,7 +21,7 @@ const BottomNav = (props) => {
 			<SiteLogo classes={'logo-text-static footer-logo'} />
 			<Grid textAlign='center'>
 				<Grid.Row className='contact-icons-row'>
-					<List className='contact-icons-list-container' horizontal relaxed size='huge'>
+					<List className='contact-icons-list-container' horizontal relaxed size={isMobile ? 'large' : 'huge'}>
 						{contactIcons.map((item, i) => {
 							const {text, link, icon} = item;
 							return (

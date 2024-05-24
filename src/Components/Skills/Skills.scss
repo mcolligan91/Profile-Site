@@ -27,9 +27,18 @@
 }
 
 .bio-text {
+    margin-bottom: 1em;
     text-align: left;
-    font-size: calc(20px + 0.2vw);
+    font-size: calc(18px + 0.2vw);
     color: $main-background-light-secondary;
+}
+
+.bio-text-emphasized {
+    font-size: calc(30px + 0.2vw);
+}
+
+.bio-text-paragraph {
+    margin-bottom: .75em;
 }
 
 .bio-text-inverted {
@@ -38,6 +47,10 @@
 
 .bio-text-highlight {
     color: $accent-blue;
+}
+
+.skills-container-mobile .bio-text {
+    font-size: calc(14px + 0.2vw)
 }
 
 .about-section-icons-container {

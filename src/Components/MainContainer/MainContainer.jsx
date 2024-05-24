@@ -50,28 +50,28 @@ const MainContainer = (props) => {
 		{
 			content: <Skills />,
 			contentId: 'skills-content',
-			contentClass: 'skills-row content-row',
+			contentClass: `skills-row content-row ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'About',
 			visibilityThreshold: .5
 		},
 		{
 			content: <Experience />,
 			contentId: 'experience-content',
-			contentClass: 'experience-row content-row',
+			contentClass: `experience-row content-row ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'Experience',
 			visibilityThreshold: .5
 		},
 		{
 			content: <Education />,
 			contentId: 'education-content',
-			contentClass: 'education-row content-row',
+			contentClass: `education-row content-row ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'Education',
 			visibilityThreshold: .5
 		}
 	];
 
 	const animatedCursor = !isMobile && (
-		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']} />
+		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']}  />
 	);
   
 	return (

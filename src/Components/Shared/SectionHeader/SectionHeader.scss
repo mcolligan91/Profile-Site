@@ -22,3 +22,10 @@
     background-color: $accent-blue;
     z-index: -1;
 }
+
+.ui.grid>.centered.row.content-row-mobile {
+    .section-header::after {
+        bottom: 6px; 
+        height: 12px; 
+    }
+}

@@ -35,13 +35,19 @@
 
 .logo-text-clickable::before {
     @extend %logo-border;
-    border: 3px solid $main-background-light;
+    border-width: 3px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
 }
 
 
 .logo-text-clickable-inverted::before {
     @extend %logo-border;
-    border: 3px solid $main-background-dark-inverted;
+    border-width: 3px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
 }
 
 .logo-text-clickable:hover {
@@ -57,11 +63,15 @@
 }
 
 .footer-logo {
-    border: 3px solid $main-background-dark-inverted;
-    color: $main-background-dark-inverted;
+    border-width: 3px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
 }
 
 .bottom-nav-container-inverted .footer-logo {
-    border: 3px solid $main-background-light;
-    color: $main-background-light;
+    border-width: 3px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
 }

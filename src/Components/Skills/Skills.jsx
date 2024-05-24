@@ -29,15 +29,26 @@ const Skills = (props) => {
 	];
 
 	const bioParagraph = (
-		<p className={`bio-text ${isInverted ? 'bio-text-inverted' : ''}`}>
-			Hi, I'm <span className='bio-text-highlight'>Michael</span>. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
+		<div className={`bio-text ${isInverted ? 'bio-text-inverted' : ''}`}>
+			<p className='bio-text-paragraph'>
+				<span className='bio-text-emphasized'>Hello, I'm <span className='bio-text-highlight'>Michael</span>.</span>
+			</p>
+			<p className='bio-text-paragraph'>
+				As a versatile full stack software engineer, I bring a unique blend of skills to the table, with extensive experience in developing dynamic websites, crafting ETL data pipelines, and writing scripts to automate data analysis processes.
+			</p>
+			<p className='bio-text-paragraph'>
+				My academic background in sustainability and the built environment enriches my perspective, enabling me to approach technical challenges with a holistic, solution-oriented mindset. 
+			</p>
+			<p className='bio-text-paragraph'>
+				Passionate about leveraging technology to drive efficiency and innovation, I am dedicated to creating impactful solutions that bring ideas to life and drive positive change.
+			</p>
+		</div>	
 	);
 
 	const renderSkillsIcons = () => (
 		skillsIconsInfo.map((info, i) => (
 			<Fade key={i} bottom duration={1250} distance='100px'>
-				<Label className='skills-icon-container' size='large'>
+				<Label className='skills-icon-container' size={isMobile ? 'small' : 'large'}>
 					<i className={`icon skills-icon devicon-${info.iconClass}`} /> 
 					{info.text}                                    
 				</Label>
@@ -48,7 +59,7 @@ const Skills = (props) => {
 	return (
 		<Container className='content-row-container' textAlign='center'>
 			<SectionHeader content='About' />
-			<Grid className={`skills-container ${isInverted ? 'skills-container-inverted' : ''}`} verticalAlign='middle' textAlign='center'>
+			<Grid className={`skills-container ${isInverted ? 'skills-container-inverted' : ''} ${isMobile ? 'skills-container-mobile' : ''}`} verticalAlign='middle' textAlign='center'>
 				<Grid.Row>
 					<Grid.Column computer={12} tablet={14} mobile={14}>
 						<Fade bottom duration={1000} distance='50px'>

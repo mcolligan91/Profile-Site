@@ -9,27 +9,33 @@ const DropdownMenu = (props) => {
 	const [isOpen, setOpen] = useState(false),
 		panelRef = useRef(null);
 
-	useEffect(() => {
-        const handleScroll = () => {
-            if (isOpen) {
-                setOpen(false);
-            }
-        };
-
-        const handleClickOutside = (event) => {
-            if (panelRef.current && !panelRef.current.contains(event.target)) {
-                setOpen(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-		document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-			document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [isOpen]);
+		useEffect(() => {
+			const handleClickOutside = (event) => {
+				if (panelRef.current && !panelRef.current.contains(event.target)) {
+					setOpen(false);
+				}
+			};
+	
+			document.addEventListener('mousedown', handleClickOutside);
+	
+			return () => {
+				document.removeEventListener('mousedown', handleClickOutside);
+			};
+		}, [panelRef]);
+	
+		useEffect(() => {
+			const handleScroll = () => {
+				if (isOpen) {
+					setOpen(false);
+				}
+			};
+	
+			window.addEventListener('scroll', handleScroll);
+	
+			return () => {
+				window.removeEventListener('scroll', handleScroll);
+			};
+		}, [isOpen]);
 
 	const renderMenuItems = () => (
 		menuItems.map((item, i) => (
@@ -46,10 +52,14 @@ const DropdownMenu = (props) => {
 		))
 	);
 
+	const toggleMenu = () => {
+		setOpen(prevState => !prevState);
+	};
+
 	return (
-		<div>
-			<button onClick={() => setOpen(!isOpen)} className={`hamburger-button ${isOpen ? 'open' : 'close'}`} />
-			<div className={`panel ${isOpen ? 'open' : 'close'}`} ref={panelRef}>
+		<div ref={panelRef}>
+			<button onClick={toggleMenu} className={`hamburger-button ${isOpen ? 'open' : 'close'}`} />
+			<div className={`panel ${isOpen ? 'open' : 'close'}`}>
 				<List className='vertical-menu-items-list'>
 					{renderMenuItems()}
 				</List>
