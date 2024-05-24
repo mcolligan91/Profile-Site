@@ -22,7 +22,7 @@
 .panel {
     max-width: 60%;
     background-color: rgba(175, 175, 175, 0.75);
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(6px); 
     background-size: 117px 188px;
     transition: all 0.4s cubic-bezier(0.42, 0, 0.34, 1.01);
     position: fixed;
@@ -30,10 +30,10 @@
     right: -100%;
     top: 0;
     height: 100%;
-    width: 100%;
+    width: 90%;
     visibility: hidden;
     opacity: 0;
-    padding: 3em;
+    padding: 1.5em;
     display: flex;
   
     &.open {
@@ -47,20 +47,34 @@
   
 .ui.list.vertical-menu-items-list {
     margin: 5em auto auto auto;
-  
+    width: 100%;
+    padding: 0 1em;
+
     .item {
-		list-style: none;
-		font-size: 1.75em;
-		text-align: left;
+        list-style: none;
+        font-size: 1.5em;
+        text-align: left;
+        & + .item {
+            margin-top: 0.5em;
+        }
 
-		& + .item {
-			margin-top: 1em;
-		}
-
-		.dropdown-menu-item-text {
-			color: lighten($main-background-light, 10%);
-		}
-	}
+        .dropdown-menu-item-text {
+            color: lighten($main-background-light, 10%);
+            display: block;
+        }
+    }
 }
+
+@media screen and (max-width: 600px) {
+    .panel {
+        padding: 1em;
+    }
+
+    .ui.list.vertical-menu-items-list .item {
+        font-size: 1.25em; 
+    }
+}
+
+
 
   

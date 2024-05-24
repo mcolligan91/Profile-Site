@@ -4,13 +4,13 @@ $main-orange-dark: #f48600;
 $main-orange-light: lighten($main-orange-dark, 7.5%);
 
 $main-background-dark: #171820;
-$main-background-light: #dfdfdf;
+// $main-background-light: #dfdfdf;
+$main-background-light: lighten(#dfdfdf, 10%);
 $main-background-light-secondary: darken($main-background-light, 10%);
-// $accent-blue: #397ef5;
-$accent-blue: #216ef4;
-// $main-background-dark-inverted: #4c4f65;
-$main-background-dark-inverted: lighten($main-background-dark, 7.5%);
-$main-background-dark-inverted-secondary: lighten($main-background-dark-inverted, 20%);
+// $accent-blue: #216ef4;
+$accent-blue: lighten(#216ef4, 2.5%);
+$main-background-dark-inverted: lighten($main-background-dark, 25%);
+$main-background-dark-inverted-secondary: lighten($main-background-dark-inverted, 10%);
 $neutral-white: #f5f5f5;
 
 

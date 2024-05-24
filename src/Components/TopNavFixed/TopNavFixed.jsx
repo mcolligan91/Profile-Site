@@ -73,8 +73,8 @@ const TopNavFixed = (props) => {
     return (
         <Grid className='header-row'>
             <Grid.Column className='nav-container'>
-                <Responsive as={Menu} className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
-                    <Menu.Menu className='menu-item-container'>
+                <Menu className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
+                    <Menu.Menu>
                         {menuItems.map((item, i) => {
                             const {name, id} = item;
                             return (
@@ -92,7 +92,7 @@ const TopNavFixed = (props) => {
                         })}
                         {lightModeMenuItem}
                     </Menu.Menu>
-                </Responsive>
+                </Menu>
             </Grid.Column>
         </Grid>
     )

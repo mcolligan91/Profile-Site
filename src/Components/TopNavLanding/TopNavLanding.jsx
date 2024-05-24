@@ -86,14 +86,11 @@ const TopNavLanding = (props) => {
                         </Fade>
                     </Menu.Menu>
                 </Responsive>
-
-
-                <Responsive as={Menu} floated='right' maxWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} borderless inverted>
+                <Responsive as={Menu} floated='right' maxWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} borderless inverted size='massive'>
                     <Menu.Item>
                         <DropdownMenu menuItems={menuItems} scrollToContent={scrollToContent} />
                     </Menu.Item>
                 </Responsive>
-
             </Grid.Column>
         </Grid>        
     )

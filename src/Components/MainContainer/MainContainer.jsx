@@ -50,21 +50,21 @@ const MainContainer = (props) => {
 		{
 			content: <Skills />,
 			contentId: 'skills-content',
-			contentClass: `skills-row content-row ${isMobile ? 'content-row-mobile' : ''}`,
+			contentClass: `skills-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'About',
 			visibilityThreshold: .5
 		},
 		{
 			content: <Experience />,
 			contentId: 'experience-content',
-			contentClass: `experience-row content-row ${isMobile ? 'content-row-mobile' : ''}`,
+			contentClass: `experience-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'Experience',
 			visibilityThreshold: .5
 		},
 		{
 			content: <Education />,
 			contentId: 'education-content',
-			contentClass: `education-row content-row ${isMobile ? 'content-row-mobile' : ''}`,
+			contentClass: `education-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'Education',
 			visibilityThreshold: .5
 		}
