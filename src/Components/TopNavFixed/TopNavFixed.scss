@@ -93,10 +93,12 @@
     height: 4.5em;
 }
 
-.ui.inverted.menu.top-nav-fixed-mobile .top-nav-link {
-    padding: .25em;
-}
-
 .ui.inverted.menu.top-nav-fixed-mobile .top-nav-link .icon {
     margin: 0;
+}
+
+@media (max-width: 499px) {
+    .ui.inverted.menu.top-nav-fixed-mobile .top-nav-link {
+        padding: .33em;
+    }
 }

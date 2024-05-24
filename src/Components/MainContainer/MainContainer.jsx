@@ -36,7 +36,7 @@ const MainContainer = (props) => {
 			scrollToTop();
 		} else{
 			const element = document.getElementById(elemId);
-			element.scrollIntoView({ behavior: 'smooth' });
+			element.scrollIntoView({ behavior: 'smooth', block: elemId === 'contact-content' ? 'end' : 'start' });
 		}
 	};
   
@@ -103,7 +103,7 @@ const MainContainer = (props) => {
 				);
 			})}
 		</Grid>
-		<InView threshold={.5} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
+		<InView threshold={.9} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
 			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted}  />
 		</InView>
 	  </div>
