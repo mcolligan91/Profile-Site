@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
     return {
 		isInverted: state.IsInvertedReducer.isInverted,
         isMobile: state.IsMobileReducer.isMobile
-    }
+    };
 }
 
 export default connect(mapStateToProps)(Intro);

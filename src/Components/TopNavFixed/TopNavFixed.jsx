@@ -88,14 +88,14 @@ const TopNavFixed = (props) => {
                                         </span>
                                     </div>
                                 </Menu.Item>
-                            )
+                            );
                         })}
                         {lightModeMenuItem}
                     </Menu.Menu>
                 </Menu>
             </Grid.Column>
         </Grid>
-    )
+    );
 }
 
 
@@ -105,7 +105,7 @@ const mapStateToProps = (state) => {
         isMobile: state.IsMobileReducer.isMobile,
         visibleContent: state.VisibleContentReducer.visibleContent
 
-    } 
+    };
 }
 
 export default connect(mapStateToProps)(TopNavFixed);

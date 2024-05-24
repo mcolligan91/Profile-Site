@@ -9,7 +9,7 @@ const SiteLogo = (props) => {
 
     return (
         <span className={`logo-text ${classes}`} onClick={clickFunction}>M</span>
-    )
-}
+    );
+};
 
 export default SiteLogo;

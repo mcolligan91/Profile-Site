@@ -45,12 +45,12 @@ const JobAccordion = (props) => {
                                     </List>
                                 </Accordion.Content>
                             </React.Fragment>
-                        )
+                        );
                     })}
                 </Accordion>
             </Grid.Row>
         </Grid>
-    )
+    );
 }
 
 
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
     return {
 		isMobile: state.IsMobileReducer.isMobile,
         isInverted: state.IsInvertedReducer.isInverted
-    }
+    };
 }
 
 export default connect(mapStateToProps)(JobAccordion);

@@ -50,12 +50,12 @@ const Education = (props) => {
                                                         <span className={spanClass}>{content}</span>
                                                         <br></br>
                                                     </div>
-                                                )
+                                                );
                                             })}
                                         </Header>
                                     </Fade>
                                 </Grid.Column>
-                            )
+                            );
                         })}
                     </Grid>
                     {!isMobile && <Divider vertical />}
@@ -69,7 +69,7 @@ const mapStateToProps = (state) => {
     return {
 		isMobile: state.IsMobileReducer.isMobile,
         isInverted: state.IsInvertedReducer.isInverted
-    }
+    };
 }
 
 export default connect(mapStateToProps)(Education);

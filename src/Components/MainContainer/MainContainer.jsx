@@ -73,42 +73,68 @@ const MainContainer = (props) => {
 	const animatedCursor = !isMobile && (
 		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']}  />
 	);
+
+	const topNavProps = {
+		isInverted: isInverted,
+		allowTopNavFade: allowTopNavFade,
+		visibleContent: visibleContent,
+		handleUpdateIsInverted: handleUpdateIsInverted,
+		scrollToContent: scrollToContent
+	}
+
+	const introContainer = (
+		<Grid>
+			<Grid.Row className={`intro-main-container ${isMobile ? 'intro-main-container-mobile' : ''}`} centered>
+				<InView threshold={.5} onChange={(inView) => inView && handleUpdateVisibleContent('Home')}>
+					<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
+				</InView>
+			</Grid.Row>
+		</Grid>
+	);
+
+	const bottomNav = (
+		<InView threshold={.5} onChange={(inView) => {
+			if (inView) {
+				console.log('Contact In View');
+				handleUpdateVisibleContent('Contact');
+			}
+		}}>
+			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
+		</InView>
+	);
   
 	return (
-	  <div id='app'>
-		{animatedCursor}
-		<div className='landing-container'>
-			{!isInverted ? particlesLanding : particlesLandingInverted}
-			<TopNavLanding isInverted={isInverted} allowTopNavFade={allowTopNavFade} visibleContent={visibleContent} handleUpdateIsInverted={handleUpdateIsInverted} scrollToContent={scrollToContent} />
-			<TopNavFixed isInverted={isInverted} allowTopNavFade={allowTopNavFade} visibleContent={visibleContent} handleUpdateIsInverted={handleUpdateIsInverted} scrollToContent={scrollToContent} />
-			<Grid>
-				<Grid.Row className={`intro-main-container ${isMobile ? 'intro-main-container-mobile' : ''}`} centered>
-					<InView threshold={.75} onChange={(inView) => inView && handleUpdateVisibleContent('Home')}>
-						<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
-					</InView>
-				</Grid.Row>
+		<div id='app'>
+			{animatedCursor}
+			<div className='landing-container'>
+				{!isInverted ? particlesLanding : particlesLandingInverted}
+				<TopNavLanding {...topNavProps} />
+				<TopNavFixed {...topNavProps}/>
+				{introContainer}
+			</div>
+			<Grid className='content-rows-container'>
+				{!isInverted ? particlesContent : particlesContentInverted}
+				{contentContainers.map((container, i) => {
+					const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
+					let c = contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`;
+					return (
+					<Grid.Row key={i} id={contentId} className={`${c}${isInverted ? '-inverted' : ''}`} centered>
+						<InView key={i} threshold={container.visibilityThreshold} onChange={(inView) => {
+							if (inView) {
+								console.log(`InView: ${container.contentName}`);
+								handleUpdateVisibleContent(container.contentName);
+							}
+                    	}}>
+							{content}
+						</InView>
+					</Grid.Row>
+					);
+				})}
 			</Grid>
+			{bottomNav}
 		</div>
-		<Grid className='content-rows-container'>
-			{!isInverted ? particlesContent : particlesContentInverted}
-			{contentContainers.map((container, i) => {
-				const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
-				let c = contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`;
-				return (
-				<Grid.Row key={i} id={contentId} className={`${c}${isInverted ? '-inverted' : ''}`} centered>
-					<InView threshold={visibilityThreshold} onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
-						{content}
-					</InView>
-				</Grid.Row>
-				);
-			})}
-		</Grid>
-		<InView threshold={.9} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
-			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted}  />
-		</InView>
-	  </div>
 	);
-  }
+}
   
 const mapStateToProps = (state) => {
 	return {
@@ -129,7 +155,7 @@ const mapDispatchToProps = (dispatch) => {
 		handleUpdateVisibleContent: (content) => {
 			dispatch({ type: 'UPDATE_VISIBLECONTENT', content: content })
 		}
-	}
+	};
 }
 
   

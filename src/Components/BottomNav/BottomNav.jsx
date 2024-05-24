@@ -33,7 +33,7 @@ const BottomNav = (props) => {
 										{text}
 									</span>
 								</List.Item>
-							)
+							);
 						})}			
 					</List>
 				</Grid.Row>
@@ -57,11 +57,7 @@ const BottomNav = (props) => {
 		{
 			content: <div>© 2024 - Michael Colligan</div>, 
 			columnClass: 'copyright-text'
-		},
-		// {
-		// 	content: scrollToTopButton, 
-		// 	columnClass: 'scroll-up-botton-container'
-		// }
+		}
 	];
 
 	return (
@@ -73,7 +69,7 @@ const BottomNav = (props) => {
 						<Grid.Row key={i} className={columnClass}>
 							{content}
 						</Grid.Row>
-					)
+					);
 				})}
 			</Grid>
 			<Grid className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center'> 
@@ -82,7 +78,7 @@ const BottomNav = (props) => {
 				</Grid.Row>
 			</Grid>
 		</>
-	)
+	);
 }
 
 const mapStateToProps = (state) => {

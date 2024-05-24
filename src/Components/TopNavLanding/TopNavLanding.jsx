@@ -44,6 +44,18 @@ const TopNavLanding = (props) => {
 
     const lightModeIcon = <FontAwesomeIcon className={isInverted ? 'light-mode-icon' : 'dark-mode-icon'} icon={faCircleHalfStroke} />;
 
+    const lightModeMenuItem = (
+        <Fade top duration={allowTopNavFade ? 1000 + menuItems.length * 100 : 0} appear>
+            <LightModeIconMenuItem  
+                className='top-nav-link top-nav-link-static' 
+                clickFunction={() => handleUpdateIsInverted()} 
+                mouseEnterFunction={() => handleMenuItemHover(menuItems.length)} 
+                mouseLeaveFunction={() => handleMenuItemHover(menuItems.length, true)} 
+                icon={lightModeIcon} 
+            />
+        </Fade>
+    );
+
     return (
         <Grid className='header-row' columns={2}>
             <Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3} mobile={8}>
@@ -75,15 +87,7 @@ const TopNavLanding = (props) => {
                                 </Fade>
                             );
                         })}
-                        <Fade top duration={allowTopNavFade ? 1000 + menuItems.length * 100 : 0} appear>
-                            <LightModeIconMenuItem  
-                                className='top-nav-link top-nav-link-static' 
-                                clickFunction={() => handleUpdateIsInverted()} 
-                                mouseEnterFunction={() => handleMenuItemHover(menuItems.length)} 
-                                mouseLeaveFunction={() => handleMenuItemHover(menuItems.length, true)} 
-                                icon={lightModeIcon} 
-                            />
-                        </Fade>
+                        {lightModeMenuItem}
                     </Menu.Menu>
                 </Responsive>
                 <Responsive as={Menu} floated='right' maxWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} borderless inverted size='massive'>
@@ -93,7 +97,7 @@ const TopNavLanding = (props) => {
                 </Responsive>
             </Grid.Column>
         </Grid>        
-    )
+    );
 }
 
 const mapStateToProps = (state) => {
@@ -101,8 +105,7 @@ const mapStateToProps = (state) => {
         isInverted: state.IsInvertedReducer.isInverted,
         isMobile: state.IsMobileReducer.isMobile,
         visibleContent: state.VisibleContentReducer.visibleContent
-
-    } 
+    };
 }
 
 export default connect(mapStateToProps)(TopNavLanding);

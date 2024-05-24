@@ -12,14 +12,14 @@ const SectionHeader = (props) => {
         <Fade bottom duration={750} distance='50px'>
             <Header as='h1' className={`section-header ${isInverted ? 'section-header-inverted' : ''}`} content={content} />
         </Fade>
-    )
+    );
 }
 
 const mapStateToProps = (state) => {
     return {
 		isMobile: state.IsMobileReducer.isMobile,
         isInverted: state.IsInvertedReducer.isInverted
-    }
+    };
 }
 
 export default connect(mapStateToProps)(SectionHeader);

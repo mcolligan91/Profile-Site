@@ -17,7 +17,7 @@ const LightModeIconMenuItem = (props) => {
 const mapStateToProps = (state) => {
     return {
 		isInverted: state.IsInvertedReducer.isInverted,
-    }
+    };
 }
 
 export default connect(mapStateToProps)(LightModeIconMenuItem);

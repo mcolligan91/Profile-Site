@@ -65,7 +65,7 @@ const DropdownMenu = (props) => {
 				</List>
 			</div>
 		</div>
-	)
+	);
 };
 
 export default DropdownMenu;
