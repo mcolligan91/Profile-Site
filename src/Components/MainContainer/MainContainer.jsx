@@ -10,6 +10,9 @@ import Skills from '../Skills/Skills';
 import Experience from '../Experience/Experience';
 import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
+import TopNav from '../TopNav/TopNav';
+
+
 import TopNavLanding from '../TopNavLanding/TopNavLanding';
 import TopNavFixed from '../TopNavFixed/TopNavFixed';
 
@@ -108,8 +111,11 @@ const MainContainer = (props) => {
 			{animatedCursor}
 			<div className='landing-container'>
 				{!isInverted ? particlesLanding : particlesLandingInverted}
-				<TopNavLanding {...topNavProps} />
-				<TopNavFixed {...topNavProps}/>
+				<TopNav {...topNavProps} />
+
+				{/* <TopNavLanding {...topNavProps}/>
+				<TopNavFixed {...topNavProps}/> */}
+
 				{introContainer}
 			</div>
 			<Grid className='content-rows-container'>

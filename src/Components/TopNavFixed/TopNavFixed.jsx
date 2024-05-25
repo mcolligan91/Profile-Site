@@ -11,6 +11,7 @@ import './TopNavFixed.scss';
 const TopNavFixed = (props) => {
     const {isInverted, isMobile, visibleContent, scrollToContent, handleUpdateIsInverted} = props;
 
+    //fixed
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -18,13 +19,16 @@ const TopNavFixed = (props) => {
         };
     }, []);
 
+    //fixed
     const [showFixedNav, setShowFixedNav] = useState(false);
 
+    //fixed
     const handleScroll = () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         setShowFixedNav(scrollTop > 450);
     };
 
+    //fixed
     const menuItems = [
         {name: 'Home', id: 'intro-content'},
         {name: 'About', id: 'skills-content'},
@@ -33,12 +37,14 @@ const TopNavFixed = (props) => {
         {name: 'Contact', id: 'contact-content'}
     ];
 
+    //fixed
     const menuItemTextProps = (i, id) => ({
         onMouseEnter: () => handleMenuItemHover(i),
         onMouseLeave: () => handleMenuItemHover(i, true),
         onClick: () => scrollToContent(id),
     });
 
+    //fixed
     const handleMenuItemHover = (index, removeAll=false) => {
         if (isMobile) {
             return;
@@ -58,23 +64,26 @@ const TopNavFixed = (props) => {
         }
     };
 
+    //fixed
     const renderMenuItems = () => (
-        menuItems.map((menuItem, i) => (
+        menuItems.map((item, i) => (
             <Menu.Item key={i} className='top-nav-link top-nav-link-fixed'>
                 <div className='item-text-container'>
                     <span className='item-number'>
                         <Icon name='chevron right' />
                     </span>
-                    <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === menuItem.name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`} {...menuItemTextProps(i, menuItem.id)}>
-                        {menuItem.name}
+                    <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === item.name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`} {...menuItemTextProps(i, item.id)}>
+                        {item.name}
                     </span>
                 </div>
             </Menu.Item>
         ))
     );
 
+    //fixed
     const lightModeIcon = <FontAwesomeIcon className={isInverted ? 'light-mode-icon' : 'dark-mode-icon'} icon={faCircleHalfStroke} />;
 
+    //fixed
     const lightModeMenuItem = (
         <LightModeIconMenuItem 
             className='top-nav-link top-nav-link-fixed' 
@@ -85,7 +94,8 @@ const TopNavFixed = (props) => {
         />
     );
 
-    return (
+    //fixed
+    const fixedContent = (
         <Grid className='header-row'>
             <Grid.Column className='nav-container'>
                 <Menu className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
@@ -96,6 +106,12 @@ const TopNavFixed = (props) => {
                 </Menu>
             </Grid.Column>
         </Grid>
+    );
+
+    return (
+        <>
+            {fixedContent}
+        </>
     );
 }
 
