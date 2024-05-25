@@ -116,15 +116,9 @@ const MainContainer = (props) => {
 				{!isInverted ? particlesContent : particlesContentInverted}
 				{contentContainers.map((container, i) => {
 					const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
-					let c = contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`;
 					return (
-					<Grid.Row key={i} id={contentId} className={`${c}${isInverted ? '-inverted' : ''}`} centered>
-						<InView key={i} threshold={container.visibilityThreshold} onChange={(inView) => {
-							if (inView) {
-								console.log(`InView: ${container.contentName}`);
-								handleUpdateVisibleContent(container.contentName);
-							}
-                    	}}>
+					<Grid.Row key={i} id={contentId} className={`${contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`}${isInverted ? '-inverted' : ''}`} centered>
+						<InView key={i} threshold={visibilityThreshold} onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
 							{content}
 						</InView>
 					</Grid.Row>

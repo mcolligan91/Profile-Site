@@ -3,7 +3,7 @@
   "fullScreen": false,
   "background": {
     "color": {
-      "value": "#e8e8e8"
+      "value": "#ececec"
     }
   },
   "detectRetina": true,
