@@ -58,6 +58,21 @@ const TopNavFixed = (props) => {
         }
     };
 
+    const renderMenuItems = () => (
+        menuItems.map((menuItem, i) => (
+            <Menu.Item key={i} className='top-nav-link top-nav-link-fixed'>
+                <div className='item-text-container'>
+                    <span className='item-number'>
+                        <Icon name='chevron right' />
+                    </span>
+                    <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === menuItem.name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`} {...menuItemTextProps(i, menuItem.id)}>
+                        {menuItem.name}
+                    </span>
+                </div>
+            </Menu.Item>
+        ))
+    );
+
     const lightModeIcon = <FontAwesomeIcon className={isInverted ? 'light-mode-icon' : 'dark-mode-icon'} icon={faCircleHalfStroke} />;
 
     const lightModeMenuItem = (
@@ -75,21 +90,7 @@ const TopNavFixed = (props) => {
             <Grid.Column className='nav-container'>
                 <Menu className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
                     <Menu.Menu>
-                        {menuItems.map((item, i) => {
-                            const {name, id} = item;
-                            return (
-                                <Menu.Item key={i} className='top-nav-link top-nav-link-fixed'>
-                                    <div className='item-text-container'>
-                                        <span className='item-number'>
-                                            <Icon name='chevron right' />
-                                        </span>
-                                        <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`} {...menuItemTextProps(i, id)}>
-                                            {name}
-                                        </span>
-                                    </div>
-                                </Menu.Item>
-                            );
-                        })}
+                        {renderMenuItems()}
                         {lightModeMenuItem}
                     </Menu.Menu>
                 </Menu>
