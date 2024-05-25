@@ -72,6 +72,12 @@ i.icon.contact-link {
     color: $accent-blue;
 }
 
+.contact-icons-list-item  {
+    &:hover .contact-link-span {
+        color: $accent-blue;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .contact-links-container {
         padding: 0 !important;

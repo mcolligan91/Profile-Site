@@ -25,13 +25,13 @@ const BottomNav = (props) => {
 						{contactIcons.map((item, i) => {
 							const {text, link, icon} = item;
 							return (
-								<List.Item key={i} as='a' href={link} target='_blank'>				
-									<span>
-										<Icon name={icon} className='contact-link-icon' />
-									</span>
-									<span className={isInverted ? 'contact-link-text-inverted' : 'contact-link-text'}>
-										{text}
-									</span>
+								<List.Item key={i} as='a' className='contact-icons-list-item' href={link} target='_blank'>		
+										<span>
+											<Icon name={icon} className='contact-link-icon' />
+										</span>
+										<span className={`contact-link-span ${isInverted ? 'contact-link-text-inverted' : 'contact-link-text'}`}>
+											{text}
+										</span>
 								</List.Item>
 							);
 						})}			
