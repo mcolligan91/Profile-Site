@@ -8,14 +8,18 @@
 	position: relative;
 	z-index: 10;
 	background-color: transparent;
-	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1h13.5M1 6.5h13.5M1 12h13.5' stroke='%23216ef4' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z' fill='%23216ef4'/%3E%3C/svg%3E");
+	background-size: 3em !important;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
 	-webkit-tap-highlight-color: transparent;
+	margin-top: .3em;
+	margin-right: -.4em;
 
 	&.open {
 		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l11 11m0-11L1 12' stroke='%23216ef4' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+		background-size: 2em !important;
 	}
 }
   

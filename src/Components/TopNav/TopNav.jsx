@@ -93,8 +93,8 @@ const TopNav = (props) => {
         />
     );
 
-    const LandingContent = (
-        <Grid className='header-row' columns={2}>
+    const landingContent = (
+        <Grid className='header-row header-row-landing' columns={2}>
             <Grid.Column className='logo-container' textAlign='left' verticalAlign='middle' computer={4} tablet={3} mobile={8}>
                 <Fade>
                     <SiteLogo classes={`logo-text-clickable ${isInverted ? 'logo-text-clickable-inverted' : ''}`} />
@@ -118,8 +118,8 @@ const TopNav = (props) => {
         </Grid>     
     );
 
-    const FixedContent = (
-        <Grid className='header-row'>
+    const fixedContent = (
+        <Grid className='header-row header-row-fixed'>
             <Grid.Column className='nav-container'>
                 <Menu className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
                     <Menu.Menu>
@@ -133,8 +133,8 @@ const TopNav = (props) => {
 
     return (
         <>
-            {LandingContent}
-            {FixedContent}
+            {landingContent}
+            {fixedContent}
         </>
     );
 }

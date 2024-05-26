@@ -4,9 +4,9 @@
     font-weight: 600;
     position: relative;
     display: inline-block;
-    font-size: 3em;
+    font-size: 2.75em;
     font-weight: bold;
-    padding: 20px;
+    padding: .4em;
     color: $accent-blue;
 }
 
@@ -38,7 +38,7 @@
     border-width: 3px;
     border-style: solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
+    // border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
 }
 
 
@@ -47,7 +47,7 @@
     border-width: 3px;
     border-style: solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
+    // border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
 }
 
 .logo-text-clickable:hover {
@@ -66,12 +66,12 @@
     border-width: 3px;
     border-style: solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
+    // border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
 }
 
 .bottom-nav-container-inverted .footer-logo {
     border-width: 3px;
     border-style: solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
+    // border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
 }
