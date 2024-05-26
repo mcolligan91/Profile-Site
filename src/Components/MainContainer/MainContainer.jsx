@@ -96,26 +96,17 @@ const MainContainer = (props) => {
 	);
 
 	const bottomNav = (
-		<InView threshold={.5} onChange={(inView) => {
-			if (inView) {
-				console.log('Contact In View');
-				handleUpdateVisibleContent('Contact');
-			}
-		}}>
+		<InView threshold={.5} onChange={(inView) => inView && handleUpdateVisibleContent('Contact')}>
 			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
 		</InView>
 	);
   
 	return (
-		<div id='app'>
+		<div id='app' className={isMobile ? 'show-sustem-cursor' : ''}>
 			{animatedCursor}
 			<div className='landing-container'>
 				{!isInverted ? particlesLanding : particlesLandingInverted}
 				<TopNav {...topNavProps} />
-
-				{/* <TopNavLanding {...topNavProps}/>
-				<TopNavFixed {...topNavProps}/> */}
-
 				{introContainer}
 			</div>
 			<Grid className='content-rows-container'>

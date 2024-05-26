@@ -73,39 +73,39 @@
     padding-bottom: .5em;
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .ui.styled.accordion.job-accordion {
         width: 80%; 
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .ui.styled.accordion.job-accordion {
         width: 90%; 
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .ui.styled.accordion.job-accordion {
         width: 95%; 
     }
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .ui.styled.accordion.job-accordion .title, 
     .ui.styled.accordion.job-accordion .content {
         font-size: .9em;
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .ui.styled.accordion.job-accordion .title,
     .ui.styled.accordion.job-accordion .content {
         font-size: .8em;
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .ui.styled.accordion.job-accordion .title, 
     .ui.styled.accordion.job-accordion .content {
         font-size: .75em;

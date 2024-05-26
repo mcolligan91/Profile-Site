@@ -48,7 +48,7 @@ const Skills = (props) => {
 	const renderSkillsIcons = () => (
 		skillsIconsInfo.map((info, i) => (
 			<Fade key={i} bottom duration={1250} distance='100px'>
-				<Label className='skills-icon-container' size={isMobile ? 'small' : 'large'}>
+				<Label className='skills-icon-container' size={isMobile ? 'tiny' : 'medium'}>
 					<i className={`icon skills-icon devicon-${info.iconClass}`} /> 
 					{info.text}                                    
 				</Label>

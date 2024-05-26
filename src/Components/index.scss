@@ -6,8 +6,8 @@ $main-orange-light: lighten($main-orange-dark, 7.5%);
 $main-background-dark: #171820;
 $main-background-light: #ececec;
 $main-background-light-secondary: darken($main-background-light, 10%);
-// $accent-blue: #216ef4;
-$accent-blue: lighten(#216ef4, 2.5%);
+$accent-blue: #2d76f5;
+// $accent-blue: lighten(#216ef4, 2.5%);
 $main-background-dark-inverted: lighten($main-background-dark, 25%);
 $main-background-dark-inverted-secondary: lighten($main-background-dark-inverted, 10%);
 $neutral-white: #f5f5f5;
@@ -45,4 +45,8 @@ body *:not(.icon):not(.fa):not(.fas):not(.far):not(.fab):not([class^="devicon-"]
 
 html {
     scroll-behavior: smooth;
+}
+ 
+.show-sustem-cursor {
+    cursor: auto;
 }

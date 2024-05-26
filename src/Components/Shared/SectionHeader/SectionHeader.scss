@@ -29,3 +29,9 @@
         height: 12px; 
     }
 }
+
+@media screen and (max-width: 499px) {
+    .ui.header.section-header {
+        margin-top: -.5em !important;
+    }
+}

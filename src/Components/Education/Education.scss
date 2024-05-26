@@ -5,7 +5,9 @@
 }
 
 .college-info-container {
-    padding-top: 3em;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .ui.segment.invisible-segment {
@@ -29,14 +31,6 @@
     color: #c7c7c7;
 }
 
-.college-text {
-    font-size: 2.25rem;
-}
-
-.honors-text {
-    font-size: 1.5rem;
-}
-
 .education-row-inverted .sub-header-highlighted {
     color: $main-orange-dark;
 }
@@ -45,3 +39,67 @@
 .education-row-inverted .ui.header.header-label {
     color: #f7f7f7;
 }
+
+.ui.card.school-card {
+    width: 35em;
+}
+
+@media screen and (max-width: 768px) {
+    .ui.card.school-card {
+        width: 20em;
+    }    
+}
+
+.school-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.school-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s, opacity 0.3s; 
+    filter: grayscale(100%);
+}
+
+.school-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 118, 245, 0.5); 
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.school-image-container:hover .school-image {
+    filter: none;
+}
+
+.school-image-container:hover::before {
+    opacity: 0;
+}
+
+.school-image-container.toggled .school-image {
+    filter: none;
+}
+
+.school-image-container.toggled::before {
+    opacity: 0;
+}
+
+@media (hover: none) {
+    .school-image-container::before {
+        opacity: 1;
+    }
+}
+
+
+  
+
+
+
+  
