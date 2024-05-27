@@ -11,9 +11,7 @@ const Education = (props) => {
     const { isMobile, isInverted } = props;
 
     const ufDescription = (
-        <span>
-            I graduated Summa Cum Laude from the University of Florida with a B.S in <a href={'https://catalog.ufl.edu/UGRD/colleges-schools/UGDCP/SUB_BSUB_BSUB01/'} target='_blank' rel='noopener noreferrer'>Sustainability and the Built Environment</a>.
-        </span>
+        <span>I graduated Summa Cum Laude from the University of Florida with a Bachelor of Science in <a className='school-description-link' href={'https://catalog.ufl.edu/UGRD/colleges-schools/UGDCP/SUB_BSUB_BSUB01/'} target='_blank' rel='noopener noreferrer'>Sustainability and the Built Environment</a>. My thesis was about converting biogas from organic waste into renewable electricity. In addition to my studies, I was an active member of the Chi Phi Fraterntiy.</span>
     )
 
     const educationData = [

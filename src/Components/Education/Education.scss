@@ -36,13 +36,45 @@
 }
 
 .ui.card.school-card {
-    width: 35em;
+    width: calc(40vw + 2em);
     margin-bottom: 3em;
+
+    .content {
+        .header {
+            color: $main-background-dark-inverted;
+            font-size: 1.5em;
+        }
+
+        .meta {
+            color: lighten($main-background-dark, 40%);
+            font-size: 1.1em;
+        }
+
+        .description {
+            color: $main-background-dark-inverted-secondary;
+            font-size: 1.1em;
+            text-align: left;
+        }
+
+        .school-description-link {
+            color: $accent-blue;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
     .ui.card.school-card {
-        width: 20em;
+        width: calc(75vw + 2em);
+
+        .content {
+            .description {
+                font-size: 1em;
+            }
+        }
     }    
 }
 

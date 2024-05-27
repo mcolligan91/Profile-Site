@@ -99,14 +99,7 @@ const MainContainer = (props) => {
 	);
 
 	const bottomNav = (
-		<InView threshold={inViewThresholds['Education']} onChange={(inView) => {
-			if (inView) {
-			  console.log(`${'Contact'} is now visible`);
-			  handleUpdateVisibleContent('Contact');
-			} else {
-			  console.log(`${'Contact'} is no longer visible`);
-			}
-		  }}>
+		<InView threshold={inViewThresholds['Education']} onChange={(inView) => {if (inView) {handleUpdateVisibleContent('Contact');}}}>
 			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
 		</InView>
 	);
@@ -125,14 +118,7 @@ const MainContainer = (props) => {
 					const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
 					return (
 					<Grid.Row key={i} id={contentId} className={`${contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`}${isInverted ? '-inverted' : ''}`} centered>
-						<InView key={i} threshold={visibilityThreshold}   onChange={(inView) => {
-    if (inView) {
-      console.log(`${contentName} is now visible`);
-      handleUpdateVisibleContent(contentName);
-    } else {
-      console.log(`${contentName} is no longer visible`);
-    }
-  }}>
+						<InView key={i} threshold={visibilityThreshold}   onChange={(inView) => {if (inView) {handleUpdateVisibleContent(contentName);}}}>
 							{content}
 						</InView>
 					</Grid.Row>
