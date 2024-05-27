@@ -41,14 +41,20 @@ i.icon.contact-link {
 }
 
 .ui.grid>.row.scroll-up-botton-container {
-    margin-top: 2em;
+    margin-top: 2em !important;
     padding-bottom: 2em !important;
     overflow: hidden;
 }
 
+@media screen and (max-width: 767px) {
+    .explore-button-footer-row {
+        margin-top: 1.5em !important;
+    }
+}
+
 .contact-links-container {
     padding: 0 !important;
-    margin-top: 6em;
+    margin-top: 6em !important;
 }
 
 .copyright-text {
@@ -82,7 +88,7 @@ i.icon.contact-link {
 @media only screen and (max-width: 767px) {
     .contact-links-container {
         padding: 0 !important;
-        margin-top: 4em !important;
+        margin-top: 6em !important;
     }
 
     .copyright-text {
@@ -91,7 +97,7 @@ i.icon.contact-link {
     }
     
     .ui.grid>.row.contact-icons-row {
-        margin-top: 2em;
+        margin-top: 2em !important;
     }
 
     .scroll-up-botton-container {
