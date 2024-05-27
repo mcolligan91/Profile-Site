@@ -34,7 +34,7 @@ const Skills = (props) => {
 				<span className='bio-text-emphasized'>Hello, I'm <span className='bio-text-highlight'>Michael</span>.</span>
 			</p>
 			<p className='bio-text-paragraph'>
-				As a versatile full stack software engineer, I bring a unique blend of skills to the table, with extensive experience in developing dynamic websites, crafting ETL data pipelines, and writing scripts to automate data analysis processes.
+				As a versatile full-stack software engineer, I bring a unique blend of skills to the table, with extensive experience in developing dynamic websites, crafting ETL data pipelines, and writing scripts to automate data analysis processes.
 			</p>
 			<p className='bio-text-paragraph'>
 				My academic background in sustainability and the built environment enriches my perspective, enabling me to approach technical challenges with a holistic, solution-oriented mindset. 

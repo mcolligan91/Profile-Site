@@ -10,13 +10,11 @@
     color: $accent-blue;
 }
 
-.logo-text-clickable {
-    margin-left: .5em; 
-}
-
-.logo-text-clickable,
-.logo-text-static {
-    @extend %logo-styles;
+@mixin border-mixin($border-width: 4px, $border-color: $accent-blue) {
+    border-width: $border-width;
+    border-style: solid;
+    border-image-slice: 1;
+    border-color: $border-color;
 }
 
 %logo-border {
@@ -29,25 +27,27 @@
     box-sizing: border-box;
 }
 
-.logo-text-static::before {
-    @extend %logo-border;
+.logo-text-clickable {
+    margin-left: .5em;
 }
 
-.logo-text-clickable::before {
-    @extend %logo-border;
-    border-width: 3px;
-    border-style: solid;
-    border-image-slice: 1;
-    // border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
+.logo-text-clickable,
+.logo-text-static {
+    @extend %logo-styles;
 }
 
-
+.logo-text-static::before,
+.logo-text-clickable::before,
 .logo-text-clickable-inverted::before {
     @extend %logo-border;
-    border-width: 3px;
-    border-style: solid;
-    border-image-slice: 1;
-    // border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
+}
+
+.logo-text-clickable::before,
+.logo-text-clickable-inverted::before,
+.footer-logo,
+.bottom-nav-container-inverted .footer-logo,
+.logo-text-clickable:hover::before  {
+    @include border-mixin();
 }
 
 .logo-text-clickable:hover {
@@ -58,20 +58,13 @@
     background: $main-background-dark-inverted;
 }
 
-.logo-text-clickable:hover::before{
-    border: 3px solid $accent-blue;
-}
-
-.footer-logo {
-    border-width: 3px;
-    border-style: solid;
-    border-image-slice: 1;
-    // border-image-source: linear-gradient(135deg, $main-background-dark-inverted-secondary, $accent-blue);
-}
-
+.logo-text-clickable,
 .bottom-nav-container-inverted .footer-logo {
-    border-width: 3px;
-    border-style: solid;
-    border-image-slice: 1;
-    // border-image-source: linear-gradient(135deg, $main-background-light, $accent-blue);
+    outline: 3px solid $main-background-light;
 }
+
+.logo-text-clickable-inverted,
+.footer-logo {
+    outline: 3px solid $main-background-dark-inverted;
+}
+

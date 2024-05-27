@@ -12,10 +12,6 @@ import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
 import TopNav from '../TopNav/TopNav';
 
-
-import TopNavLanding from '../TopNavLanding/TopNavLanding';
-import TopNavFixed from '../TopNavFixed/TopNavFixed';
-
 import './MainContainer.scss';
 
 const MainContainer = (props) => {

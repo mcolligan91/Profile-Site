@@ -35,13 +35,9 @@
     color: $main-orange-dark;
 }
 
-.education-row-inverted .education-subheader.ui.header,
-.education-row-inverted .ui.header.header-label {
-    color: #f7f7f7;
-}
-
 .ui.card.school-card {
     width: 35em;
+    margin-bottom: 3em;
 }
 
 @media screen and (max-width: 768px) {

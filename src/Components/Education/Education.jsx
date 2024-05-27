@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Grid, Header, Divider, Segment, Card, Icon, Image } from 'semantic-ui-react';
+import { Container, Card } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
@@ -8,44 +8,85 @@ import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 import './Education.scss';
 
 const Education = (props) => {
-    const {isMobile, isInverted} = props;
-    const [isImageToggled, setIsImageToggled] = useState(false);
+    const { isMobile, isInverted } = props;
 
-    const handleImageClick = () => {
+    const ufDescription = (
+        <span>
+            I graduated Summa Cum Laude from the University of Florida with a B.S in <a href={'https://catalog.ufl.edu/UGRD/colleges-schools/UGDCP/SUB_BSUB_BSUB01/'} target='_blank' rel='noopener noreferrer'>Sustainability and the Built Environment</a>.
+        </span>
+    )
+
+    const educationData = [
+        {
+            school: 'University of Florida',
+            date: 'June 2010 - May 2015',
+            degree: 'B.S in Sustainability and the Built Environment',
+            description: ufDescription,
+            image: './UF.jpg'
+        }
+    ];
+
+    const [imageToggles, setImageToggles] = useState(Array(educationData.length).fill(false));
+
+    const handleImageClick = (index, event) => {
+        event.stopPropagation(); 
         if (isMobile) {
-            console.log('Image clicked, toggling state');
-            setIsImageToggled(!isImageToggled);
+            setImageToggles(prevState => {
+                const newToggles = [...prevState];
+                newToggles[index] = !newToggles[index];
+                return newToggles;
+            });
         }
     };
 
+    const handleTouchStart = (index, event) => {
+        if (isMobile) {
+            setImageToggles(prevState => {
+                const newToggles = [...prevState];
+                newToggles[index] = !newToggles[index];
+                return newToggles;
+            });
+        }
+    };
+
+    const handleOutsideClick = () => {
+        setImageToggles(Array(educationData.length).fill(false));
+    };
+
     return (
-        <Container className='content-row-container'>
+        <Container className='content-row-container' onClick={handleOutsideClick} onTouchStart={handleOutsideClick}>
             <SectionHeader content='Education' />
-            <div className='college-info-container'>
-                <Card className='school-card'>
-                    <div className={`school-image-container ${isImageToggled ? 'toggled' : ''}`} onClick={handleImageClick}>
-                        <img src='./UF.jpg' alt='University of Florida Campus' className='school-image' />
+            {educationData.map((edu, i) => (
+                <Fade bottom duration={1250} distance='50px' key={i}>
+                    <div className='college-info-container'>
+                        <Card className='school-card'>
+                            <div className={`school-image-container ${imageToggles[i] ? 'toggled' : ''}`} onClick={(e) => handleImageClick(i, e)} onTouchStart={(e) => handleTouchStart(i, e)}>
+                                <img src={edu.image} alt={`${edu.school} Campus`} className='school-image' />
+                            </div>
+                            <Card.Content>
+                                <Card.Header>
+                                    {edu.school}
+                                </Card.Header>
+                                <Card.Meta>
+                                    <span className='date'>{edu.date}</span>
+                                </Card.Meta>
+                                <Card.Description>
+                                    {edu.description}
+                                </Card.Description>
+                            </Card.Content>
+                        </Card>
                     </div>
-                    <Card.Content>
-                        <Card.Header>University of Florida</Card.Header>
-                        <Card.Meta>
-                            <span className='date'>Summer 2010 - Spring 2015</span>
-                        </Card.Meta>
-                        <Card.Description>
-                            <span>I graduated Summa Cum Laude from the University of Florida in 2015 with a B.S in <a href='https://catalog.ufl.edu/UGRD/colleges-schools/UGDCP/SUB_BSUB_BSUB01/'>Sustainability and the Built Environment</a>.</span>
-                        </Card.Description>
-                    </Card.Content>
-                </Card>
-            </div>
+                </Fade>
+            ))}
         </Container>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
-		isMobile: state.IsMobileReducer.isMobile,
+        isMobile: state.IsMobileReducer.isMobile,
         isInverted: state.IsInvertedReducer.isInverted
     };
-}
+};
 
 export default connect(mapStateToProps)(Education);
