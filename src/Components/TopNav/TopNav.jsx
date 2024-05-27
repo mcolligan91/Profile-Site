@@ -110,6 +110,9 @@ const TopNav = (props) => {
                     </Menu.Menu>
                 </Responsive>
                 <Responsive as={Menu} floated='right' maxWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} borderless inverted size='massive'>
+                    <Menu.Item className='light-mode-menu-static-mobile-item'>
+                        {lightModeMenuItem('top-nav-link-static-mobile')}
+                    </Menu.Item>
                     <Menu.Item>
                         <DropdownMenu menuItems={landingMenuItems} scrollToContent={scrollToContent} />
                     </Menu.Item>

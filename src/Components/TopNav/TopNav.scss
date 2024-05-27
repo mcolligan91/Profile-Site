@@ -129,3 +129,12 @@ a:hover .top-nav-link-text {
 .top-nav-static-inverted .top-nav-link-text {
     color: $main-background-dark-inverted;
 }
+
+.ui.menu .item.top-nav-link-static-mobile {
+    font-size: 2em;
+    padding: 0;
+}
+
+.ui.menu .item.light-mode-menu-static-mobile-item {
+    padding-right: 0;
+}

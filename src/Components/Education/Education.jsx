@@ -50,32 +50,30 @@ const Education = (props) => {
     const handleOutsideClick = () => {
         setImageToggles(Array(educationData.length).fill(false));
     };
-
-    return (
-        <Container className='content-row-container' onClick={handleOutsideClick} onTouchStart={handleOutsideClick}>
-            <SectionHeader content='Education' />
-            {educationData.map((edu, i) => (
-                <Fade bottom duration={1250} distance='50px' key={i}>
+    
+    const renderSchoolCards = () => (
+        educationData.map((edu, i) => (
+            <Fade bottom duration={1250} distance='50px' key={i}>
                     <div className='college-info-container'>
                         <Card className='school-card'>
                             <div className={`school-image-container ${imageToggles[i] ? 'toggled' : ''}`} onClick={(e) => handleImageClick(i, e)} onTouchStart={(e) => handleTouchStart(i, e)}>
                                 <img src={edu.image} alt={`${edu.school} Campus`} className='school-image' />
                             </div>
                             <Card.Content>
-                                <Card.Header>
-                                    {edu.school}
-                                </Card.Header>
-                                <Card.Meta>
-                                    <span className='date'>{edu.date}</span>
-                                </Card.Meta>
-                                <Card.Description>
-                                    {edu.description}
-                                </Card.Description>
+                                <Card.Header content={edu.school} />
+                                <Card.Meta content={edu.date} />
+                                <Card.Description content={edu.description} />
                             </Card.Content>
                         </Card>
                     </div>
-                </Fade>
-            ))}
+            </Fade>
+        ))
+    );
+
+    return (
+        <Container className='content-row-container' onClick={handleOutsideClick} onTouchStart={handleOutsideClick}>
+            <SectionHeader content='Education' />
+            {renderSchoolCards()}
         </Container>
     );
 };

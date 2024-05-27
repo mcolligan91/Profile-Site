@@ -15,7 +15,7 @@
 .section-header::after {
     content: "";
     position: absolute;
-    bottom: 5px; 
+    bottom: 6px; 
     left: -5px; 
     width: calc(100% + 10px);
     height: 15px; 
@@ -27,6 +27,12 @@
     .section-header::after {
         bottom: 6px; 
         height: 12px; 
+    }
+}
+
+.ui.grid>.centered.row.content-row-mobile {
+    .section-header {
+        font-size: 2.75em;
     }
 }
 
