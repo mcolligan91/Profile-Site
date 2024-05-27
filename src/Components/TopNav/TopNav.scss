@@ -52,6 +52,14 @@
     border-bottom: 1px solid $main-background-light;
 }
 
+.ui.inverted.menu.top-nav-fixed {
+    @media screen and (max-width: 767px) {
+        .top-nav-link {
+            padding: .75em .9225em;
+        }
+    }
+}
+
 .top-nav-link-text {
     display: block;
     position: relative;

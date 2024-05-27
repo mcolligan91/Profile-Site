@@ -23,16 +23,15 @@
     z-index: -1;
 }
 
-.ui.grid>.centered.row.content-row-mobile {
+.ui.grid>.centered.row.content-row-mobile,
+.ui.grid>.centered.row.content-row-mobile-inverted {
+    .section-header {
+        font-size: 2.75em;
+    }
+
     .section-header::after {
         bottom: 6px; 
         height: 12px; 
-    }
-}
-
-.ui.grid>.centered.row.content-row-mobile {
-    .section-header {
-        font-size: 2.75em;
     }
 }
 
