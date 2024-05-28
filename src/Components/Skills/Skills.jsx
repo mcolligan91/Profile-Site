@@ -1,15 +1,13 @@
 import React from 'react';
-import { Container, Grid, Header, Label } from 'semantic-ui-react';
-import { Flip, Fade } from 'react-reveal';
+import { Container, Grid, Label } from 'semantic-ui-react';
+import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
 import './Skills.scss';
 
-const Skills = (props) => {
-	const {isInverted, isMobile} = props;
-
+const Skills = ({isInverted, isMobile}) => {
 	const skillsIconsInfo = [
 		{iconClass: 'html5-plain', text: 'HTML5'},
 		{iconClass: 'css3-plain', text: 'CSS3'},
@@ -45,8 +43,8 @@ const Skills = (props) => {
 		</div>	
 	);
 
-	const renderSkillsIcons = () => (
-		skillsIconsInfo.map((info, i) => (
+	const renderSkillsIcons = (skillsIconsInfo) => {
+		return skillsIconsInfo.map((info, i) => (
 			<Fade key={i} bottom duration={1250} distance='100px'>
 				<Label className='skills-icon-container' size={isMobile ? 'tiny' : 'medium'}>
 					<i className={`icon skills-icon devicon-${info.iconClass}`} /> 
@@ -54,25 +52,27 @@ const Skills = (props) => {
 				</Label>
 			</Fade>
 		))
+	};
+
+	const skillsContentGrid = (
+		<Grid className={`skills-container ${isInverted ? 'skills-container-inverted' : ''} ${isMobile ? 'skills-container-mobile' : ''}`} verticalAlign='middle' textAlign='center'>
+			<Grid.Column computer={12} tablet={14} mobile={14}>
+				<Fade bottom duration={1000} distance='50px'>
+					{bioParagraph}
+				</Fade>
+				<Fade bottom duration={1000} distance='50px'>
+					<div className='skills-icons-container'>
+						{renderSkillsIcons(skillsIconsInfo)}
+					</div>
+				</Fade>
+			</Grid.Column>
+		</Grid>
 	);
 
 	return (
 		<Container className='content-row-container' textAlign='center'>
 			<SectionHeader content='About' />
-			<Grid className={`skills-container ${isInverted ? 'skills-container-inverted' : ''} ${isMobile ? 'skills-container-mobile' : ''}`} verticalAlign='middle' textAlign='center'>
-				<Grid.Row>
-					<Grid.Column computer={12} tablet={14} mobile={14}>
-						<Fade bottom duration={1000} distance='50px'>
-							{bioParagraph}
-						</Fade>
-						<Fade bottom duration={1000} distance='50px'>
-							<div className='skills-icons-container'>
-								{renderSkillsIcons()}
-							</div>
-						</Fade>
-					</Grid.Column>
-				</Grid.Row>
-			</Grid>
+			{skillsContentGrid}
 		</Container>
 	);
 }

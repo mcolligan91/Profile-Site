@@ -2,9 +2,7 @@ import React from 'react';
 
 import './SiteLogo.scss';
 
-const SiteLogo = (props) => {
-    const {classes} = props;
-
+const SiteLogo = ({classes}) => {
     return (
         <span className={`logo-text ${classes}`} onClick={classes.includes('clickable') ? () => window.location.reload() : null}>M</span>
     );

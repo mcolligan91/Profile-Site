@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-import Timeline from 'react-timeline-semantic-ui';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
@@ -9,7 +8,7 @@ import './Experience.scss';
 import JobAccordion from '../Shared/JobAccordion/JobAccordion';
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
-const Experience = ({isMobile, isInverted}) => {
+const Experience = () => {
 	const jobInfo = [
 		{
 			jobHeader: 'D+R International',

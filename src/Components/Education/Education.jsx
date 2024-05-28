@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Container, Card } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
@@ -7,8 +7,8 @@ import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
 import './Education.scss';
 
-const Education = ({isMobile, isInverted}) => {
-    const educationData = [
+const Education = () => {
+    const educationData = useMemo(() => [
         {
             school: 'University of Florida',
             date: 'June 2010 - May 2015',
@@ -18,7 +18,7 @@ const Education = ({isMobile, isInverted}) => {
             ),
             images: ['./UF_Campus_1.jpg', './UF_Campus_2.jpg', './UF_Campus_3.jpg', './UF_Campus_4.jpg', './UF_Campus_5.jpg', './UF_Campus_6.jpg', './UF_Campus_7.jpg', './UF_Campus_9.jpg']
         }
-    ];
+    ], []);
 
     const [currentImageIdx, setCurrentImageIdx] = useState(Array(educationData.length).fill(0));
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Accordion, Icon, Header, Grid, List } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+
 import './JobAccordion.scss';
 
 const JobAccordion = ({isInverted, accordionIdx, job}) => {
     const {jobHeader, positions, companyLink} = job;
-    
+
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleClick = (e, {index}) => {
@@ -19,7 +20,7 @@ const JobAccordion = ({isInverted, accordionIdx, job}) => {
                     <Icon name={activeIndex === i ? 'chevron down' : 'chevron right'} />
                     <span className='job-title-text'>{position.positionTitle}</span>
                     &nbsp;
-                    <span className='job-title-text-divider'>//</span>
+                    <span className='job-title-text-divider'>&#47;&#47;</span>
                     &nbsp;
                     <i className='job-dates-text'>{position.positionDates}</i>
                 </Accordion.Title>
@@ -34,18 +35,26 @@ const JobAccordion = ({isInverted, accordionIdx, job}) => {
         ));
     };
 
+    const headerRow = (
+        <Grid.Row className='job-header-row'>
+            <a href={companyLink} target='_blank' rel="noreferrer">
+                <Header as='h2' className='job-accordion-header' content={jobHeader} />
+            </a>
+        </Grid.Row>
+    );
+
+    const accordionRow = (
+        <Grid.Row className='job-accordion-row'>
+            <Accordion styled className={`job-accordion ${isInverted ? 'job-accordion-inverted' : ''}`}>
+                {renderPositions(positions, activeIndex, handleClick)}
+            </Accordion>
+        </Grid.Row>
+    );
+
     return (
         <Grid textAlign='center' className={accordionIdx !== 0 ? 'trailing-job-accordion' : ''}>
-            <Grid.Row className='job-header-row'>
-                <a href={companyLink} target='_blank' rel="noreferrer">
-                    <Header as='h2' className='job-accordion-header' content={jobHeader} />
-                </a>
-            </Grid.Row>
-            <Grid.Row className='job-accordion-row'>
-                <Accordion styled className={`job-accordion ${isInverted ? 'job-accordion-inverted' : ''}`}>
-                    {renderPositions(positions, activeIndex, handleClick)}
-                </Accordion>
-            </Grid.Row>
+            {headerRow}
+            {accordionRow}
         </Grid>
     );
 }

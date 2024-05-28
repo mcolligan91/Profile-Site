@@ -11,9 +11,7 @@ import DropdownMenu from '../Shared/DropdownMenu/DropdownMenu';
 
 import './TopNav.scss';
 
-const TopNav = (props) => {
-    const {isInverted, isMobile, allowTopNavFade, visibleContent, scrollToContent, handleUpdateIsInverted} = props;
-
+const TopNav = ({isInverted, isMobile, allowTopNavFade, visibleContent, scrollToContent, handleUpdateIsInverted}) => {
     const [showFixedNav, setShowFixedNav] = useState(false);
 
     useEffect(() => {
@@ -33,7 +31,7 @@ const TopNav = (props) => {
             return;
         }
         
-        const selector = type === 'static' ? '.top-nav-link-static' : '.top-nav-link-fixed';
+        const selector = type === 'top-nav-link-static' ? '.top-nav-link-static' : '.top-nav-link-fixed';
         const items = document.querySelectorAll(selector);
         if (removeAll) {
             items.forEach(item => {
@@ -50,7 +48,7 @@ const TopNav = (props) => {
 
     const fixedMenuItems = [
         { name: 'Home', id: 'intro-content' },
-        { name: 'About', id: 'skills-content' },
+        { name: 'About', id: 'skills-content' }, 
         { name: 'Experience', id: 'experience-content' },
         { name: 'Education', id: 'education-content' },
         { name: 'Contact', id: 'contact-content' }
@@ -64,8 +62,8 @@ const TopNav = (props) => {
         onClick: () => scrollToContent(id),
     });
 
-    const renderMenuItems = (menuItems, type) => (
-        menuItems.map((item, i) => (
+    const renderMenuItems = (menuItems, type) => {
+        return menuItems.map((item, i) => (
             <Fade key={i} top duration={allowTopNavFade & type === 'top-nav-link-static' ? 1000 + i * 100 : 0} appear>
                 <Menu.Item key={i} className={`top-nav-link ${type}`} {...menuItemTextProps(i, item.id, type)}>
                     <div className='item-text-container'>
@@ -79,7 +77,7 @@ const TopNav = (props) => {
                 </Menu.Item>
             </Fade>
         ))
-    );
+    };
 
     const lightModeIcon = <FontAwesomeIcon className={isInverted ? 'light-mode-icon' : 'dark-mode-icon'} icon={faCircleHalfStroke} />;
 

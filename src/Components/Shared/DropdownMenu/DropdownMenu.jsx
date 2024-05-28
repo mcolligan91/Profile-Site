@@ -3,42 +3,42 @@ import { Icon, List } from 'semantic-ui-react';
 
 import './DropdownMenu.scss';
 
-const DropdownMenu = (props) => {
-	const {menuItems, scrollToContent} = props;
+const DropdownMenu = ({menuItems, scrollToContent}) => {
+	const [isOpen, setOpen] = useState(false);
+	const panelRef = useRef(null);
 
-	const [isOpen, setOpen] = useState(false),
-		panelRef = useRef(null);
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (panelRef.current && !panelRef.current.contains(event.target)) {
+				setOpen(false);
+			}
+		};
 
-		useEffect(() => {
-			const handleClickOutside = (event) => {
-				if (panelRef.current && !panelRef.current.contains(event.target)) {
-					setOpen(false);
-				}
-			};
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [panelRef]);
 	
-			document.addEventListener('mousedown', handleClickOutside);
-	
-			return () => {
-				document.removeEventListener('mousedown', handleClickOutside);
-			};
-		}, [panelRef]);
-	
-		useEffect(() => {
-			const handleScroll = () => {
-				if (isOpen) {
-					setOpen(false);
-				}
-			};
-	
-			window.addEventListener('scroll', handleScroll);
-	
-			return () => {
-				window.removeEventListener('scroll', handleScroll);
-			};
-		}, [isOpen]);
+	useEffect(() => {
+		const handleScroll = () => {
+			if (isOpen) {
+				setOpen(false);
+			}
+		};
 
-	const renderMenuItems = () => (
-		menuItems.map((item, i) => (
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [isOpen]);
+
+	const toggleMenu = () => {
+		setOpen(prevState => !prevState);
+	};
+
+	const renderMenuItems = (menuItems) => {
+		return menuItems.map((item, i) => (
 			<List.Item key={i} onClick={() => scrollToContent(item.id)}>
 			  	<div className='item-text-container'>
 					<span className='item-number'>
@@ -50,10 +50,6 @@ const DropdownMenu = (props) => {
 				</div>
 			</List.Item>
 		))
-	);
-
-	const toggleMenu = () => {
-		setOpen(prevState => !prevState);
 	};
 
 	return (
@@ -61,7 +57,7 @@ const DropdownMenu = (props) => {
 			<button onClick={toggleMenu} className={`hamburger-button ${isOpen ? 'open' : 'close'}`} />
 			<div className={`panel ${isOpen ? 'open' : 'close'}`}>
 				<List className='vertical-menu-items-list'>
-					{renderMenuItems()}
+					{renderMenuItems(menuItems)}
 				</List>
 			</div>
 		</div>

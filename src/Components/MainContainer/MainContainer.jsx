@@ -23,7 +23,6 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 
 	  	window.addEventListener('resize', handleUpdateIsMobile);
 	  	handleUpdateIsMobile();
-
 		return () => {
 			window.removeEventListener('resize', handleUpdateIsMobile);
 		};		
