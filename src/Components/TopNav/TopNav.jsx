@@ -99,7 +99,7 @@ const TopNav = ({isInverted, isMobile, allowTopNavFade, visibleContent, scrollTo
                 </Fade>
             </Grid.Column>
             <Grid.Column className='nav-container' textAlign='right' computer={12} tablet={13} mobile={8}>
-            <Responsive as={Menu} minWidth={768} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} size='massive' borderless inverted> 
+            <Responsive as={Menu} minWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} size='massive' borderless inverted> 
                     <Menu.Menu className='menu-item-container' position='right'>
                         {renderMenuItems(landingMenuItems, 'top-nav-link-static')}
                         <Fade top duration={allowTopNavFade ? 1000 + landingMenuItems.length * 100 : 0} appear>

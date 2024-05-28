@@ -20,19 +20,20 @@
 
     .content {
         .header {
-            color: $main-background-dark-inverted;
-            font-size: 1.5em;
-        }
+                color: $main-background-dark-inverted;
+                font-size: 2em !important;
+            }
 
         .meta {
-            color: lighten($main-background-dark, 40%);
-            font-size: 1.1em;
+            color: lighten($main-background-dark, 50%);
+            font-size: 1.25em;
         }
 
         .description {
             color: $main-background-dark-inverted-secondary;
-            font-size: 1.1em;
+            font-size: 1.25em;
             text-align: left;
+            line-height: 22px;
         }
 
         .school-description-link {
@@ -50,6 +51,11 @@
         width: calc(75vw + 2em);
 
         .content {
+            .header {
+                color: $main-background-dark-inverted;
+                font-size: 1.5em !important;
+            }
+
             .description {
                 font-size: 1em;
             }
