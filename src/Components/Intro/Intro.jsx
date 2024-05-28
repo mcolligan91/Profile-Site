@@ -6,44 +6,37 @@ import { Fade } from 'react-reveal';
 
 import './Intro.scss';
 
-const Intro = (props) => {
-	const {isInverted, isMobile, scrollToContent, scrollToTop, handleUpdateIsInverted} = props;
+const Intro = ({isInverted, isMobile, scrollToContent}) => {
+	const mainHeader = (
+		<Fade left distance={'100px'} duration={1000}>
+			<Header as={!isMobile ? 'h1' : 'h3'} className='intro-main-header'>
+				<span className={`intro-main-text ${isInverted ? 'inverted-dark-text' : ''} ${'intro-main-text-mobile'}`}>Michael Colligan</span>
+			</Header>
+		</Fade>
+	);
 
-	const introHeaders = [
-		{ 
-			divType: !isMobile ? 'h1' : 'h3', 
-			headerClass: 'intro-main-header',
-			spanClass: `intro-main-text ${isInverted ? 'inverted-dark-text' : ''} ${'intro-main-text-mobile'}`, 
-			text: 'Michael Colligan',
-			fadeProps: {left: true, distance: '100px'}
-		},
-		{ 
-			divType: 'h3', 
-			headerClass: 'intro-main-header intro-main-subheader',
-			spanClass: `intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'intro-sub-text-inverted' : ''}`, 
-			text: 'Full-Stack Software Engineer',
-			fadeProps: {right: true, distance: '100px'}
-		}
-	];
+	const mainSubHeader = (
+		<Fade right distance={'100px'} duration={1000}>
+			<Header as='h3' className='intro-main-header intro-main-subheader'>
+				<span className={`intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'intro-sub-text-inverted' : ''}`}>Full-Stack Software Engineer</span>
+			</Header>
+		</Fade>
+	);
+
+	const exploreButton = (
+		<Bounce bottom duration={1400} delay={500}>
+			<Button className={`${!isInverted ? 'explore-button' : 'explore-button-inverted'} explore-button-intro`} circular icon size='huge' inverted type='submit' onClick={() => scrollToContent('skills-content')}>
+				<Icon name='arrow down' />
+			</Button>
+		</Bounce>
+	);
 
 	return (
 		<>
 			<Container id='intro-content' className='intro-container' text textAlign='center'>
-				{introHeaders.map((header, i) => {
-					const {divType, headerClass, spanClass, text, fadeProps} = header;
-					return (
-						<Fade key={i} {...fadeProps} duration={1000}>
-							<Header as={divType} className={headerClass}>
-								<span className={spanClass}>{text}</span>
-							</Header>
-						</Fade>
-					);
-				})}
-				<Bounce bottom duration={1400} delay={500}>
-					<Button className={`${!isInverted ? 'explore-button' : 'explore-button-inverted'} explore-button-intro`} circular icon size='huge' inverted type='submit' onClick={() => scrollToContent('skills-content')}>
-						<Icon name='arrow down' />
-					</Button>
-				</Bounce>
+				{mainHeader}
+				{mainSubHeader}
+				{exploreButton}
 			</Container>
 		</>
 	);

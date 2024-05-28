@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Responsive } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { Fade } from 'react-reveal';
 import { InView } from 'react-intersection-observer';
 import AnimatedCursor from 'react-animated-cursor';
 
@@ -14,22 +13,21 @@ import TopNav from '../TopNav/TopNav';
 
 import './MainContainer.scss';
 
-const MainContainer = (props) => {
-	const {visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted} = props;
-
+const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, handleUpdateIsMobile, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted}) => {
 	const [allowTopNavFade, setAllowTopNavFade] = useState(true);
   
 	useEffect(() => {
 		setTimeout(() => {
 			setAllowTopNavFade(false);
-		}, 2000)
-	  	const {resize} = props;
-	  	window.addEventListener('resize', resize);
-	  	resize();
+		}, 2000);
+
+	  	window.addEventListener('resize', handleUpdateIsMobile);
+	  	handleUpdateIsMobile();
+
 		return () => {
-			window.removeEventListener('resize', resize);
+			window.removeEventListener('resize', handleUpdateIsMobile);
 		};		
-	}, [props]);
+	}, [handleUpdateIsMobile]);
   
 	const scrollToContent = (elemId) => {
 		if (elemId === 'intro-content') {
@@ -98,6 +96,14 @@ const MainContainer = (props) => {
 		</Grid>
 	);
 
+	const landingContainer = (
+		<div className='landing-container'>
+			{!isInverted ? particlesLanding : particlesLandingInverted}
+			<TopNav {...topNavProps} />
+			{introContainer}
+		</div>
+	);
+
 	const bottomNav = (
 		<InView threshold={inViewThresholds['Education']} onChange={(inView) => {if (inView) {handleUpdateVisibleContent('Contact');}}}>
 			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
@@ -107,11 +113,7 @@ const MainContainer = (props) => {
 	return (
 		<div id='app' className={isMobile ? 'show-sustem-cursor' : ''}>
 			{animatedCursor}
-			<div className='landing-container'>
-				{!isInverted ? particlesLanding : particlesLandingInverted}
-				<TopNav {...topNavProps} />
-				{introContainer}
-			</div>
+			{landingContainer}
 			<Grid className='content-rows-container'>
 				{!isInverted ? particlesContent : particlesContentInverted}
 				{contentContainers.map((container, i) => {
@@ -143,7 +145,7 @@ const mapDispatchToProps = (dispatch) => {
 		handleUpdateIsInverted: () => {
 			dispatch({ type: 'UPDATE_ISINVERTED' })
 		},
-		resize: () => {
+		handleUpdateIsMobile: () => {
 			dispatch({ type: 'UPDATE_ISMOBILE' })
 		},
 		handleUpdateVisibleContent: (content) => {
@@ -151,6 +153,5 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	};
 }
-
   
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

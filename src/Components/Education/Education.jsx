@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
+
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+
 import './Education.scss';
 
-const Education = (props) => {
-    const {isMobile, isInverted} = props;
-
+const Education = ({isMobile, isInverted}) => {
     const educationData = [
         {
             school: 'University of Florida',
@@ -36,8 +36,8 @@ const Education = (props) => {
         return () => intervals.forEach(interval => clearInterval(interval));
     }, [educationData]);
 
-    const renderSchoolCards = () => (
-        educationData.map((edu, i) => (
+    const renderSchoolCards = (educationData, currentImageIdx) => {
+        return educationData.map((edu, i) => (
             <Fade bottom duration={1250} distance='50px' key={i}>
                 <div className='college-info-container'>
                     <Card className='school-card'>
@@ -56,12 +56,12 @@ const Education = (props) => {
                 </div>
             </Fade>
         ))
-    );
+    };
 
     return (
         <Container className='content-row-container'>
             <SectionHeader content='Education' />
-            {renderSchoolCards()}
+            {renderSchoolCards(educationData, currentImageIdx)}
         </Container>
     );
 };

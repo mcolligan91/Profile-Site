@@ -1,9 +1,5 @@
 @import '../index.scss';
 
-.email-link:hover {
-    font-weight: bold;
-}
-
 .ui.grid>.row.contact-icons-row {
     margin-top: 2em;
 }
@@ -24,20 +20,6 @@ i.icon.contact-link {
 
 .bottom-nav-container-inverted {
     background: $main-background-dark;
-}
-
-
-.bottom-nav-container-inverted .ui.header.footer-header {
-    color: $main-blue-dark;
-}
-
-.bottom-nav-container-inverted .contact-link {
-    color: $main-orange-dark;
-}
-
-.bottom-nav-container-inverted .email-link,
-.bottom-nav-container-inverted .copyright-text {
-    color: $main-blue-light;
 }
 
 .ui.grid>.row.scroll-up-botton-container {

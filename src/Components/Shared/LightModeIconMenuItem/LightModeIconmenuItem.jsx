@@ -2,9 +2,7 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-const LightModeIconMenuItem = (props) => {
-    const {isInverted, className, clickFunction, mouseEnterFunction, mouseLeaveFunction, icon} = props;
-
+const LightModeIconMenuItem = ({isInverted, className, clickFunction, mouseEnterFunction, mouseLeaveFunction, icon}) => {
     return (
         <Menu.Item className={className}>
             <div className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''}`} onClick={clickFunction} onMouseEnter={mouseEnterFunction} onMouseLeave={mouseLeaveFunction}>

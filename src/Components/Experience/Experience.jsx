@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import Timeline from 'react-timeline-semantic-ui';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
@@ -9,9 +9,7 @@ import './Experience.scss';
 import JobAccordion from '../Shared/JobAccordion/JobAccordion';
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
-const Experience = (props) => {
-	const {isMobile, isInverted} = props;
-
+const Experience = ({isMobile, isInverted}) => {
 	const jobInfo = [
 		{
 			jobHeader: 'D+R International',
@@ -48,17 +46,19 @@ const Experience = (props) => {
 		}
 	];
 
+	const renderJobAccordions = (jobInfo) => { 
+		return jobInfo.map((job, i) => (
+			<Fade key={i} bottom duration={1250} distance='50px'>
+				<JobAccordion job={job} accordionIdx={i} />
+			</Fade>
+		))
+	};
+
 	return (		
 		<Container className='content-row-container' textAlign='center'>
 			<SectionHeader content='Experience' />
 			<Container className='experience-container'>
-				{jobInfo.map((job, i) => {
-					return (
-						<Fade key={i} bottom duration={1250} distance='50px'>
-							<JobAccordion job={job} accordionIdx={i} />
-						</Fade>
-					);
-				})}
+				{renderJobAccordions(jobInfo)}
 			</Container>
 		</Container>
 	);
