@@ -30,8 +30,14 @@ html.dark-mode {
 }
 
 .ui.grid > .row.sub-row {
-    padding: 6rem 0;
+    padding-top: 5.5em;
     min-height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+    .ui.grid > .row.sub-row {
+        padding-top: 6.5em;
+    }
 }
 
 .ui.grid > .row.sub-row h1 {
@@ -117,4 +123,8 @@ html.dark-mode {
 .nav-container {
     padding-bottom: 0;
     padding-right: 2rem;
+}
+
+#contact-content {
+    padding-bottom: 6em;
 }

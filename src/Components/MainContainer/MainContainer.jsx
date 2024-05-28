@@ -118,7 +118,7 @@ const MainContainer = (props) => {
 					const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
 					return (
 					<Grid.Row key={i} id={contentId} className={`${contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`}${isInverted ? '-inverted' : ''}`} centered>
-						<InView key={i} threshold={visibilityThreshold}   onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
+						<InView key={i} threshold={visibilityThreshold} onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
 							{content}
 						</InView>
 					</Grid.Row>

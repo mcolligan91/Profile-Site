@@ -1,5 +1,7 @@
 @import '../index.scss';
 
+$explore-button-dark: darken($main-background-dark-inverted, 5%);
+
 .intro-container {
     height: calc(100vh - 103px);
     min-height: 700;
@@ -39,20 +41,20 @@
 .ui.inverted.button.explore-button-inverted {
     background: $neutral-white;
     color: $accent-blue !important;
-    box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
+    box-shadow: 0 0 0 2px $explore-button-dark inset !important;
 }
 
 .ui.inverted.button.explore-button-inverted:hover,
 .ui.inverted.button.explore-button-inverted:focus,
 .ui.inverted.button.explore-button-inverted:visited {
-    box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
-    background: $main-background-dark-inverted;
+    box-shadow: 0 0 0 2px $explore-button-dark inset !important;
+    background: $explore-button-dark;
 }
 
 .ui.inverted.button.explore-button-inverted:focus,
 .ui.inverted.button.explore-button-inverted:visited {
-    box-shadow: 0 0 0 2px $main-background-dark-inverted inset !important;
-    background: $main-background-dark-inverted;
+    box-shadow: 0 0 0 2px $explore-button-dark inset !important;
+    background: $explore-button-dark;
 }
 
 .ui.inverted.button.explore-button-intro {
