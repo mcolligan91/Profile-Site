@@ -124,3 +124,15 @@ html.dark-mode {
 #contact-content {
     padding-bottom: 6em;
 }
+
+.particles-container {
+    transition: opacity .3s ease-in-out;
+  }
+  
+  .particles-hidden {
+    opacity: 0;
+  }
+  
+  .particles-visible {
+    opacity: 1;
+  }

@@ -97,7 +97,12 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 
 	const landingContainer = (
 		<div className='landing-container'>
-			{!isInverted ? particlesLanding : particlesLandingInverted}
+			<div className={`particles-container ${isInverted ? 'particles-hidden' : 'particles-visible'}`}>
+				{particlesLanding}
+			</div>
+			<div className={`particles-container ${isInverted ? 'particles-visible' : 'particles-hidden'}`}>
+				{particlesLandingInverted}
+			</div>
 			<TopNav {...topNavProps} />
 			{introContainer}
 		</div>
@@ -114,7 +119,12 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 			{animatedCursor}
 			{landingContainer}
 			<Grid className='content-rows-container'>
-				{!isInverted ? particlesContent : particlesContentInverted}
+				<div className={`particles-container ${isInverted ? 'particles-hidden' : 'particles-visible'}`}>
+					{particlesContent}
+				</div>
+				<div className={`particles-container ${isInverted ? 'particles-visible' : 'particles-hidden'}`}>
+					{particlesContentInverted}
+				</div>
 				{contentContainers.map((container, i) => {
 					const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
 					return (

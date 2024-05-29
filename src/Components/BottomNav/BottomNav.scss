@@ -16,10 +16,12 @@ i.icon.contact-link {
     margin-top: 0 !important;
     padding-top: 1em;
     background: $main-background-light;
+    transition: background-color .3s ease-in-out;
 }
 
 .bottom-nav-container-inverted {
     background: $main-background-dark;
+    transition: background-color .3s ease-in-out;
 }
 
 .ui.grid>.row.scroll-up-botton-container {
