@@ -46,7 +46,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .ui.card.school-card {
         width: calc(75vw + 2em);
 
@@ -56,6 +56,7 @@
                 font-size: 1.5em !important;
             }
 
+            .meta,
             .description {
                 font-size: 1em;
             }
