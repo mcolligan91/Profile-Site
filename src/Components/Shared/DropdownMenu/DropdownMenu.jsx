@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Icon, List } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import './DropdownMenu.scss';
 
@@ -62,6 +63,11 @@ const DropdownMenu = ({menuItems, scrollToContent}) => {
 			</div>
 		</div>
 	);
+};
+
+DropdownMenu.propTypes = {
+	menuItems: PropTypes.array.isRequired,
+	scrollToContent: PropTypes.func.isRequired
 };
 
 export default DropdownMenu;

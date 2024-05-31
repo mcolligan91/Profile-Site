@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, Icon, List, Container, Button } from 'semantic-ui-react';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 
@@ -73,5 +74,11 @@ const mapStateToProps = (state) => {
 		isMobile: state.IsMobileReducer.isMobile
     }
 }
+
+BottomNav.propTypes = {
+	isInverted: PropTypes.bool.isRequired,
+	isMobile: PropTypes.bool.isRequired,
+	scrollToTop: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps)(BottomNav);

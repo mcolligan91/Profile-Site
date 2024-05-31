@@ -43,10 +43,6 @@
     color: $main-background-dark;
 }
 
-.ui.inverted.menu.top-nav-fixed .dimmed {
-    opacity: 50%;
-}
-
 .ui.inverted.menu.top-nav-fixed-inverted {
     background: $main-background-dark;
     border-bottom: 1px solid $main-background-light;
@@ -72,7 +68,7 @@ a:hover .top-nav-link-text {
 }
 
 .dimmed {
-    opacity: 0.75;
+    opacity: 50%;
     transition: opacity 0.3s ease;
 }
 

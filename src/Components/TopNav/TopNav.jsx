@@ -4,6 +4,7 @@ import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 import LightModeIconMenuItem from '../Shared/LightModeIconMenuItem/LightModeIconMenuItem';
@@ -147,6 +148,17 @@ const mapStateToProps = (state) => {
         visibleContent: state.VisibleContentReducer.visibleContent
     };
 }
+
+TopNav.propTypes = {
+	visibleContent: PropTypes.string.isRequired,
+	isInverted: PropTypes.bool.isRequired,
+	isMobile: PropTypes.bool.isRequired,
+	allowTopNavFade:  PropTypes.oneOfType([PropTypes.func.isRequired, PropTypes.bool.isRequired]),
+	scrollToContent: PropTypes.func.isRequired,
+	handleUpdateIsInverted: PropTypes.func.isRequired
+};
+
+
 
 export default connect(mapStateToProps)(TopNav);
 

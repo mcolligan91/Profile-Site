@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Accordion, Icon, Header, Grid, List } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './JobAccordion.scss';
 
@@ -63,5 +64,11 @@ const mapStateToProps = (state) => ({
     isMobile: state.IsMobileReducer.isMobile,
     isInverted: state.IsInvertedReducer.isInverted
 });
+
+JobAccordion.propTypes = {
+	isInverted: PropTypes.bool.isRequired,
+	accordionIdx: PropTypes.number.isRequired,
+    job: PropTypes.object.isRequired
+};
 
 export default connect(mapStateToProps)(JobAccordion);

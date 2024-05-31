@@ -1,4 +1,4 @@
-const initState = { visibleContent: null };
+const initState = { visibleContent: '' };
 
 const VisibleContentReducer = (state = initState, action) => {
     if (action.type === 'UPDATE_VISIBLECONTENT') {

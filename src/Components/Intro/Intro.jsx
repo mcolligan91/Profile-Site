@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Header, Button, Icon } from 'semantic-ui-react';
-import { Bounce } from 'react-reveal';
+import { Bounce, Fade } from 'react-reveal';
 import { connect } from 'react-redux';
-import { Fade } from 'react-reveal';
+import PropTypes from 'prop-types';
 
 import './Intro.scss';
 
@@ -48,5 +48,11 @@ const mapStateToProps = (state) => {
         isMobile: state.IsMobileReducer.isMobile
     };
 }
+
+Intro.propTypes = {
+	isInverted: PropTypes.bool.isRequired,
+	isMobile: PropTypes.bool.isRequired,
+	scrollToTop: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps)(Intro);

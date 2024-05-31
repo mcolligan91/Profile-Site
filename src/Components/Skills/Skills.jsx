@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Grid, Label } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
@@ -83,5 +84,10 @@ const mapStateToProps = (state) => {
 		isMobile: state.IsMobileReducer.isMobile
     }
 }
+
+Skills.propTypes = {
+	isInverted: PropTypes.bool.isRequired,
+	isMobile: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps)(Skills);

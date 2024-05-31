@@ -3,10 +3,10 @@ import { Container } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 
-import './Experience.scss';
-
 import JobAccordion from '../Shared/JobAccordion/JobAccordion';
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
+
+import './Experience.scss';
 
 const Experience = () => {
 	const jobInfo = [

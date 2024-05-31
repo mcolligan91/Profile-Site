@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { InView } from 'react-intersection-observer';
+import PropTypes from 'prop-types';
 import AnimatedCursor from 'react-animated-cursor';
 
 import Intro from '../Intro/Intro';
@@ -162,5 +163,18 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	};
 }
+
+MainContainer.propTypes = {
+	visibleContent: PropTypes.string.isRequired,
+	isInverted: PropTypes.bool.isRequired,
+	isMobile: PropTypes.bool.isRequired,
+	handleUpdateVisibleContent: PropTypes.func.isRequired,
+	handleUpdateIsInverted: PropTypes.func.isRequired,
+	handleUpdateIsMobile: PropTypes.func.isRequired,
+	particlesLanding: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
+	particlesLandingInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
+	particlesContent: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
+	particlesContentInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired])
+};
   
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
