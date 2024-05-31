@@ -80,7 +80,8 @@ a:hover .top-nav-link-text {
     color: $main-background-dark-inverted;
 }
 
-.ui.inverted.menu.top-nav-fixed .top-nav-link-text:hover {
+.ui.inverted.menu.top-nav-fixed .top-nav-link-text:hover,
+.ui.inverted.menu.top-nav-static .top-nav-link:hover {
     color: $accent-blue;
 }
 
