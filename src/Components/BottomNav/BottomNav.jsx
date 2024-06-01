@@ -9,12 +9,6 @@ import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 import './BottomNav.scss';
 
 const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
-	const contactIcons = [
-		{text: 'Gmail', link: 'mailto:mcolligan91@gmail.com', icon: 'mail'},
-		{text: 'LinkedIn', link: 'https://www.linkedin.com/in/michael-colligan-189aa196', icon: 'linkedin square'},
-		{text: 'GitHub', link: 'https://github.com/mcolligan91', icon: 'github'}
-	];
-
 	const scrollToTopButton = (
 		<Fade bottom distance={isMobile ? '10%' : '100%'}>
 			<Button className={isInverted ? `explore-button` : 'explore-button-inverted'} circular icon size='huge' inverted onClick={scrollToTop}>
@@ -22,6 +16,12 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 			</Button>
 		</Fade>
 	);
+	
+	const contactIcons = [
+		{text: 'Gmail', link: 'mailto:mcolligan91@gmail.com', icon: 'mail'},
+		{text: 'LinkedIn', link: 'https://www.linkedin.com/in/michael-colligan-189aa196', icon: 'linkedin square'},
+		{text: 'GitHub', link: 'https://github.com/mcolligan91', icon: 'github'}
+	];
 
 	const renderContactIcons = (contactIcons, isInverted) => {
 		return contactIcons.map((item, i) => (
@@ -48,6 +48,13 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 		</Grid>
 	);
 
+	const contactLinksContainer = (
+		<Container>
+			<SiteLogo classes={'logo-text-static footer-logo'} />
+			{iconsGrid}
+		</Container>
+	);
+
 	return (
 		<>
 			<Grid id='contact-content' className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center' stackable>
@@ -55,10 +62,7 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 					{scrollToTopButton}
 				</Grid.Row>
 				<Grid.Row className='contact-links-container'>
-					<Container>
-						<SiteLogo classes={'logo-text-static footer-logo'} />
-						{iconsGrid}
-					</Container>
+					{contactLinksContainer}
 				</Grid.Row>
 				<Grid.Row className={'copyright-text'}>
 					<div>© 2024 - Michael Colligan</div>

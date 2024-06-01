@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 
 import SectionHeader from '../Shared/SectionHeader/SectionHeader';
 
-import './Skills.scss';
+import './About.scss';
 
-const Skills = ({isInverted, isMobile}) => {
+const About = ({isInverted, isMobile}) => {
 	const skillsIconsInfo = [
 		{iconClass: 'html5-plain', text: 'HTML5'},
 		{iconClass: 'css3-plain', text: 'CSS3'},
@@ -85,9 +85,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-Skills.propTypes = {
+About.propTypes = {
 	isInverted: PropTypes.bool.isRequired,
 	isMobile: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps)(Skills);
+export default connect(mapStateToProps)(About);

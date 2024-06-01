@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import AnimatedCursor from 'react-animated-cursor';
 
 import Intro from '../Intro/Intro';
-import Skills from '../Skills/Skills';
+import About from '../About/About';
 import Experience from '../Experience/Experience';
 import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
@@ -46,13 +46,13 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 		'Intro': .5,
 		'About': .5,
 		'Experience': .5,
-		'Education': .8,
-		'Contact': .7
+		'Education': .7,
+		'Contact': .9
 	};
   
 	const contentContainers = [
 		{
-			content: <Skills />,
+			content: <About />,
 			contentId: 'skills-content',
 			contentClass: `skills-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
 			contentName: 'About',
