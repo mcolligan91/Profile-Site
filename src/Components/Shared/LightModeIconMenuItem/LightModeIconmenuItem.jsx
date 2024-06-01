@@ -11,13 +11,13 @@ const LightModeIconMenuItem = ({isInverted, className, clickFunction, mouseEnter
             </div>
         </Menu.Item>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
 		isInverted: state.IsInvertedReducer.isInverted,
     };
-}
+};
 
 LightModeIconMenuItem.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

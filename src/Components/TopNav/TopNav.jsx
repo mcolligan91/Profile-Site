@@ -139,7 +139,7 @@ const TopNav = ({isInverted, isMobile, allowTopNavFade, visibleContent, scrollTo
             {fixedContent}
         </>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -147,7 +147,7 @@ const mapStateToProps = (state) => {
         isMobile: state.IsMobileReducer.isMobile,
         visibleContent: state.VisibleContentReducer.visibleContent
     };
-}
+};
 
 TopNav.propTypes = {
 	visibleContent: PropTypes.string.isRequired,
@@ -157,8 +157,6 @@ TopNav.propTypes = {
 	scrollToContent: PropTypes.func.isRequired,
 	handleUpdateIsInverted: PropTypes.func.isRequired
 };
-
-
 
 export default connect(mapStateToProps)(TopNav);
 

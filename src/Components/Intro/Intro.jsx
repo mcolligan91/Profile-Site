@@ -40,7 +40,7 @@ const Intro = ({isInverted, isMobile, scrollToContent}) => {
 			</Container>
 		</>
 	);
-}
+};
 
 const mapStateToProps = (state) => {
     return {

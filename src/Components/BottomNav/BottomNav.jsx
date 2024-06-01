@@ -72,14 +72,14 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 			</Grid>
 		</>
 	);
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         isInverted: state.IsInvertedReducer.isInverted,
 		isMobile: state.IsMobileReducer.isMobile
     }
-}
+};
 
 BottomNav.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

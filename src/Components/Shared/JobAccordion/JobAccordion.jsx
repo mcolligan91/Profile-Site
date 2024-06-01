@@ -58,7 +58,7 @@ const JobAccordion = ({isInverted, accordionIdx, job}) => {
             {accordionRow}
         </Grid>
     );
-}
+};
 
 const mapStateToProps = (state) => ({
     isMobile: state.IsMobileReducer.isMobile,

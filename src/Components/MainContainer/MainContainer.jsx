@@ -49,26 +49,28 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 		'Education': .7,
 		'Contact': .9
 	};
+
+	const contentRowClass = `${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`
   
 	const contentContainers = [
 		{
 			content: <About />,
 			contentId: 'skills-content',
-			contentClass: `skills-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
+			contentClass: `skills-row content-row ${contentRowClass}`,
 			contentName: 'About',
 			visibilityThreshold: inViewThresholds['About']
 		},
 		{
 			content: <Experience />,
 			contentId: 'experience-content',
-			contentClass: `experience-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
+			contentClass: `experience-row content-row ${contentRowClass}`,
 			contentName: 'Experience',
 			visibilityThreshold: inViewThresholds['Experience']
 		},
 		{
 			content: <Education />,
 			contentId: 'education-content',
-			contentClass: `education-row content-row ${isInverted ? 'content-row-inverted' : ''} ${isMobile ? 'content-row-mobile' : ''}`,
+			contentClass: `education-row content-row ${contentRowClass}`,
 			contentName: 'Education',
 			visibilityThreshold: inViewThresholds['Education']
 		}
@@ -114,33 +116,40 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 			<BottomNav scrollToTop={scrollToTop} isInverted={isInverted} />
 		</InView>
 	);
+
+	const particlesContainers = (
+		<>
+			<div className={`particles-container ${isInverted ? 'particles-hidden' : 'particles-visible'}`}>
+				{particlesContent}
+			</div>
+			<div className={`particles-container ${isInverted ? 'particles-visible' : 'particles-hidden'}`}>
+				{particlesContentInverted}
+			</div>
+		</>
+	);
+
+	const renderContentContainers = (contentContainers) => {
+		return contentContainers.map(({content, contentId, contentClass, contentName, visibilityThreshold}, i) => (
+			<Grid.Row key={i} id={contentId} className={`${contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`}${isInverted ? '-inverted' : ''}`} centered>
+				<InView key={i} threshold={visibilityThreshold} onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
+					{content}
+				</InView>
+			</Grid.Row>
+		))
+	};
   
 	return (
 		<div id='app' className={isMobile ? 'show-sustem-cursor' : ''}>
 			{animatedCursor}
 			{landingContainer}
 			<Grid className='content-rows-container'>
-				<div className={`particles-container ${isInverted ? 'particles-hidden' : 'particles-visible'}`}>
-					{particlesContent}
-				</div>
-				<div className={`particles-container ${isInverted ? 'particles-visible' : 'particles-hidden'}`}>
-					{particlesContentInverted}
-				</div>
-				{contentContainers.map((container, i) => {
-					const {content, contentId, contentClass, contentName, visibilityThreshold} = container;
-					return (
-					<Grid.Row key={i} id={contentId} className={`${contentClass === 'intro-main-container' ? contentClass : `sub-row ${contentClass}`}${isInverted ? '-inverted' : ''}`} centered>
-						<InView key={i} threshold={visibilityThreshold} onChange={(inView) => inView && handleUpdateVisibleContent(contentName)}>
-							{content}
-						</InView>
-					</Grid.Row>
-					);
-				})}
+				{particlesContainers}
+				{renderContentContainers(contentContainers)}
 			</Grid>
 			{bottomNav}
 		</div>
 	);
-}
+};
   
 const mapStateToProps = (state) => {
 	return {
@@ -162,7 +171,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch({ type: 'UPDATE_VISIBLECONTENT', content: content })
 		}
 	};
-}
+};
 
 MainContainer.propTypes = {
 	visibleContent: PropTypes.string.isRequired,

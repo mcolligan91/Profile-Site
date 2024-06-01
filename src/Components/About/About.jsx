@@ -76,14 +76,14 @@ const About = ({isInverted, isMobile}) => {
 			{skillsContentGrid}
 		</Container>
 	);
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         isInverted: state.IsInvertedReducer.isInverted,
 		isMobile: state.IsMobileReducer.isMobile
     }
-}
+};
 
 About.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

@@ -12,14 +12,14 @@ const SectionHeader = ({isInverted, content}) => {
             <Header as='h1' className={`section-header ${isInverted ? 'section-header-inverted' : ''}`} content={content} />
         </Fade>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
 		isMobile: state.IsMobileReducer.isMobile,
         isInverted: state.IsInvertedReducer.isInverted
     };
-}
+};
 
 SectionHeader.propTypes = {
 	isInverted: PropTypes.bool.isRequired,
