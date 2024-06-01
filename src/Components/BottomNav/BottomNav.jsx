@@ -70,6 +70,7 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 					{scrollToTopButton}
 				</Grid.Row>
 			</Grid>
+			<Grid className={`site-anchor bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`}></Grid>
 		</>
 	);
 }
