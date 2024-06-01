@@ -8,15 +8,7 @@ import SiteLogo from '../Shared/SiteLogo/SiteLogo';
 
 import './BottomNav.scss';
 
-const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
-	const scrollToTopButton = (
-		<Fade bottom distance={isMobile ? '10%' : '100%'}>
-			<Button className={isInverted ? `explore-button` : 'explore-button-inverted'} circular icon size='huge' inverted onClick={scrollToTop}>
-				<Icon name='arrow up' />
-			</Button>
-		</Fade>
-	);
-	
+const BottomNav = ({isInverted, isMobile, scrollToTop}) => {	
 	const contactIcons = [
 		{text: 'Gmail', link: 'mailto:mcolligan91@gmail.com', icon: 'mail'},
 		{text: 'LinkedIn', link: 'https://www.linkedin.com/in/michael-colligan-189aa196', icon: 'linkedin square'},
@@ -55,6 +47,14 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 		</Container>
 	);
 
+	const scrollToTopButton = (
+		<Fade bottom distance='10%'>
+			<Button className={isInverted ? `explore-button` : 'explore-button-inverted'} circular icon size='huge' inverted onClick={scrollToTop}>
+				<Icon name='arrow up' />
+			</Button>
+		</Fade>
+	);
+
 	return (
 		<>
 			<Grid id='contact-content' className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center' stackable>
@@ -70,7 +70,6 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 					{scrollToTopButton}
 				</Grid.Row>
 			</Grid>
-			<Grid className={`site-anchor bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`}></Grid>
 		</>
 	);
 }
