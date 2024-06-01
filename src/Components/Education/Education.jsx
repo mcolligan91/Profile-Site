@@ -16,7 +16,7 @@ const Education = () => {
             description: (
                 <span>I graduated Summa Cum Laude from the University of Florida with a Bachelor of Science in <a className='school-description-link' href={'https://catalog.ufl.edu/UGRD/colleges-schools/UGDCP/SUB_BSUB_BSUB01/'} target='_blank' rel='noopener noreferrer'>Sustainability and the Built Environment</a>. My thesis was about converting biogas from organic waste into renewable electricity. In addition to my studies, I was an active member of the Chi Phi Fraternity.</span>
             ),
-            images: ['./UF_Campus_1.jpg', './UF_Campus_2.jpg', './UF_Campus_3.jpg', './UF_Campus_4.jpg', './UF_Campus_5.jpg', './UF_Campus_6.jpg', './UF_Campus_7.jpg', './UF_Campus_9.jpg']
+            images: ['UF_Campus_1.jpg', 'UF_Campus_2.jpg', 'UF_Campus_3.jpg', 'UF_Campus_4.jpg', 'UF_Campus_5.jpg', 'UF_Campus_6.jpg', 'UF_Campus_7.jpg', 'UF_Campus_9.jpg']
         }
     ], []);
 

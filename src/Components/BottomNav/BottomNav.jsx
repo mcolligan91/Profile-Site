@@ -58,14 +58,16 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 	return (
 		<>
 			<Grid id='contact-content' className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center' stackable>
-				<Grid.Row className='explore-button-footer-row'>
-					{scrollToTopButton}
-				</Grid.Row>
 				<Grid.Row className='contact-links-container'>
 					{contactLinksContainer}
 				</Grid.Row>
 				<Grid.Row className={'copyright-text'}>
 					<div>© 2024 - Michael Colligan</div>
+				</Grid.Row>
+			</Grid>
+			<Grid className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center'>
+				<Grid.Row className='explore-button-footer-row'>
+					{scrollToTopButton}
 				</Grid.Row>
 			</Grid>
 		</>
