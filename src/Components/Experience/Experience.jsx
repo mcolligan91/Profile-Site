@@ -50,7 +50,7 @@ const Experience = () => {
 			<Fade key={i} bottom duration={1250} distance='50px'>
 				<JobAccordion job={job} accordionIdx={i} />
 			</Fade>
-		))
+		));
 	};
 
 	return (		
@@ -61,13 +61,13 @@ const Experience = () => {
 			</Container>
 		</Container>
 	);
-}
+};
 
 const mapStateToProps = (state) => {
     return {
 		isMobile: state.IsMobileReducer.isMobile,
         isInverted: state.IsInvertedReducer.isInverted
     };
-}
+};
 
 export default connect(mapStateToProps)(Experience);

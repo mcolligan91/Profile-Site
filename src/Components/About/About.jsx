@@ -52,7 +52,7 @@ const About = ({isInverted, isMobile}) => {
 					{info.text}                                    
 				</Label>
 			</Fade>
-		))
+		));
 	};
 
 	const skillsContentGrid = (

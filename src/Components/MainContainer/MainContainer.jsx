@@ -135,7 +135,7 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 					{content}
 				</InView>
 			</Grid.Row>
-		))
+		));
 	};
   
 	return (

@@ -25,7 +25,7 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 					{item.text}
 				</span>
 			</List.Item>
-		))
+		));
 	};
 
 	const iconsGrid = (

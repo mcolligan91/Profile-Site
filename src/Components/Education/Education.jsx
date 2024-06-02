@@ -55,7 +55,7 @@ const Education = () => {
                     </Card>
                 </div>
             </Fade>
-        ))
+        ));
     };
 
     return (

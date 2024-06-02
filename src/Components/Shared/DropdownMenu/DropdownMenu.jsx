@@ -50,7 +50,7 @@ const DropdownMenu = ({menuItems, scrollToContent}) => {
 					</span>
 				</div>
 			</List.Item>
-		))
+		));
 	};
 
 	return (
