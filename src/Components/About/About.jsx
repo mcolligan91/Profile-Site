@@ -45,11 +45,11 @@ const About = ({isInverted, isMobile}) => {
 	);
 
 	const renderSkillsIcons = (skillsIconsInfo) => {
-		return skillsIconsInfo.map((info, i) => (
+		return skillsIconsInfo.map(({iconClass, text}, i) => (
 			<Fade key={i} bottom duration={1250} distance='100px'>
 				<Label className='skills-icon-container' size={isMobile ? 'tiny' : 'medium'}>
-					<i className={`icon skills-icon devicon-${info.iconClass}`} /> 
-					{info.text}                                    
+					<i className={`icon skills-icon devicon-${iconClass}`} /> 
+					{text}                                    
 				</Label>
 			</Fade>
 		));
@@ -78,12 +78,10 @@ const About = ({isInverted, isMobile}) => {
 	);
 };
 
-const mapStateToProps = (state) => {
-    return {
-        isInverted: state.IsInvertedReducer.isInverted,
-		isMobile: state.IsMobileReducer.isMobile
-    }
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
+});
 
 About.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

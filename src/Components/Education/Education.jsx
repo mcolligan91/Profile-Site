@@ -12,7 +12,6 @@ const Education = () => {
         {
             school: 'University of Florida',
             date: 'June 2010 - May 2015',
-            degree: 'B.S in Sustainability and the Built Environment',
             description: (
                 <span>I graduated Summa Cum Laude from the University of Florida with a Bachelor of Science in <a className='school-description-link' href={'https://catalog.ufl.edu/UGRD/colleges-schools/UGDCP/SUB_BSUB_BSUB01/'} target='_blank' rel='noopener noreferrer'>Sustainability and the Built Environment</a>. My thesis was about converting biogas from organic waste into renewable electricity. In addition to my studies, I was an active member of the Chi Phi Fraternity.</span>
             ),
@@ -23,11 +22,11 @@ const Education = () => {
     const [currentImageIdx, setCurrentImageIdx] = useState(Array(educationData.length).fill(0));
 
     useEffect(() => {
-        const intervals = educationData.map((edu, i) => {
+        const intervals = educationData.map(({images}, i) => {
             return setInterval(() => {
                 setCurrentImageIdx(prevIndexes => {
                     const newIndexes = [...prevIndexes];
-                    newIndexes[i] = (newIndexes[i] + 1) % edu.images.length;
+                    newIndexes[i] = (newIndexes[i] + 1) % images.length;
                     return newIndexes;
                 });
             }, 5000);
@@ -37,20 +36,20 @@ const Education = () => {
     }, [educationData]);
 
     const renderSchoolCards = (educationData, currentImageIdx) => {
-        return educationData.map((edu, i) => (
+        return educationData.map(({school, date, description, images}, i) => (
             <Fade bottom duration={1250} distance='50px' key={i}>
                 <div className='college-info-container'>
                     <Card className='school-card'>
                         <div className='school-image-container'>
-                            {edu.images.map((image, j) => (
-                                <img key={j} src={image} alt={`${edu.school}_${j + 1}`} className={`school-image ${j === currentImageIdx[i] ? 'active' : ''}`}
+                            {images.map((image, j) => (
+                                <img key={j} src={image} alt={`${school}_${j + 1}`} className={`school-image ${j === currentImageIdx[i] ? 'active' : ''}`}
                                 />
                             ))}
                         </div>
                         <Card.Content>
-                            <Card.Header content={edu.school} />
-                            <Card.Meta content={edu.date} />
-                            <Card.Description content={edu.description} />
+                            <Card.Header content={school} />
+                            <Card.Meta content={date} />
+                            <Card.Description content={description} />
                         </Card.Content>
                     </Card>
                 </div>
@@ -66,11 +65,9 @@ const Education = () => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        isMobile: state.IsMobileReducer.isMobile,
-        isInverted: state.IsInvertedReducer.isInverted
-    };
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
+});
 
 export default connect(mapStateToProps)(Education);

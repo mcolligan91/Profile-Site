@@ -15,19 +15,19 @@ const JobAccordion = ({isInverted, accordionIdx, job}) => {
     };
 
     const renderPositions = (positions, activeIndex, handleClick) => {
-        return positions.map((position, i) => (
+        return positions.map(({positionTitle, positionDates, positionBullets}, i) => (
             <React.Fragment key={i}>
                 <Accordion.Title active={activeIndex === i} index={i} className={activeIndex === i ? 'open-accordion-title' : 'closed-accordion-title'} onClick={handleClick}>
                     <Icon name={activeIndex === i ? 'chevron down' : 'chevron right'} />
-                    <span className='job-title-text'>{position.positionTitle}</span>
+                    <span className='job-title-text'>{positionTitle}</span>
                     &nbsp;
                     <span className='job-title-text-divider'>&#47;&#47;</span>
                     &nbsp;
-                    <i className='job-dates-text'>{position.positionDates}</i>
+                    <i className='job-dates-text'>{positionDates}</i>
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === i}>
                     <List bulleted relaxed className='job-accordion-list'>
-                        {position.positionBullets.map((bullet, j) => (
+                        {positionBullets.map((bullet, j) => (
                             <List.Item key={j}>{bullet}</List.Item>
                         ))}
                     </List>
@@ -60,9 +60,9 @@ const JobAccordion = ({isInverted, accordionIdx, job}) => {
     );
 };
 
-const mapStateToProps = (state) => ({
-    isMobile: state.IsMobileReducer.isMobile,
-    isInverted: state.IsInvertedReducer.isInverted
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
 });
 
 JobAccordion.propTypes = {

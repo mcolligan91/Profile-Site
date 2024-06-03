@@ -14,12 +14,10 @@ const SectionHeader = ({isInverted, content}) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-		isMobile: state.IsMobileReducer.isMobile,
-        isInverted: state.IsInvertedReducer.isInverted
-    };
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
+});
 
 SectionHeader.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

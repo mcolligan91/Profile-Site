@@ -39,14 +39,14 @@ const DropdownMenu = ({menuItems, scrollToContent}) => {
 	};
 
 	const renderMenuItems = (menuItems) => {
-		return menuItems.map((item, i) => (
-			<List.Item key={i} onClick={() => scrollToContent(item.id)}>
+		return menuItems.map(({id, name}, i) => (
+			<List.Item key={i} onClick={() => scrollToContent(id)}>
 			  	<div className='item-text-container'>
 					<span className='item-number'>
 						<Icon name='chevron right' />
 					</span>
 					<span className='dropdown-menu-item-text'>
-						{item.name}
+						{name}
 					</span>
 				</div>
 			</List.Item>

@@ -151,13 +151,11 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 	);
 };
   
-const mapStateToProps = (state) => {
-	return {
-		isInverted: state.IsInvertedReducer.isInverted,
-		isMobile: state.IsMobileReducer.isMobile,
-		visibleContent: state.VisibleContentReducer.visibleContent
-	};
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}, VisibleContentReducer: {visibleContent}}) => ({
+	isInverted,
+	isMobile,
+    visibleContent
+});
   
 const mapDispatchToProps = (dispatch) => {
 	return {

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Grid, Icon, List, Container, Button } from 'semantic-ui-react';
+import { Grid, Icon, List, Container } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import SiteLogo from '../Shared/SiteLogo/SiteLogo';
+import ExploreButton from '../Shared/ExploreButton/ExploreButton';
 
 import './BottomNav.scss';
 
@@ -16,13 +17,13 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 	];
 
 	const renderContactIcons = (contactIcons, isInverted) => {
-		return contactIcons.map((item, i) => (
-			<List.Item key={i} as='a' className='contact-icons-list-item' href={item.link} target='_blank'>		
+		return contactIcons.map(({link, text, icon}, i) => (
+			<List.Item key={i} as='a' className='contact-icons-list-item' href={link} target='_blank'>		
 				<span>
-					<Icon name={item.icon} className='contact-link-icon' />
+					<Icon name={icon} className='contact-link-icon' />
 				</span>
 				<span className={`contact-link-span ${isInverted ? 'contact-link-text-inverted' : 'contact-link-text'}`}>
-					{item.text}
+					{text}
 				</span>
 			</List.Item>
 		));
@@ -47,17 +48,17 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 		</Container>
 	);
 
-	const scrollToTopButton = (
+	const exploreButtonFooter = (
 		<Fade bottom distance='10%'>
-			<Button className={isInverted ? `explore-button` : 'explore-button-inverted'} circular icon size='huge' inverted onClick={scrollToTop}>
-				<Icon name='arrow up' />
-			</Button>
+			<ExploreButton buttonClass={isInverted ? `explore-button` : 'explore-button-inverted'} buttonClickFunction={scrollToTop} iconName='arrow up' />
 		</Fade>
 	);
 
+	const gridClass = `bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`
+
 	return (
 		<>
-			<Grid id='contact-content' className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center' stackable>
+			<Grid id='contact-content' className={gridClass} textAlign='center' stackable>
 				<Grid.Row className='contact-links-container'>
 					{contactLinksContainer}
 				</Grid.Row>
@@ -65,21 +66,19 @@ const BottomNav = ({isInverted, isMobile, scrollToTop}) => {
 					<div>© 2024 - Michael Colligan</div>
 				</Grid.Row>
 			</Grid>
-			<Grid className={`bottom-nav-container ${isInverted ? 'bottom-nav-container-inverted' : ''}`} textAlign='center'>
+			<Grid className={gridClass} textAlign='center'>
 				<Grid.Row className='explore-button-footer-row'>
-					{scrollToTopButton}
+					{exploreButtonFooter}
 				</Grid.Row>
 			</Grid>
 		</>
 	);
 };
 
-const mapStateToProps = (state) => {
-    return {
-        isInverted: state.IsInvertedReducer.isInverted,
-		isMobile: state.IsMobileReducer.isMobile
-    }
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
+});
 
 BottomNav.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

@@ -1,18 +1,5 @@
 @import '../index.scss';
 
-.ui.segment.skills-segment-mobile,
-.ui.segment.skills-segment {
-    @extend %invisible-segment;
-}
-
-.ui[class*="very padded"].segment.skills-segment-mobile {
-    padding: 1em 0 0 0;
-}
-
-.ui.header.technical-skills-subheader {
-    color: #e6e6e6;
-}
-
 .ui.grid.skills-container {
     padding-top: 15px;
 }

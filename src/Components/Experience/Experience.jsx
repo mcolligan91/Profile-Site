@@ -63,11 +63,9 @@ const Experience = () => {
 	);
 };
 
-const mapStateToProps = (state) => {
-    return {
-		isMobile: state.IsMobileReducer.isMobile,
-        isInverted: state.IsInvertedReducer.isInverted
-    };
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
+});
 
 export default connect(mapStateToProps)(Experience);

@@ -1,11 +1,15 @@
 @import '../index.scss';
 
-$explore-button-dark: darken($main-background-dark-inverted, 5%);
-
 .intro-container {
     height: calc(100vh - 103px);
     min-height: 700;
     padding: 15vh 0;
+}
+
+@media screen and (max-width: 767px) {
+    .intro-container {
+        padding: 10vh 0;
+    }
 }
  
 .intro-main-text {
@@ -24,41 +28,6 @@ $explore-button-dark: darken($main-background-dark-inverted, 5%);
 .intro-sub-text,
 .intro-sub-text-mobile {
     color: $main-background-light-secondary;
-}
-
-.ui.inverted.button.explore-button {
-    color: $accent-blue !important;
-    box-shadow: 0 0 0 2px $main-background-light inset !important;
-}
-
-.ui.inverted.button.explore-button:hover,
-.ui.inverted.button.explore-button:focus,
-.ui.inverted.button.explore-button:visited {
-    background: $main-background-light;
-    box-shadow: 0 0 0 2px $main-background-light inset !important;
-}
-
-.ui.inverted.button.explore-button-inverted {
-    background: $neutral-white;
-    color: $accent-blue !important;
-    box-shadow: 0 0 0 2px $explore-button-dark inset !important;
-}
-
-.ui.inverted.button.explore-button-inverted:hover,
-.ui.inverted.button.explore-button-inverted:focus,
-.ui.inverted.button.explore-button-inverted:visited {
-    box-shadow: 0 0 0 2px $explore-button-dark inset !important;
-    background: $explore-button-dark;
-}
-
-.ui.inverted.button.explore-button-inverted:focus,
-.ui.inverted.button.explore-button-inverted:visited {
-    box-shadow: 0 0 0 2px $explore-button-dark inset !important;
-    background: $explore-button-dark;
-}
-
-.ui.inverted.button.explore-button-intro {
-    margin-top: 2em;
 }
 
 .background-container{

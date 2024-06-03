@@ -1,8 +1,10 @@
 import React from 'react';
-import { Container, Header, Button, Icon } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 import { Bounce, Fade } from 'react-reveal';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import ExploreButton from '../Shared/ExploreButton/ExploreButton';
 
 import './Intro.scss';
 
@@ -23,11 +25,9 @@ const Intro = ({isInverted, isMobile, scrollToContent}) => {
 		</Fade>
 	);
 
-	const exploreButton = (
+	const exploreButtonLanding = (
 		<Bounce bottom duration={1400} delay={500}>
-			<Button className={`${!isInverted ? 'explore-button' : 'explore-button-inverted'} explore-button-intro`} circular icon size='huge' inverted type='submit' onClick={() => scrollToContent('skills-content')}>
-				<Icon name='arrow down' />
-			</Button>
+			<ExploreButton buttonClass={`${!isInverted ? 'explore-button' : 'explore-button-inverted'} explore-button-intro`} buttonClickFunction={() => scrollToContent('skills-content')} iconName='arrow down' />
 		</Bounce>
 	);
 
@@ -36,18 +36,16 @@ const Intro = ({isInverted, isMobile, scrollToContent}) => {
 			<Container id='intro-content' className='intro-container' text textAlign='center'>
 				{mainHeader}
 				{mainSubHeader}
-				{exploreButton}
+				{exploreButtonLanding}
 			</Container>
 		</>
 	);
 };
 
-const mapStateToProps = (state) => {
-    return {
-		isInverted: state.IsInvertedReducer.isInverted,
-        isMobile: state.IsMobileReducer.isMobile
-    };
-}
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
+	isInverted,
+	isMobile
+});
 
 Intro.propTypes = {
 	isInverted: PropTypes.bool.isRequired,

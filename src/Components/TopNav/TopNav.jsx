@@ -64,15 +64,15 @@ const TopNav = ({isInverted, isMobile, allowTopNavFade, visibleContent, scrollTo
     });
 
     const renderMenuItems = (menuItems, type) => {
-        return menuItems.map((item, i) => (
+        return menuItems.map(({name, id}, i) => (
             <Fade key={i} top duration={allowTopNavFade & type === 'top-nav-link-static' ? 1000 + i * 100 : 0} appear>
-                <Menu.Item key={i} className={`top-nav-link ${type}`} {...menuItemTextProps(i, item.id, type)}>
+                <Menu.Item key={i} className={`top-nav-link ${type}`} {...menuItemTextProps(i, id, type)}>
                     <div className='item-text-container'>
                         <span className='item-number'>
                             <Icon name='chevron right' />
                         </span>
-                        <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === item.name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`}>
-                            {item.name}
+                        <span className={`top-nav-link-text ${isInverted ? 'top-nav-link-text-inverted' : ''} ${visibleContent === name ? 'active-top-nav-link-text' : 'non-active-top-nav-link-text'}`}>
+                            {name}
                         </span>
                     </div>
                 </Menu.Item>
@@ -141,13 +141,11 @@ const TopNav = ({isInverted, isMobile, allowTopNavFade, visibleContent, scrollTo
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        isInverted: state.IsInvertedReducer.isInverted,
-        isMobile: state.IsMobileReducer.isMobile,
-        visibleContent: state.VisibleContentReducer.visibleContent
-    };
-};
+const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}, VisibleContentReducer: {visibleContent}}) => ({
+	isInverted,
+	isMobile,
+    visibleContent
+});
 
 TopNav.propTypes = {
 	visibleContent: PropTypes.string.isRequired,
