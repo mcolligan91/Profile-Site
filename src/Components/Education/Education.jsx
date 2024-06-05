@@ -42,7 +42,7 @@ const Education = () => {
                     <Card className='school-card'>
                         <div className='school-image-container'>
                             {images.map((image, j) => (
-                                <img key={j} src={image} alt={`${school}_${j + 1}`} className={`school-image ${j === currentImageIdx[i] ? 'active' : ''}`}
+                                <img key={j} src={image} alt={`${school}_${j + 1}`} loading='lazy' className={`school-image ${j === currentImageIdx[i] ? 'active' : ''}`}
                                 />
                             ))}
                         </div>

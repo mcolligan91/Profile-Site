@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { InView } from 'react-intersection-observer';
@@ -10,20 +10,16 @@ import About from '../About/About';
 import Experience from '../Experience/Experience';
 import Education from '../Education/Education';
 import BottomNav from '../BottomNav/BottomNav';
-import TopNav from '../TopNav/TopNav';
+import TopNavLanding from '../TopNavLanding/TopNavLanding';
+import TopNavFixed from '../TopNavFixed/TopNavFixed';
 
 import './MainContainer.scss';
 
 const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, handleUpdateIsMobile, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted}) => {
-	const [allowTopNavFade, setAllowTopNavFade] = useState(true);
-  
-	useEffect(() => {
-		setTimeout(() => {
-			setAllowTopNavFade(false);
-		}, 2000);
-
+  	useEffect(() => {
 	  	window.addEventListener('resize', handleUpdateIsMobile);
 	  	handleUpdateIsMobile();
+		
 		return () => {
 			window.removeEventListener('resize', handleUpdateIsMobile);
 		};		
@@ -80,12 +76,20 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 		<AnimatedCursor innerSize={8} outerSize={35} innerScale={1} outerScale={2} outerAlpha={0} hasBlendMode={true} innerStyle={{backgroundColor: 'var(--cursor-color)'}} outerStyle={{border: '3px solid var(--cursor-color)'}} clickables={['a', 'button', '.top-nav-link-text', '.logo-text-clickable', '.accordion .title']}  />
 	);
 
+	const topNavMenuItems = [
+        { name: 'Home', id: 'intro-content' },
+        { name: 'About', id: 'skills-content' }, 
+        { name: 'Experience', id: 'experience-content' },
+        { name: 'Education', id: 'education-content' },
+        { name: 'Contact', id: 'contact-content' }
+    ];
+
 	const topNavProps = {
 		isInverted: isInverted,
-		allowTopNavFade: allowTopNavFade,
 		visibleContent: visibleContent,
 		handleUpdateIsInverted: handleUpdateIsInverted,
-		scrollToContent: scrollToContent
+		scrollToContent: scrollToContent,
+		menuItems: topNavMenuItems
 	}
 
 	const introContainer = (
@@ -106,7 +110,8 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 			<div className={`particles-container ${isInverted ? 'particles-visible' : 'particles-hidden'}`}>
 				{particlesLandingInverted}
 			</div>
-			<TopNav {...topNavProps} />
+			<TopNavLanding {...topNavProps} />
+			<TopNavFixed {...topNavProps} />
 			{introContainer}
 		</div>
 	);
