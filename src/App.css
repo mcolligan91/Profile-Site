@@ -36,10 +36,7 @@
     }
 }
 
-#tsparticles-landing, 
-#tsparticles-landing-inverted,
-#tsparticles-content,
-#tsparticles-content-inverted {
+.particles-element {
     position: absolute;
     height: 100%;
     width: 100%;

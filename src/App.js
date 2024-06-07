@@ -8,6 +8,8 @@ import particlesOptionsLanding from './particles-landing.json';
 import particlesOptionsLandingInverted from './particles-landing-inverted.json';
 import particlesOptionsContent from './particles-content.json';
 import particlesOptionsContentInverted from './particles-content-inverted.json';
+import particlesOptionsLandingMobile from './particles-landing-mobile.json';
+import particlesOptionsLandingMobileInverted from './particles-landing-mobile-inverted.json';
 
 import MainContainer from './Components/MainContainer/MainContainer';
 
@@ -33,6 +35,8 @@ function App() {
                 particlesLandingInverted={renderParticles('tsparticles-landing-inverted', particlesOptionsLandingInverted)} 
                 particlesContent={renderParticles('tsparticles-content', particlesOptionsContent)} 
                 particlesContentInverted={renderParticles('tsparticles-content-inverted', particlesOptionsContentInverted)} 
+                particlesLandingMobile={renderParticles('tsparticles-landing-mobile', particlesOptionsLandingMobile)} 
+                particlesLandingMobileInverted={renderParticles('tsparticles-landing-mobile-inverted', particlesOptionsLandingMobileInverted)} 
             />
         </div>
     );

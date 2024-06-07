@@ -15,7 +15,7 @@ import TopNavFixed from '../TopNavFixed/TopNavFixed';
 
 import './MainContainer.scss';
 
-const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsMobile, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted}) => {
+const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsMobile, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted, particlesLandingMobile, particlesLandingMobileInverted}) => {
   	useEffect(() => {
 	  	window.addEventListener('resize', handleUpdateIsMobile);
 	  	handleUpdateIsMobile();
@@ -104,10 +104,10 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 	const landingContainer = (
 		<div className='landing-container'>
 			<div className={`particles-container ${isInverted ? 'particles-hidden' : 'particles-visible'}`}>
-				{particlesLanding}
+				{isMobile ? particlesLandingMobile : particlesLanding}
 			</div>
 			<div className={`particles-container ${isInverted ? 'particles-visible' : 'particles-hidden'}`}>
-				{particlesLandingInverted}
+				{isMobile ? particlesLandingMobileInverted : particlesLandingInverted}
 			</div>
 			<TopNavLanding {...topNavProps} />
 			<TopNavFixed {...topNavProps} />
@@ -181,7 +181,9 @@ MainContainer.propTypes = {
 	particlesLanding: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
 	particlesLandingInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
 	particlesContent: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
-	particlesContentInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired])
+	particlesContentInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
+	particlesLandingMobile: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
+	particlesLandingMobileInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired])
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

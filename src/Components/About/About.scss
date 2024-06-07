@@ -69,6 +69,12 @@
     color: $neutral-white;
 }
 
+@media screen and (max-width: 767px) {
+    .ui.label.skills-icon-container {
+        margin: -.25em 0 !important;
+    }
+}
+
 .ui.label.skills-icon-container:hover {
     @include skills-icon-container;
     border: 2px solid $neutral-white;
