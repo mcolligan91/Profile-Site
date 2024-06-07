@@ -2,30 +2,14 @@ import React from 'react';
 import { Menu, Icon} from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
+import { handleMenuItemHover } from '../../../utils';
 import PropTypes from 'prop-types';
 
 import LightModeIconMenuItem from '../LightModeIconMenuItem/LightModeIconMenuItem';
 
 import './TopNavMenu.scss';
 
-const TopNavMenu = ({isInverted, isMobile, visibleContent, allowTopNavFade, handleUpdateIsInverted, navType, scrollToContent, menuItems}) => {
-    const handleMenuItemHover = (index, type, removeAll) => {
-        const selector = type === 'top-nav-link-static' ? '.top-nav-link-static' : '.top-nav-link-fixed';
-        const items = document.querySelectorAll(selector);
-
-        if (removeAll) {
-            items.forEach(item => {
-                item.classList.remove('dimmed');
-            });
-        } else {
-            items.forEach((item, i) => {
-                if (i !== index) {
-                    item.classList.add('dimmed');
-                }
-            });
-        }
-    };
-
+const TopNavMenu = ({isInverted, isMobile, visibleContent, allowTopNavFade, navType, scrollToContent, menuItems}) => {
     const menuItemTextProps = (i, id, type) => ({
         onMouseEnter: () => !isMobile && handleMenuItemHover(i, type, false),
         onMouseLeave: () => !isMobile && handleMenuItemHover(i, type, true),
@@ -49,18 +33,9 @@ const TopNavMenu = ({isInverted, isMobile, visibleContent, allowTopNavFade, hand
         ));
     };
 
-    const lightModeMenuItem = (type) => (
-        <LightModeIconMenuItem
-            className={`top-nav-link ${type}`}
-            clickFunction={() => handleUpdateIsInverted()}
-            mouseEnterFunction={() => !isMobile && handleMenuItemHover(menuItems.length, type, false)}
-            mouseLeaveFunction={() => !isMobile && handleMenuItemHover(menuItems.length, type, true)}
-        />
-    );
-
     const lightModeMenuElement = (
         <Fade top duration={navType === 'top-nav-link-static' & allowTopNavFade ? 1000 + menuItems.length * 100 : 0} appear>
-            {lightModeMenuItem(navType)}
+            <LightModeIconMenuItem className={`top-nav-link ${navType}`} index={menuItems.length} />
         </Fade>
     );
 
@@ -85,8 +60,7 @@ TopNavMenu.propTypes = {
     navType: PropTypes.string.isRequired,
     menuItems: PropTypes.array.isRequired,
     scrollToContent: PropTypes.func.isRequired,
-    handleUpdateIsInverted: PropTypes.func.isRequired,
-	allowTopNavFade:  PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+	allowTopNavFade:  PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
 };
 
 export default connect(mapStateToProps)(TopNavMenu);

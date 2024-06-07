@@ -7,7 +7,7 @@ import TopNavMenu from '../Shared/TopNavMenu/TopNavMenu';
 
 import './TopNavFixed.scss';
 
-const TopNavFixed = ({isInverted, isMobile, scrollToContent, handleUpdateIsInverted, menuItems}) => {
+const TopNavFixed = ({isInverted, isMobile, scrollToContent, menuItems}) => {
     const [showFixedNav, setShowFixedNav] = useState(false);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const TopNavFixed = ({isInverted, isMobile, scrollToContent, handleUpdateIsInver
 
     const menuElement = (
         <Menu className={`top-nav-fixed ${showFixedNav ? 'visible' : 'hidden'} ${isInverted ? 'top-nav-fixed-inverted' : ''} ${isMobile ? 'top-nav-fixed-mobile' : ''} `} size={isMobile ? 'small' : 'massive'} borderless inverted fixed='top'> 
-            <TopNavMenu navType='top-nav-link-fixed' scrollToContent={scrollToContent} menuItems={menuItems} handleUpdateIsInverted={handleUpdateIsInverted} />
+            <TopNavMenu navType='top-nav-link-fixed' scrollToContent={scrollToContent} menuItems={menuItems} />
         </Menu>
     );
 
@@ -46,7 +46,6 @@ TopNavFixed.propTypes = {
 	isInverted: PropTypes.bool.isRequired,
 	isMobile: PropTypes.bool.isRequired,
 	scrollToContent: PropTypes.func.isRequired,
-	handleUpdateIsInverted: PropTypes.func.isRequired,
     menuItems: PropTypes.array.isRequired
 };
 

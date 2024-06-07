@@ -15,11 +15,11 @@ import TopNavFixed from '../TopNavFixed/TopNavFixed';
 
 import './MainContainer.scss';
 
-const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsInverted, handleUpdateIsMobile, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted}) => {
+const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibleContent, handleUpdateIsMobile, particlesLanding, particlesLandingInverted, particlesContent, particlesContentInverted}) => {
   	useEffect(() => {
 	  	window.addEventListener('resize', handleUpdateIsMobile);
 	  	handleUpdateIsMobile();
-		
+
 		return () => {
 			window.removeEventListener('resize', handleUpdateIsMobile);
 		};		
@@ -87,7 +87,6 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 	const topNavProps = {
 		isInverted: isInverted,
 		visibleContent: visibleContent,
-		handleUpdateIsInverted: handleUpdateIsInverted,
 		scrollToContent: scrollToContent,
 		menuItems: topNavMenuItems
 	}
@@ -96,7 +95,7 @@ const MainContainer = ({visibleContent, isInverted, isMobile, handleUpdateVisibl
 		<Grid>
 			<Grid.Row className={`intro-main-container ${isMobile ? 'intro-main-container-mobile' : ''}`} centered>
 				<InView threshold={inViewThresholds['Intro']} onChange={(inView) => inView && handleUpdateVisibleContent('Home')}>
-					<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} handleUpdateIsInverted={handleUpdateIsInverted} />
+					<Intro scrollToContent={scrollToContent} scrollToTop={scrollToTop} />
 				</InView>
 			</Grid.Row>
 		</Grid>
@@ -164,9 +163,6 @@ const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isM
   
 const mapDispatchToProps = (dispatch) => {
 	return {
-		handleUpdateIsInverted: () => {
-			dispatch({ type: 'UPDATE_ISINVERTED' })
-		},
 		handleUpdateIsMobile: () => {
 			dispatch({ type: 'UPDATE_ISMOBILE' })
 		},
@@ -181,7 +177,6 @@ MainContainer.propTypes = {
 	isInverted: PropTypes.bool.isRequired,
 	isMobile: PropTypes.bool.isRequired,
 	handleUpdateVisibleContent: PropTypes.func.isRequired,
-	handleUpdateIsInverted: PropTypes.func.isRequired,
 	handleUpdateIsMobile: PropTypes.func.isRequired,
 	particlesLanding: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),
 	particlesLandingInverted: PropTypes.oneOfType([PropTypes.bool.isRequired, PropTypes.element.isRequired]),

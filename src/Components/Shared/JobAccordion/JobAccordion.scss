@@ -73,6 +73,10 @@
     padding-bottom: .5em;
 }
 
+.ui.list>.item.job-bullet {
+    line-height: 1.2em;
+}
+
 @media screen and (max-width: 1024px) {
     .ui.styled.accordion.job-accordion {
         width: 80%; 

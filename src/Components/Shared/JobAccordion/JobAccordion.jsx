@@ -28,7 +28,7 @@ const JobAccordion = ({isInverted, accordionIdx, job}) => {
                 <Accordion.Content active={activeIndex === i}>
                     <List bulleted relaxed className='job-accordion-list'>
                         {positionBullets.map((bullet, j) => (
-                            <List.Item key={j}>{bullet}</List.Item>
+                            <List.Item key={j} className='job-bullet'>{bullet}</List.Item>
                         ))}
                     </List>
                 </Accordion.Content>

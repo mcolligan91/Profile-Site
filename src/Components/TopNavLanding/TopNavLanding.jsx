@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Menu, Responsive, Grid } from 'semantic-ui-react';
 import { Fade } from 'react-reveal';
 import { connect } from 'react-redux';
-import { handleMenuItemHover } from '../../utils';
 import PropTypes from 'prop-types';
 
 import SiteLogo from '../Shared/SiteLogo/SiteLogo';
@@ -12,7 +11,7 @@ import TopNavMenu from '../Shared/TopNavMenu/TopNavMenu';
 
 import './TopNavLanding.scss';
 
-const TopNavLanding = ({isInverted, isMobile, scrollToContent, handleUpdateIsInverted, menuItems}) => {
+const TopNavLanding = ({isInverted, isMobile, scrollToContent, menuItems}) => {
     const [allowTopNavFade, setAllowTopNavFade] = useState(true);
 
     useEffect(() => {
@@ -35,14 +34,14 @@ const TopNavLanding = ({isInverted, isMobile, scrollToContent, handleUpdateIsInv
 
     const computerTopNavElement = (
         <Responsive as={Menu} minWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} size='massive' borderless inverted> 
-            <TopNavMenu navType='top-nav-link-static' scrollToContent={scrollToContent} allowTopNavFade={allowTopNavFade} menuItems={landingMenuItems} handleUpdateIsInverted={handleUpdateIsInverted} />
+            <TopNavMenu navType='top-nav-link-static' scrollToContent={scrollToContent} allowTopNavFade={allowTopNavFade} menuItems={landingMenuItems} />
         </Responsive>
     );
 
     const mobileTopNavElement = (
         <Responsive as={Menu} floated='right' maxWidth={767} className={`top-nav-static ${isInverted ? 'top-nav-static-inverted' : ''}`} borderless inverted size='massive'>
             <Menu.Item className='light-mode-menu-static-mobile-item'>
-                <LightModeIconMenuItem className='top-nav-link top-nav-link-static-mobile' clickFunction={() => handleUpdateIsInverted()} mouseEnterFunction={() => !isMobile && handleMenuItemHover(landingMenuItems.length, 'top-nav-link-static-mobile', false)} mouseLeaveFunction={() => !isMobile && handleMenuItemHover(landingMenuItems.length, 'top-nav-link-static-mobile', true)} />
+                <LightModeIconMenuItem className='top-nav-link top-nav-link-static-mobile' index={landingMenuItems.length} />
             </Menu.Item>
             <Menu.Item>
                 <DropdownMenu menuItems={landingMenuItems} scrollToContent={scrollToContent} />
@@ -72,7 +71,6 @@ TopNavLanding.propTypes = {
 	isInverted: PropTypes.bool.isRequired,
 	isMobile: PropTypes.bool.isRequired,
 	scrollToContent: PropTypes.func.isRequired,
-	handleUpdateIsInverted: PropTypes.func.isRequired,
     menuItems: PropTypes.array.isRequired
 };
 
