@@ -10,7 +10,7 @@ import './Intro.scss';
 
 const Intro = ({isInverted, isMobile, scrollToContent}) => {
 	const mainHeader = (
-		<Fade left distance={'100px'} duration={1000}>
+		<Fade left distance={'100px'} duration={1000} delay={250}>
 			<Header as={!isMobile ? 'h1' : 'h3'} className='intro-main-header'>
 				<span className={`intro-main-text ${isInverted ? 'inverted-dark-text' : ''} ${'intro-main-text-mobile'}`}>Michael Colligan</span>
 			</Header>
@@ -18,7 +18,7 @@ const Intro = ({isInverted, isMobile, scrollToContent}) => {
 	);
 
 	const mainSubHeader = (
-		<Fade right distance={'100px'} duration={1000}>
+		<Fade right distance={'100px'} duration={1000} delay={250}>
 			<Header as='h3' className='intro-main-header intro-main-subheader'>
 				<span className={`intro-sub-text${isMobile ? '-mobile' : ''} ${isInverted ? 'intro-sub-text-inverted' : ''}`}>Full-Stack Software Engineer</span>
 			</Header>
