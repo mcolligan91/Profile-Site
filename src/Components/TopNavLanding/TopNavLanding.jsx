@@ -11,7 +11,7 @@ import TopNavMenu from '../Shared/TopNavMenu/TopNavMenu';
 
 import './TopNavLanding.scss';
 
-const TopNavLanding = ({isInverted, isMobile, scrollToContent, menuItems}) => {
+const TopNavLanding = ({isInverted, scrollToContent, menuItems}) => {
     const [allowTopNavFade, setAllowTopNavFade] = useState(true);
 
     useEffect(() => {
@@ -62,14 +62,12 @@ const TopNavLanding = ({isInverted, isMobile, scrollToContent, menuItems}) => {
     );
 };
 
-const mapStateToProps = ({IsInvertedReducer: {isInverted}, IsMobileReducer: {isMobile}}) => ({
-	isInverted,
-	isMobile
+const mapStateToProps = ({IsInvertedReducer: {isInverted}}) => ({
+	isInverted
 });
 
 TopNavLanding.propTypes = {
 	isInverted: PropTypes.bool.isRequired,
-	isMobile: PropTypes.bool.isRequired,
 	scrollToContent: PropTypes.func.isRequired,
     menuItems: PropTypes.array.isRequired
 };

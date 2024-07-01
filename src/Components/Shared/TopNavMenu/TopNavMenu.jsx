@@ -18,7 +18,7 @@ const TopNavMenu = ({isInverted, isMobile, visibleContent, allowTopNavFade, navT
 
     const renderMenuItems = (menuItems, type) => {
         return menuItems.map(({name, id}, i) => (
-            <Fade key={i} top duration={allowTopNavFade & type === 'top-nav-link-static' ? 1000 + i * 100 : 0} appear>
+            <Fade key={i} delay={250} top duration={allowTopNavFade & type === 'top-nav-link-static' ? 1000 + i * 100 : 0} appear>
                 <Menu.Item key={i} className={`top-nav-link ${type}`} {...menuItemTextProps(i, id, type)}>
                     <div className='item-text-container'>
                         <span className='item-number'>
@@ -34,7 +34,7 @@ const TopNavMenu = ({isInverted, isMobile, visibleContent, allowTopNavFade, navT
     };
 
     const lightModeMenuElement = (
-        <Fade top duration={navType === 'top-nav-link-static' & allowTopNavFade ? 1000 + menuItems.length * 100 : 0} appear>
+        <Fade top delay={250} duration={navType === 'top-nav-link-static' & allowTopNavFade ? 1000 + menuItems.length * 100 : 0} appear>
             <LightModeIconMenuItem className={`top-nav-link ${navType}`} index={menuItems.length} />
         </Fade>
     );
