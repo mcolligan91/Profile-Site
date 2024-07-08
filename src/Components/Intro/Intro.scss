@@ -54,6 +54,12 @@
     margin: calc(2rem - .14285714em) 0 1rem;
 }
 
+@media screen and (max-width: 767px) {
+    h1.ui.header.intro-main-header {
+        font-size: 1.15em;
+    }
+}
+
 .intro-main-text-mobile {
     font-size: 2.25em;
 }
@@ -65,3 +71,4 @@
 .intro-main-container-mobile .ui.header:last-child.intro-main-subheader {
     margin: 0;
 }
+

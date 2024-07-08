@@ -9,7 +9,7 @@ import './SectionHeader.scss';
 const SectionHeader = ({isInverted, content}) => {
     return (
         <Fade bottom duration={750} distance='50px'>
-            <Header as='h1' className={`section-header ${isInverted ? 'section-header-inverted' : ''}`} content={content} />
+            <Header as='h2' className={`section-header ${isInverted ? 'section-header-inverted' : ''}`} content={content} />
         </Fade>
     );
 };

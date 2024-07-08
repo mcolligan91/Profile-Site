@@ -11,7 +11,7 @@ import './Intro.scss';
 const Intro = ({isInverted, isMobile, scrollToContent}) => {
 	const mainHeader = (
 		<Fade left distance={'100px'} duration={1000} delay={750}>
-			<Header as={!isMobile ? 'h1' : 'h3'} className='intro-main-header'>
+			<Header as={'h1'} className='intro-main-header'>
 				<span className={`intro-main-text ${isInverted ? 'inverted-dark-text' : ''} ${'intro-main-text-mobile'}`}>Michael Colligan</span>
 			</Header>
 		</Fade>

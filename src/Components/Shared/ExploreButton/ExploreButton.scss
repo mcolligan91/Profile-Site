@@ -15,7 +15,7 @@ $explore-button-dark: darken($main-background-dark-inverted, 5%);
 }
 
 .ui.inverted.button.explore-button-inverted {
-    background: $neutral-white;
+    background: transparent;
     color: $accent-blue !important;
     box-shadow: 0 0 0 2px $explore-button-dark inset !important;
 }
